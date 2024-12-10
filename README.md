@@ -1,130 +1,67 @@
-# Pandoc Template for NTU Thesis 
-
-- [HTML](https://yongfu.name/thesis/)
-- [Overleaf](https://www.overleaf.com/docs?snip_uri=https://yongfu.name/thesis/overleaf.zip&engine=xelatex&main_document=main.tex)
-
-
-此專案是 [Pandoc](https://github.com/jgm/pandoc) 的臺大碩博士論文模板，讓使用者能透過 (Pandoc) **Markdown** 語法撰寫論文 (無須安裝與了解 LaTeX!!)。此專案的前身是 [ntuthesis2](https://github.com/liao961120/ntuthesis2) (Python Script) 以及 [ntuthesis](https://github.com/liao961120/ntuthesis) (R 套件)。這個版本大幅精簡了先前的相依需求。
-
-
-輸出論文
-------------------
-
-### GitHub
-
-如果你有 GitHub 帳號，可以透過 GitHub Action 直接輸出論文 (Overleaf 專案連結與 HTML)，無需在電腦上安裝任何東西。只要 fork 此 Repo，每次 push commit 至 GitHub 後，即會以靜態網頁以及 Overleaf 專案的形式輸出論文。
-
-- 靜態網頁的網址：`https://{user}.github.io/{repo}`，例如 <https://liao961120.github.io/thesis>。
-- Overleaf 專案的網址為： `https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://{user}.github.io/{repo}/overleaf.zip`，例如 <https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://liao961120.github.io/thesis/overleaf.zip>。點擊進入這網址後，Overleaf 就會自動匯入專案並輸出 PDF。
-
-
-### 個人電腦
-
-#### Linux & Mac
-
-如果想在本機預覽 HTML 輸出結果，需安裝 [Pandoc](https://github.com/jgm/pandoc/releases) 2.14 (或更新) 以及 [pandoc-crossref](https://github.com/lierdakil/pandoc-crossref/releases)。安裝之後，至 Terminal 執行下方指令:
-
-```bash
-bash build-html.sh  # 輸出 docs/index.html
-bash build-tex.sh   # 輸出 docs/overleaf.zip，可上傳至 Overleaf 或是自己輸出成 PDF
-```
-
-
-#### Windows
-
-Windows 使用者將此 repo clone 至本地端後，下載 
-[`win-bash.zip`](https://drive.google.com/file/d/1o_IrtHEZqF-kp5JrNQi01lgu7ivMhWDV)
-。解壓縮後，將 `win-bash/` 置於 repo 的根目錄，打開 `cmd` 或 `powershell` 執行:
-
-```powershell
-.\win-bash\PortableGit\bin\bash.exe win-build-html.sh
-.\win-bash\PortableGit\bin\bash.exe win-build-tex.sh
-```
-
-
-### 透過 VSCode 預覽 Pandoc
-
-VSCode 的擴充套件 [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) 支援使用 Pandoc 作為 Markdown 的 Parser，對於撰寫論文時很有幫助 (即時預覽)。另一個套件 [Pandoc Citer](https://marketplace.visualstudio.com/items?itemName=notZaki.pandocciter) 則可協助於 markdown 裡插入引用文獻。建議可以將下方的設定加入 VSCode 的 `settings.json`:
-
-```json
-{
-  ...,
-  "markdown-preview-enhanced.usePandocParser": true,
-      "markdown-preview-enhanced.pandocArguments": [
-          "--filter=pandoc-crossref",
-          "--lua-filter=deps/pandoc-ling.lua",
-          "--citeproc",
-          "--mathjax",
-          "--number-sections",
-          "--include-in-header=deps/style.html",
-          "--bibliography=references.bib",
-      ],
-  "PandocCiter.DefaultBib": "references.bib",
-  "PandocCiter.UseDefaultBib": true
-}
-```
-
-
-### 論文語言設定
-
-論文可以使用中文或是英文撰寫。相關的設定在 `setup.md` 開頭的 yaml。若 
-`acknowledgement-in-en` 為 true, 則論文中的標題會是 "Acknowledgement"；反之，則為「致謝辭」。
-
-```markdown
 ---
-language     : "chinese"  # chinese | english
-acknowledgement-in-en: false  # true for english
+# document class
+degree       : "master"   # master | doctor
+language     : "english"  # chinese | english
+# variables
+university-en: "National Taiwan University"
+university   : "國立臺灣大學"
+college      : "社會科學院"
+college-en   : "College of Social Science"
+institute    : "國家發展研究所"
+institute-en : "Graduate Institute of National Development"
+title        : "淨零轉型下臺灣能源貧窮家戶特徵分析"
+title-en     : "Toward Net-Zero: Examining Household Characteristics and the Risk of Energy Poverty under Taiwan's Energy Transition"
+author       : "吳齊穎"
+author-en    : "Chiying Wu"
+ID           : "R10341027"
+advisor      : "林竣達"
+advisor-en   : "Jida Lin"
+date         : "2024-12-09"
+oral-date    : "2025-01-07"
+html-date    : "Dec. 09, 2024"
+DOI          : "10.5566/NTU2024XXXXX"
+keywords     : "淨零轉型, 能源貧窮, 低收入高支出, 家庭收支調查, 多層次分析"
+keywords-en  : "energy transition, energy poverty, LIHC, SFIE, GLMM"
+# Acknowledgement
+acknowledgement-in-en: true  # true for english
+acknowledgement: | 
+    謝天，謝地。
+abstract: |
+    能源貧窮指涉無法近用現代能源或是不足以負擔其成本。在台灣，此一議題在積極推動能源轉型的背景下受到了廣泛關注。台灣淨零轉型的路徑高度依賴天然氣的使用，
+    
+abstract-en: |
+  Energy poverty, characterized by a lack of access to modern energy services
+  or the inability to afford adequate energy consumption, presents a pressing challenge
+  that influences personal well-being and societal development. In Taiwan, this issue
+  has gained significant attention amidst an ambitious energy transition strategy
+  aimed at reducing coal consumption, phasing out nuclear power, and increasing reliance
+  on renewable energy and natural gas. However, Taiwan's heavy dependence on imported
+  energy resources, particularly natural gas, coupled with limited stockpiling capacity,
+  exposes the country to supply disruptions and price fluctuations, exacerbating existing
+  energy inequalities. Low-income and small-sized households in Taiwan often face
+  higher per capita energy consumption due to inefficient appliances, which intensifies
+  their energy burden under the progressive tariff system. Gender disparities further
+  contribute to energy poverty, with female-headed households being particularly vulnerable.
+  This research investigates the non-linear relationship between household size and
+  energy poverty risk, employing an expenditure-based Low-Income High Cost (LIHC)
+  approach. Using data from Taiwan’s 2021 Survey of Family Income and Expenditure
+  (SFIE), the study utilizes a Generalized Linear Mixed Model (GLMM) to explore the
+  impact of household head's gender and family composition on energy poverty. The
+  findings aim to provide nuanced insights into the complexities of energy poverty
+  in Taiwan, informing targeted interventions for vulnerable populations.
+
+########## Cross-ref options ###########
+linkReferences: true
+figureTitle: "圖"            # 圖 | Figure
+tableTitle: "表"             # 表 | Table
+listingTitle: "程式碼"       # 程式碼 | Listing
+figPrefix: "圖"              # 圖 | Figure
+eqnPrefix: "公式"            # 公式 | Equation
+tblPrefix: "表"              # 表 | Table
+lstPrefix: "程式碼"          # 程式碼 | Listing
+secPrefix: "章節"            # 章節 | Section 
+titleDelim: "："             # ： | .
+tableTemplate: "$$tableTitle$$ $$i$$$$titleDelim$$$$t$$"   # $$tableTitle$$ $$i$$$$titleDelim$$ $$t$$
+figureTemplate: "$$figureTitle$$ $$i$$$$titleDelim$$$$t$$" # $$figureTitle$$ $$i$$$$titleDelim$$ $$t$$
+eqnPrefixTemplate: "$$p$$&nbsp;($$i$$)"  # $$p$$&nbsp;($$i$$) | $$p$$&nbsp;$$i$$
 ---
-```
-
-此外，由於 Pandoc 處理 in-text citation 的預設行為可能不適合中文論文 (多出不必要的空白)，可至 `build-html.sh` 以及 `build-tex.sh` 中，將下方這行移除：
-
-```bash
-# 其它內容...
-    --lua-filter deps/lua/rmCiteSpace.lua \
-# 其它內容...
-```
-
-
-使用
-------------------
-
-由於 LaTeX ([TeX Live](https://www.tug.org/texlive) 或 [MikTeX](https://miktex.org)) 的安裝十分令人頭痛，而且即使安裝完成，後續生成 PDF 的過程仍會常常出錯。為了儘量避開這些問題，此專案在設計上結合 [Overleaf](https://www.overleaf.com)，讓使用者能將輸出的 `.tex` 檔透過 (免費) 網路服務輸出成 PDF 檔。當然，若使用者個人電腦上已有 LaTeX，也可直接在電腦上輸出 PDF。此外，這裡亦提供一個簡約的 HTML 輸出格式，目的是方便在撰寫時預覽論文 (因為 LaTeX 的輸出相當耗時)。
-
-
-### 論文撰寫
-
-下方為 Repo 的結構，基本上使用者僅需要更動兩個地方---`setup.md` 以及 `chapters/` 裡的檔案。其它部份若不清楚是什麼可以不用理會，也不要去刪除它們。
-
-```bash
-/
-├── setup.md               # 論文參數設定 (標題、作者、指導教授、摘要、謝辭...)
-├── build-html.sh          # 輸出 HTML
-├── build-tex.sh           # 輸出 overleaf.zip (可上傳至 Overleaf compile)
-├── docs/                  # 論文輸出
-├── chapters/              # 論文內容
-│   ├── 01-intro.md           # 第一章 (命名規則：{##}-{title}.md)
-│   ├── 02-chapter2.md        # 第二章 (命名規則：{##}-{title}.md)
-│   ├── appendix-A.md         # 附錄 A (命名規則：appendix-{編碼}.md)
-│   ├── appendix-B.md         # 附錄 B (命名規則：appendix-{編碼}.md)
-│   ├── denotations.md        # 符號列表 (若無需用到，請將檔案裡的內容刪除，但勿刪除此檔案)
-│   ├── references.yaml       # 引用書目 (CSL YAML)
-│   └── figures/              # 圖片存放處 (勿刪除此資料夾)
-└── deps/                  # 論文模板、程式輸出相依檔案
-    ├── ...
-    └── citation-style.csl # 引用格式 (至 zotero.org/styles 下載)
-```
-
-更詳細的內容，請見[說明文件](https://yongfu.name/thesis/02-pandocSyntax.html)。
-
-
-Issues
---------------------
-
-若有使用上的問題，可在 [GitHub](https://github.com/liao961120/thesis/issues) 回報。若沒有 GitHub 帳號，可透過 [Email](liao961120@gmail.com) 聯絡 [Yongfu Liao](https://yongfu.name)。
-
-
-特別感謝
---------------------
-
-此論文的 LaTeX 模板是根據 [`Hsins/NTU-Thesis-LaTeX-Template`](https://github.com/Hsins/NTU-Thesis-LaTeX-Template) 修改而成。
