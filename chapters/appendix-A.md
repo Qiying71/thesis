@@ -1,3 +1,2 @@
-# Numerical Solution {.appendix name="A" #sec:appendix-a .unnumbered}
+# R code {.appendix name="A" #sec:appendix-a .unnumbered}
 
-This is content in appendix A
