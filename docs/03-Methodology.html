@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" >
+
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="author" content="吳齊穎" />
+<meta name="dcterms.date" content="2024-12-09" />
+<meta name="keywords" content="淨零轉型, 能源貧窮, 低收入高支出, 家庭收支調查, 多層次分析" />
+<title>PlaceHolder</title>
+<style>
+html {
+  line-height: 1.5;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: #1a1a1a;
+  background-color: #fdfdfd;
+}
+body {
+  margin: 0 auto;
+  max-width: 36em;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 0.9em;
+    padding: 1em;
+  }
+}
+@media print {
+  body {
+    background-color: transparent;
+    color: black;
+    font-size: 12pt;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}
+p {
+  margin: 1em 0;
+}
+a {
+  color: #1a1a1a;
+}
+a:visited {
+  color: #1a1a1a;
+}
+img {
+  max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.4em;
+}
+h5, h6 {
+  font-size: 1em;
+  font-style: italic;
+}
+h6 {
+  font-weight: normal;
+}
+ol, ul {
+  padding-left: 1.7em;
+  margin-top: 1em;
+}
+li > ol, li > ul {
+  margin-top: 0;
+}
+blockquote {
+  margin: 1em 0 1em 1.7em;
+  padding-left: 1em;
+  border-left: 2px solid #e6e6e6;
+  color: #606060;
+}
+code {
+  font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+  font-size: 85%;
+  margin: 0;
+}
+pre {
+  margin: 1em 0;
+  overflow: auto;
+}
+pre code {
+  padding: 0;
+  overflow: visible;
+  overflow-wrap: normal;
+}
+.sourceCode {
+ background-color: transparent;
+ overflow: visible;
+}
+hr {
+  background-color: #1a1a1a;
+  border: none;
+  height: 1px;
+  margin: 1em 0;
+}
+table {
+  margin: 1em 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+  margin-bottom: 0.75em;
+}
+tbody {
+  margin-top: 0.5em;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+th {
+  border-top: 1px solid #1a1a1a;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+  padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+  margin-bottom: 4em;
+  text-align: center;
+}
+#TOC li {
+  list-style: none;
+}
+#TOC a:not(:hover) {
+  text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-size: 20px;
+    line-height: 1.38;
+    max-width: 38em;
+}
+h1.title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    font-size: 2.2rem;
+}
+p.subtitle {
+    font-size: 1.35em;
+    font-style: italic;
+    margin-top: 0em;
+}
+p.author, p.date {
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 0.2em auto;
+}
+header {
+    margin-bottom: 2.5em;
+    margin-top: 0;
+}
+h2#toc-title {
+    margin-bottom: 0.35em;
+    font-size: 1.2em;
+}
+nav#TOC ul {
+    line-height: 1.1;
+    margin-top: 0;
+}
+p:not(.title, .author, .date) {
+    text-align: justify;
+}
+.footnotes p {
+    text-align: left;
+}
+div.keywords .k-title {
+    font-weight: bold;
+    margin-right: .13rem;
+}
+div.keywords .k-words {
+    /* font-style: italic; */
+}
+blockquote p {
+    text-align: left;
+    font-style: italic;
+}
+table thead {
+    text-align: left;
+}
+table:not(.linguistic-example) {
+    display: table;
+    width: 88%;
+    min-width: 380px;
+    margin: 1em auto 1.8em auto;
+    font-size: 0.9em;
+}
+table caption {
+    width: 75%;
+    min-width: 380px;
+    text-align: center;
+    margin: 0 auto 0.2em auto;
+    font-size: 0.95em;
+}
+table.linguistic-example tbody,
+table.linguistic-example tr,
+table.linguistic-example td {
+    border: 0px solid transparent !important;
+}
+/* Code block styles */
+pre.sourceCode {
+    background: rgba(236, 236, 236, 0.808);
+    padding: 0.25em 0.55em;
+    border-radius: 0.25em;
+    line-height: 1.25em;
+    font-size: 0.95em;
+}
+div.listing > p {
+    text-align: center;
+}
+/* Fonts */
+/* Regular (宋體/明體) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local('LiSong Pro'), local('儷宋 Pro'), local('NotoSerifCJK-Regular'), local('Noto Serif CJK TC Regular'), local('Noto Serif CJK TC'), local('細明體'), local('MingLiU'), local('新細明體'), local('PMingLiU');
+}
+/* Bold (黑體粗) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local("PingFang-TC-Bold"), local("PingFang TC bold"), local('NotoSansCJK-Bold'), local('Noto Sans CJK TC Bold'), local('Taipei Sans TC Bold'), local('TaipeiSansTCBeta-Bold'), local('Microsoft JhengHei Bold'), local('Microsoft-JhengHei-Bold'), local('微軟正黑體粗體'), local('微軟正黑體'), local('Microsoft JhengHei');
+    font-weight: bold;
+}
+/* Italic (楷體) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local("TW-Kai-98_1"), local("教育部標準楷書"), local("kai-pc"), local("CMEXc1"), local("Biaukai"), local("MOEDICT-IOS-KAI"), local("DFKaiShu-SB-Estd-BF"), local("全字庫正楷體"), local("Kaiti TC"), local("楷體-繁"), local('標楷體'), local('Kaiti'), local("文鼎ＰＬ新中楷"), local("cwtext 楷書"), local("HanaMinA"), local("HanaMinB"), local("HAN NOM A"), local("HAN NOM B"), local("Han Kaiti CNS"), local('AR PL KaitiM Big5'), local("cursive");
+    font-style: italic;
+}
+/* 黑體 Regular */
+@font-face {
+    font-family: "Chinese-Custom-sans";
+    src: local("PingFang-TC-Regular"), local("PingFang TC regular"), local('蘋果儷中黑'), local('Apple LiGothic Medium'), local('NotoSansCJK-Regular'), local('Noto Sans CJK TC Regular'), local('TaipeiSansTCBeta-Regular'), local('Taipei Sans TC Regular'), local('Taipei Sans TC'), local('Microsoft JhengHei'), local('微軟正黑體');
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Alegreya', "Chinese-Custom", sans-serif;
+    font-weight: bold;
+}
+nav, #tocChap, p.date {
+    font-family: 'Alegreya', "Chinese-Custom-sans", serif;
+}
+body{
+    font-family: FreeSerif, 'Times New Roman', Libertine, 'PT Serif', "Chinese-Custom", Times, serif;
+}
+
+
+div.output {
+    /* Jupyter notebook output */
+    color: gray;
+}
+</style>
+<link rel="stylesheet" href="custom.css">
+
+
+</head>
+
+<body>
+
+<h1 id="sec:methodology">Methodology</h1>
+<h2 id="data">Data</h2>
+<p>The data source used in this research is the 2021 Survey of Family Income and Expenditure (SFIE) collected by the Directorate General of Budget, Accounting, and Statistics<span class="citation" data-cites="DGBAS2022">(DGBAS, 2022)</span>. The COVID-19 outbreak in 2021 significantly affected Taiwan’s economy and households. The pandemic may have exacerbated energy poverty due to factors like increased unemployment, reduced incomes, or more time spent at home leading to higher energy consumption. Studying this year can provide insights into how such external shocks influence energy poverty and have better understanding of the vulnerable groups.</p>
+<p>The 2021 survey includes 16,528 households with 46,894 members from 20 administrative regions in Taiwan. The cross section covered six urban regions (New Taipei City, Taipei City, Taoyuan City, Taichung City, Tainan City, and Kaohsiung City) and other fourteen regions in Taiwan (Yilan County, Hsinchu County, Miaoli County, Changhua County, Nantou County, Yunlin County, Chiayi County, Pingtung County, Taitung County, Hualien County, Penghu County, Keelung City, Hsinchu City, Chiayi City, and Kinmen County). The sample size within these regions range from 200 in Penghu County to 2,500 in Taipei City. The survey employed a stratified two-stage sampling method with counties and cities as subpopulations, where regional sample counts varied by population size to ensure proportional representation. The Ts’un and Li, which are basic administrative units, serve as the primary sampling units, and households within these units are the secondary sampling units. The intra-cluster correlation caused dependence issue, which violate single-leveled models’ independence assumption. If the dependence structured is ignored, it will result in the underestimation of standard errors, inflated Type I error rates, and misleading inferences. The standard errors will be underestimated because the similarity among observations within clusters is ignored. In reality, households within the same region may share unobserved characteristics, such as energy infrastructure and region specific social welfare project, leading to correlated errors. Because standard errors are underestimated, the likelihood of incorrectly rejecting the null hypothesis increases. This leads to false positives, where the model indicates that an effect exists when it actually does not; The overall inferences drawn from the model can be misleading<span class="citation" data-cites="Hox2017MultilevelA">(Hox et al., 2017)</span>.</p>
+<p>The SFIE dataset exhibits a two-level hierarchical and aggregated structure, with households nested within broader regional categories such as counties and cities. This hierarchical organization allows for the analysis of both within-region and between-region variations, facilitating a comprehensive understanding of the factors influencing energy poverty. Before 2007, the survey contains the administrative area code and stage information. Given privacy concerns, the precise locations of households are not disclosed since. To address this, we examined workplace data (variables from b15_1 to b15_20) included in the survey and cross-referencing it with governmental reports. The method may appear somewhat basic, yet it has proven to be effective and reliable for our purposes, as evidenced by similar approaches used in previous studies, such as<span class="citation" data-cites="Chen2015DeterminantsOP">Chen &amp; Wang (2015)</span> . Since the government report list out sample counts for each region, we can further confirm the region data based on the aggregated structure. This approach ensured respondent anonymity while enabling the incorporation of regional variables into our analysis.</p>
+<p>At the household level, the SFIE dataset includes a comprehensive array of variables capturing detailed information on socio-economic status, demographic characteristics, and expenditure patterns. Key income variables include total household income from all sources and per capita income, providing measures of economic status. Expenditure variables capture total household spending across categories such as food, housing, utilities, education, and healthcare, with detailed energy expenditure statistics, which is critical for studying energy poverty. Demographic variables such as household size, age, and composition, shed lights on the dynamic between energy poverty and family structure.</p>
+<h2 id="dependent-variable">Dependent Variable</h2>
+<p>Traditionally, the manifestation of energy poverty in the Global North and Global South is divided by the affordability-accessibility dichotomy, focusing on the lack of adequate heating versus the lack of access to clean energy. As the field developed, the term energy poverty has emerged as an concept umbrella encompassing multiple interconnected issues: access to energy sources, infrastructure development, affordability of energy services, energy efficiency, equity in distribution, as well as the impacts on human well-being and the environment<span class="citation" data-cites="Herrejón2023LivingWE">(Herrejón et al., 2023)</span>. This article acknowledges the critics about the potential threats of oversimplifying energy poverty as affordability or accessibility issue and the trend towards using consensus approach to define energy<span class="citation" data-cites="Guevara2022TheEO">(Guevara et al., 2022)</span>, however, as the purpose of this article is to examine the risk of vulnerable group and their affordability under Taiwan’s ambitious 2050 Net-Zero transition agenda, using uni-dimensional indicator is still valid.</p>
+<p>In this article, the dependent variable is the energy poverty status of households, measured thorugh the Low-Income High Cost (LIHC) indicator as proposed by<span class="citation" data-cites="Hills2012GettingTM">Hills (2012)</span> . The LIHC approach is particularly suitable for capturing the affordability aspect of energy poverty in Taiwan, as it identifies households that have both low income and high energy costs relative to the median. The total household income is represented by the variable itm400, which includes all forms of receipts. To determine the residual income available for energy and other living expenses, non-consumption expenditures (itm600) are deducted from the total receipts. Following the LIHC methodology, housing costs are deducted from the disposable income to evaluate the actual residual income households can allocate for other living expenses. The housing costs are computed by summing the actual rentals for housing (itm1041), imputed rentals of owner-occupiers (itm1042), and imputed rentals of issued and leased (itm1043). Households with residual incomes below poverty threshold, 60% of the median residual income after housing costs, are classified as low-income households. Next, the study identifies households with high energy costs by calculating the median energy expenditure across all households. Energy expenditures are derived from the SFIE data, which includes detailed information on household spending on utilities such as electricity (itm1047), gas (itm1048), and liquid and solid fuels (itm1049). Households energy expenditures exceed the median energy cost are considered to have high energy costs. A household therefore be classified as energy-poor if the residual income is below the poverty line, and the energy expenditure is above the median energy cost. If a household does not meet both conditions, it is classified as not energy poor.</p>
+<p>To control for the effects of household size and composition on energy spending, the study employs a modified OECD equivalence scale to adjust income and energy expenditure thresholds. This equivalence scale accounts for economies of scale in household consumption, allowing for a more accurate comparison between households of different sizes and compositions. The scale assigns a weight of 1.0 to the first adult (household head), 0.5 to each additional adult member aged 15 years or older, and 0.3 to each child under the age of 15 years <span class="citation" data-cites="Hagenaars1994PovertySI">(Hagenaars et al., 1994)</span>. The total equivalence scale for a household is calculated using the following formula:</p>
+<h2 id="independent-variables">Independent Variables</h2>
+<p>This article examines the risk of households falling into energy poverty from two aspects: household head’s characteristics and family structure. As noted in the discussion of Taiwan, household heads’ gender may have significant implication of certain vulnerability. The attribute of the gender data is stored in column a6, with the value 1 refers to male and female as value 2, allowing for categorical analysis in the model.</p>
+<p>Household size data is stored in a7 as a continuous variable, ranging from 1 to 11. To capture the non-linear relationship, this article created a squared term of household size to capture both the initial decrease in risk as household size increase and the subsequent increase in risk beyond a certain population. Family structure and composition data is stored in column a18, which includes detailed coding of the gender and generation of the household head. To analyze the effect of family composition on the energy poverty, this study recodes the variable into a simplified set of composition categories: one person, married couple, single parent, nuclear family, ancestors and descendants, extended family, and others.</p>
+<h2 id="control-variables">Control Variables</h2>
+<p>In addition to household head’s gender, household size, and family composition, this study controls several variables from household head characteristics and household structure factors that may potentially influence the risk of energy poverty. The primary factor that have been proven to affect households’ electricity consumption is education attainment. Higher level of education often correlate with better job opportunities and higher income. Household heads with higher education may have more knowledge about energy-efficient technologies and practices, which significantly influence the energy usage.</p>
+<h2 id="model">Model</h2>
+<p>The dependent variable in this study is the LIHC indicator, a binary measure indicating whether a household is in energy poverty (1) or not (0). The LIHC status is determined based on a household’s energy expenditure relative to its income. Given the hierarchical nature of the data, where households are nested within counties, a Generalized Linear Mixed Model (GLMM) is adopted. This model allows for the inclusion of both fixed effects, household-level and county-level predictors, and random effects, to which account for the variability across counties, making it suitable for handling the dependencies introduced by the two-stage stratified sampling method. The model is described as follow:</p>
+<h2 id="robustness-checks">Robustness Checks</h2>
+<p>To ensure the validity and reliability of our findings derived from the model, we will conduct several robustness checks from both model assumption examination and variables calculation aspects. In regard of the data sampling method of SFIE dataset, the multilevel structure is inherent, therefore, treating countyname as fixed effects instead of random effects will not be performed. Fitting a single level model with countyname as fixed effect requires separate parameter estimates for each of the 20 counties, although it may help with understanding each county’s energy poverty distribution individually, it would not capture the inherent hierarchical nature of the data and would lack generalizability. Since the focus of this analysis is on broader trends in energy poverty, focusing on household’s condition, rather than on county-specific insights, a random effects structure is more appropriate. Instead, we will compare the generalized linear mixed model and hierarchical generalized linear model approaches to determine the best fit for our data. One of the key different assumption is the normality of random effects. GLMM assumes that the random effects are normally distributed, on the other hand, HGLM allows for more flexibility with distributional assumptions in the random effects, which could better capture county-level variations if the normality assumption proves inadequate.</p>
+<p>To check the robustness of the result, we will also try square root scale equivalized method for determining energy poverty. In this study, OECD modified equivalence scale is adopted due to its wide acceptance in the field. Square root scale, unlike OECD modified scale assigns different weights to adults and children, treats all household members equally in its adjustment factor. Both the OECD-M and square root scales reflect the concept of economies of scale, where larger households are more efficient in their energy use per capita due to shared facilities and energy consumption patterns. However, the square root scale simplifies this by treating all household members equally, which may suit analyses that emphasize size over composition. Comparing the different scale not only will help ensuing the validity of the model results, but also provide insights into whether composition or size matters more when it comes to energy poverty, which can be further considered during policy intervention.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+<div id="ref-Chen2015DeterminantsOP" class="csl-entry" role="doc-biblioentry">
+Chen, K.-M., &amp; Wang, T. (2015). Determinants of poverty status in taiwan: A multilevel approach. <em>Social Indicators Research</em>, <em>123</em>, 371–389.
+</div>
+<div id="ref-DGBAS2022" class="csl-entry" role="doc-biblioentry">
+DGBAS. (2022). <em>The survey of family income and expenditure, 2021 (AA170046) [data file]</em> [Data set]. <a href="https://doi.org/10.6141/TW-SRDA-AA170046-1">https://doi.org/10.6141/TW-SRDA-AA170046-1</a>
+</div>
+<div id="ref-Guevara2022TheEO" class="csl-entry" role="doc-biblioentry">
+Guevara, Z., Espinosa, M., &amp; López-Corona, O. (2022). <em>The evolution of energy poverty theory: A scientometrics approach</em>.
+</div>
+<div id="ref-Hagenaars1994PovertySI" class="csl-entry" role="doc-biblioentry">
+Hagenaars, A. J. M., Vos, K., &amp; Zaidi, M. (1994). <em>Poverty statistics in the late 1980s: Research based on micro-data</em>.
+</div>
+<div id="ref-Herrejón2023LivingWE" class="csl-entry" role="doc-biblioentry">
+Herrejón, P. V., Lennon, B., &amp; Dunphy, N. (2023). <em>Living with energy poverty</em>.
+</div>
+<div id="ref-Hills2012GettingTM" class="csl-entry" role="doc-biblioentry">
+Hills, J. (2012). <em>Getting the measure of fuel poverty: Final report of the fuel poverty review</em>.
+</div>
+<div id="ref-Hox2017MultilevelA" class="csl-entry" role="doc-biblioentry">
+Hox, J., Moerbeek, M., &amp; Schoot, R. (2017). <em>Multilevel analysis : Techniques and applications, third edition</em>.
+</div>
+</div>
+
+<div id="tocChap">
+    <ul class="chapter-toc">
+        <li v-for="f, i in files">
+            <a :href="f" :class="{ active: currFile == f }">
+                {{ names[i] }}
+            </a>
+        </li>
+    </ul>
+
+    <ul class="external-links">
+        <template v-if="github != null">
+            <li><a :href="github.overleaf" target="_blank">
+                <img src="https://img.yongfu.name/org/overleaf.png" style="height:.7em;"> PDF
+            </a></li>
+            <li><a :href="github.repo" target="_blank">
+                <img src="https://img.yongfu.name/org/github.png" style="height:.7em;"> Source
+            </a></li>
+        </template>
+        <template v-else>
+            <li><span class="disabled">
+                <img src="https://img.yongfu.name/org/overleaf.png" style="height:.7em;"> PDF
+            </span></li>
+            <li><span class="disabled">
+                <img src="https://img.yongfu.name/org/github.png" style="height:.7em;"> Source
+            </span></li>
+        </template>
+    </ul>
+
+
+    <div class="prev-next-nav">
+        <a v-if="prevIndex != null" :href="files[prevIndex]">
+            <button>« {{names[prevIndex]}}</button>
+        </a>
+        <button v-else disabled>« Main</button>
+        <a v-if="nextIndex != null" :href="files[nextIndex]">
+            <button>{{names[nextIndex]}} »</button>
+        </a>
+        <button v-else disabled>End »</button>
+    </div>
+
+</div>
+
+<!-- development version, includes helpful console warnings -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<script>
+    var app = new Vue({
+        el: '#tocChap',
+        data: {
+            files: [],
+            names: [],
+            files_str: "",
+        },
+        computed: {
+            currFile() {
+                let ch = window.location.href.replace(window.location.hash, "").split("/");
+                ch = ch[ch.length - 1]
+                if (ch == "") return "index.html"
+                return ch
+            },
+            currIndex() {
+                return this.files.indexOf(this.currFile)
+            },
+            prevIndex() {
+                if (this.currIndex == 0) return null
+                return (this.currIndex - 1)
+            },
+            nextIndex() {
+                if (this.currIndex == this.files.length - 1) return null
+                return (this.currIndex + 1)
+            },
+            github() {
+                if (!window.location.origin.startsWith("http")) return null
+                if (!window.location.origin.includes('github.io')) 
+                    return {"repo": "https://github.com/liao961120/thesis", "overleaf": "https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://liao961120.github.io/thesis/overleaf.zip"}
+                let user = window.location.origin.replace(".github.io", "").replace("https://", "").replace("http://", "");
+                let repo = window.location.href.replace(window.location.origin, "").split("/")[1];
+                let repo_url = `https://github.com/${user}/${repo}`;
+                let overleaf = `https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://${user}.github.io/${repo}/overleaf.zip`
+                return {"repo": repo_url, "overleaf": overleaf}
+            }
+        },
+        created: function () {
+            this.files = get_files().split("__");
+            this.files.pop();
+            this.names = this.files.map(fp => {
+                fp = fp.replace(".html", "");
+                if (fp == "index") return "Main";
+                if (fp.startsWith('appendix')) {
+                    fp = fp.split('-');
+                    let ap = (fp[1] == null) ? "" : fp[1];
+                    return `Appendix ${ap}`
+                }
+                if (fp.match(/^\d+-/)) {
+                    fp = fp.split("-");
+                    fp = parseInt(fp[0], 10);
+                    return `Chapter ${fp}`
+                }
+                return fp
+            })
+
+        }
+    })
+
+    function get_files() {
+        return 'index.html__01-Introduction.html__02-LiteratureReview.html__03-Methodology.html__04-Results.html__05-Conclusion.html__appendix-A.html__appendix-B.html__';
+    };
+</script>
+
+<style>
+    #tocChap ul {
+        list-style-type: none;
+        padding-left: 1.2em;
+    }
+    #tocChap ul li {
+        line-height: 1.5em;
+    }
+    #tocChap ul a:hover {
+        text-decoration: underline;
+    }
+    #tocChap ul a {
+        text-decoration: none;
+    }
+    #tocChap ul a.active {
+        pointer-events: none;
+        color: rgb(54, 179, 54);
+        text-decoration: none;
+    }
+    #tocChap ul.chapter-toc {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        margin: 0;
+    }
+    #tocChap ul.external-links {
+        position: fixed;
+        bottom: 15px;
+        left: 0;
+        margin: 0;
+        font-size: 0.8em;
+    }
+    #tocChap .disabled {
+        color: grey;
+        cursor: pointer;
+    }
+    #tocChap .prev-next-nav {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 2em auto 0;
+        padding: 0 auto;
+        text-align: center
+    }
+    #tocChap .prev-next-nav button {
+        height: 2.3em;
+        border: none;
+        background-color: greenyellow;
+        border-radius: 0.4em;
+    }
+    #tocChap .prev-next-nav button:hover {
+        background-color: rgb(95, 255, 47);
+        cursor: pointer;
+    }
+    #tocChap button:disabled:hover,
+    #tocChap button:disabled {
+        background-color: rgb(221, 221, 221);
+        color: rgb(139, 139, 139);
+    }
+    #tocChap button a:hover {
+        text-decoration: none;
+    }
+</style>
+<nav class="js-toc toc toc-right relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+
+<script>
+    // Insert title for references
+    let ref = document.querySelector("#refs");
+    if (ref != null) {
+        let title = document.createElement("h2");
+        title.innerText = "References";
+        title.className = "unnumbered";
+        title.id = "chapter-references";
+        ref.parentElement.insertBefore(title, ref);
+    }
+
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: 'body',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3',
+        ignoreSelector: 'h1.title',
+        collapseDepth: '6',
+        // // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+<style>
+    .js-toc {
+        font-size: 0.85em;
+        position: fixed;
+        right: 0;
+        top: 0;
+        margin-top: 50px;
+        margin-right: 0;
+        width: 20%;
+        min-width: 200px;
+    }
+    .toc-list > li {
+        padding: 0.35em 0;
+        margin: 0;
+        
+    }
+    .toc-list > li a {
+        text-decoration: none;
+    }
+    @media only screen and (max-width: 1050px) {
+        .js-toc,
+        #tocChap ul {
+            display: none !important;
+        }
+    }
+    @media print {
+        .js-toc,
+        #tocChap {
+            display: none !important;
+        }
+    }
+</style>
+
+  <script>
+    // Get chapter name
+    let ch = window.location.href.split("/");
+    ch = ch[ch.length - 1].split('-')
+    ap = "A"
+    if (ch[1] != null) ap = ch[1]
+    ap = ap.replace(/\.html$/, "")  // Note the anchor escape for Pandoc
+
+    // Initialize counter
+    var style1, style2, style3;
+    style1 = document.querySelector('h1').style;
+    if (ch[0] == "appendix")
+      style1.setProperty('--h1before', '"Appendix "' + '"' + ap + '"' + ' " "');
+    else
+      style1.setProperty('--h1before', '"Chapter " counter(chapter) " "');
+
+    document.querySelectorAll('h2').forEach(e => {
+      if (ch[0] == "appendix")
+        e.style.setProperty('--h2before', '"' + ap + '"' + '"."counter(section) " "');
+      else
+        e.style.setProperty('--h2before', 'counter(chapter)"."counter(section) " "');
+    })
+    document.querySelectorAll('h3').forEach(e => {
+      if (ch[0] == "appendix")
+        e.style.setProperty('--h3before', '"' + ap + '"' + '"."counter(section)"."counter(subsection) " "');
+      else
+        e.style.setProperty('--h3before', 'counter(chapter)"."counter(section)"."counter(subsection) " "');
+    })
+
+    // Set counter for numeric chapters
+    ch = parseInt(ch[0], 10);
+    if (!isNaN(ch)) {
+      document.querySelector("title").innerText = 'Chap.' + ch + ' ' + document.querySelector("h1").innerText;
+      document.querySelector("body").style.counterReset = "chapter " + (ch - 1);
+    } else {
+      document.querySelector("title").innerText = document.querySelector("h1").innerText;
+      document.querySelector("body").style.counterReset = "chapter";
+    }
+  </script>
+
+  <style>
+    /* Set counter */
+    body {
+      counter-reset: chapter;
+    }
+
+    h1 {
+      counter-reset: section;
+    }
+    h2:before,
+    h3::before {
+      display: inline-block;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 0.85em;
+      margin-right: 0.7em;
+      text-decoration: underline 3px;
+    }
+    h1:before {
+      display: block;
+      counter-increment: chapter;
+      content: var(--h1before);
+      font-weight: bold;
+      font-size: 0.57em;
+      margin-bottom: 0.15em;
+      font-family: Alegreya, 'Times New Roman', Times, serif;
+      font-style: italic;
+      text-align: left;
+    }
+    h2 {
+      counter-reset: subsection;
+    }
+    h2:before {
+      counter-increment: section;
+      content: var(--h2before);
+    }
+    h3:before {
+      counter-increment: subsection;
+      content: var(--h3before);
+    }
+    .unnumbered::before {
+      display: none;
+    }
+    .appendix.unnumbered::before {
+      display: block;
+    }
+
+    /* Heading styles */
+    h1, h2 {
+    font-size: 1.4em;
+    border-bottom: 1px solid;
+    }
+    h1:not(.title) {
+        /* border-top: 1px solid; */
+        border-bottom: 2px solid;
+        text-align: left;
+        padding-top: 0.15em;
+    }
+    h2::before {
+        text-decoration: none!important;
+        border-bottom: 4px solid;
+        vertical-align: bottom !important;
+    }
+    h1 {
+        font-size: 1.7em;
+        text-align: left;
+    }
+  </style>
+
+
+</body>
+
+</html>

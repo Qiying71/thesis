@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" >
+
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="author" content="吳齊穎" />
+<meta name="dcterms.date" content="2024-12-09" />
+<meta name="keywords" content="淨零轉型, 能源貧窮, 低收入高支出, 家庭收支調查, 多層次分析" />
+<title>PlaceHolder</title>
+<style>
+html {
+  line-height: 1.5;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: #1a1a1a;
+  background-color: #fdfdfd;
+}
+body {
+  margin: 0 auto;
+  max-width: 36em;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 0.9em;
+    padding: 1em;
+  }
+}
+@media print {
+  body {
+    background-color: transparent;
+    color: black;
+    font-size: 12pt;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}
+p {
+  margin: 1em 0;
+}
+a {
+  color: #1a1a1a;
+}
+a:visited {
+  color: #1a1a1a;
+}
+img {
+  max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.4em;
+}
+h5, h6 {
+  font-size: 1em;
+  font-style: italic;
+}
+h6 {
+  font-weight: normal;
+}
+ol, ul {
+  padding-left: 1.7em;
+  margin-top: 1em;
+}
+li > ol, li > ul {
+  margin-top: 0;
+}
+blockquote {
+  margin: 1em 0 1em 1.7em;
+  padding-left: 1em;
+  border-left: 2px solid #e6e6e6;
+  color: #606060;
+}
+code {
+  font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+  font-size: 85%;
+  margin: 0;
+}
+pre {
+  margin: 1em 0;
+  overflow: auto;
+}
+pre code {
+  padding: 0;
+  overflow: visible;
+  overflow-wrap: normal;
+}
+.sourceCode {
+ background-color: transparent;
+ overflow: visible;
+}
+hr {
+  background-color: #1a1a1a;
+  border: none;
+  height: 1px;
+  margin: 1em 0;
+}
+table {
+  margin: 1em 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+  margin-bottom: 0.75em;
+}
+tbody {
+  margin-top: 0.5em;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+th {
+  border-top: 1px solid #1a1a1a;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+  padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+  margin-bottom: 4em;
+  text-align: center;
+}
+#TOC li {
+  list-style: none;
+}
+#TOC a:not(:hover) {
+  text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-size: 20px;
+    line-height: 1.38;
+    max-width: 38em;
+}
+h1.title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    font-size: 2.2rem;
+}
+p.subtitle {
+    font-size: 1.35em;
+    font-style: italic;
+    margin-top: 0em;
+}
+p.author, p.date {
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 0.2em auto;
+}
+header {
+    margin-bottom: 2.5em;
+    margin-top: 0;
+}
+h2#toc-title {
+    margin-bottom: 0.35em;
+    font-size: 1.2em;
+}
+nav#TOC ul {
+    line-height: 1.1;
+    margin-top: 0;
+}
+p:not(.title, .author, .date) {
+    text-align: justify;
+}
+.footnotes p {
+    text-align: left;
+}
+div.keywords .k-title {
+    font-weight: bold;
+    margin-right: .13rem;
+}
+div.keywords .k-words {
+    /* font-style: italic; */
+}
+blockquote p {
+    text-align: left;
+    font-style: italic;
+}
+table thead {
+    text-align: left;
+}
+table:not(.linguistic-example) {
+    display: table;
+    width: 88%;
+    min-width: 380px;
+    margin: 1em auto 1.8em auto;
+    font-size: 0.9em;
+}
+table caption {
+    width: 75%;
+    min-width: 380px;
+    text-align: center;
+    margin: 0 auto 0.2em auto;
+    font-size: 0.95em;
+}
+table.linguistic-example tbody,
+table.linguistic-example tr,
+table.linguistic-example td {
+    border: 0px solid transparent !important;
+}
+/* Code block styles */
+pre.sourceCode {
+    background: rgba(236, 236, 236, 0.808);
+    padding: 0.25em 0.55em;
+    border-radius: 0.25em;
+    line-height: 1.25em;
+    font-size: 0.95em;
+}
+div.listing > p {
+    text-align: center;
+}
+/* Fonts */
+/* Regular (宋體/明體) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local('LiSong Pro'), local('儷宋 Pro'), local('NotoSerifCJK-Regular'), local('Noto Serif CJK TC Regular'), local('Noto Serif CJK TC'), local('細明體'), local('MingLiU'), local('新細明體'), local('PMingLiU');
+}
+/* Bold (黑體粗) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local("PingFang-TC-Bold"), local("PingFang TC bold"), local('NotoSansCJK-Bold'), local('Noto Sans CJK TC Bold'), local('Taipei Sans TC Bold'), local('TaipeiSansTCBeta-Bold'), local('Microsoft JhengHei Bold'), local('Microsoft-JhengHei-Bold'), local('微軟正黑體粗體'), local('微軟正黑體'), local('Microsoft JhengHei');
+    font-weight: bold;
+}
+/* Italic (楷體) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local("TW-Kai-98_1"), local("教育部標準楷書"), local("kai-pc"), local("CMEXc1"), local("Biaukai"), local("MOEDICT-IOS-KAI"), local("DFKaiShu-SB-Estd-BF"), local("全字庫正楷體"), local("Kaiti TC"), local("楷體-繁"), local('標楷體'), local('Kaiti'), local("文鼎ＰＬ新中楷"), local("cwtext 楷書"), local("HanaMinA"), local("HanaMinB"), local("HAN NOM A"), local("HAN NOM B"), local("Han Kaiti CNS"), local('AR PL KaitiM Big5'), local("cursive");
+    font-style: italic;
+}
+/* 黑體 Regular */
+@font-face {
+    font-family: "Chinese-Custom-sans";
+    src: local("PingFang-TC-Regular"), local("PingFang TC regular"), local('蘋果儷中黑'), local('Apple LiGothic Medium'), local('NotoSansCJK-Regular'), local('Noto Sans CJK TC Regular'), local('TaipeiSansTCBeta-Regular'), local('Taipei Sans TC Regular'), local('Taipei Sans TC'), local('Microsoft JhengHei'), local('微軟正黑體');
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Alegreya', "Chinese-Custom", sans-serif;
+    font-weight: bold;
+}
+nav, #tocChap, p.date {
+    font-family: 'Alegreya', "Chinese-Custom-sans", serif;
+}
+body{
+    font-family: FreeSerif, 'Times New Roman', Libertine, 'PT Serif', "Chinese-Custom", Times, serif;
+}
+
+
+div.output {
+    /* Jupyter notebook output */
+    color: gray;
+}
+</style>
+<link rel="stylesheet" href="custom.css">
+
+
+</head>
+
+<body>
+
+<h1 id="sec:introduction">Introduction</h1>
+<p>Energy poverty, described as the lack of access to modern energy services or the inability to afford adequate levels of energy consumption, is a critical issue affecting both personal development and societal well-being <span class="citation" data-cites="GonzálezEguino2015EnergyPA">(González-Eguino, 2015)</span>. Addressing energy poverty aligns with the United Nations’ Sustainable Development Goal 7, which aims to ensure access to affordable, reliable, sustainable, and modern energy for all by 2030 <span class="citation" data-cites="Lin2020NationalET">(Lin et al., 2020)</span>. Affordable and accessible energy services have significant implications across various sectors, including health, education, and economic development <span class="citation" data-cites="Baum2022EnergyAA Akram2022CausalityBA">(Akram, 2022; Baum et al., 2022)</span>.</p>
+<p>In Taiwan, energy poverty has garnered increasing attention, calling for tailored approaches to tackle this multifaceted issue. The Taiwanese government is implementing an ambitious energy transition plan to mitigate the effects of climate change. This plan focuses on expanding renewable energy sources, increasing natural gas as a transitional fuel, reducing coal consumption, and phasing out nuclear power <span class="citation" data-cites="Chen2023PerspectivesOT ndc_2024">(Chen et al., 2023; National Development Council, 2024)</span>. While natural gas offers several environmental advantages over coal—such as lower greenhouse gas emissions and fewer air pollutants <span class="citation" data-cites="Aramillo2007ComparativeLA">(Aramillo et al., 2007)</span>—Taiwan’s increasing reliance on natural gas introduces new challenges.</p>
+<p>Taiwan imports nearly all its energy resources, with 99% of natural gas being imported<span class="citation" data-cites="EnergyStatisticsHandbook2023">(Bureau of Energy, 2024)</span>. This heavy dependence, coupled with limited stockpiling capacity of only 7 to 11 days, creates significant vulnerabilities<span class="citation" data-cites="Chien2020PacingFR">(Chien, 2020)</span>. Geopolitical tensions, particularly the Ukraine-Russia conflict, have contributed to rising energy prices in the residential sector <span class="citation" data-cites="TRI2023">(Taiwan Research Institute, 2023)</span>. As Taipower has been selling electricity at a loss, there is a growing need for energy price adjustments to ensure the sustainability of the supply system. This dependence makes Taiwan more susceptible to supply disruptions and price fluctuations, potentially exacerbating existing energy inequality issues.</p>
+<p>From an energy consumption perspective, low-income and small-sized households in Taiwan may have higher per capita energy consumption <span class="citation" data-cites="Huang2015TheDO">(Huang, 2015)</span>. The progressive electricity tariff system adopted by Taipower can further amplify this burden, as low-income households often lack the financial means to replace energy-inefficient appliances, leading to higher expenditures for the same level of energy services <span class="citation" data-cites="Su2020ResidentialED">(Su, 2020)</span>. Energy price shocks disproportionately affect households at different income levels, with low-income households being more vulnerable <span class="citation" data-cites="Tuttle2017TheEO">(Tuttle &amp; Beatty, 2017)</span>.</p>
+<p>Income disparities between male-headed and female-headed households remain significant in Taiwan. According to the 2023 Report on Family Income and Expenditure<span class="citation" data-cites="DGBAS2024">(DGBAS, 2024)</span>, male-headed households have a higher average disposable income (1,235,000 NTD) compared to female-headed households (937,000 NTD). While per capita disposable income shows no significant difference when adjusting for household size, energy poverty is experienced based on a per-household basis. This suggests that female-headed households may be more vulnerable to energy poverty.</p>
+<p>Previous studies in Taiwan have examined residential electricity consumption patterns and their determinants <span class="citation" data-cites="Huang2015TheDO Su2019ResidentialED Su2020ResidentialED">(Huang, 2015; Su, 2019, 2020)</span>. For instance, Huang (2015) employed quantile regression to analyze how household characteristics affect energy usage, finding that household size influences electricity consumption across all quantiles. Su et al. (2020) extended this focus by incorporating urbanization and energy poverty into residential electricity demand estimations, suggesting that smaller-sized households should take more responsibility in energy conservation efforts.</p>
+<p>However, these studies predominantly concentrated on energy consumption, they often overlooked the broader social justice dimensions encompassed by energy poverty. This research seeks to highlight the complexity of energy poverty issues in Taiwan and their multifaceted implications. Specifically, we propose that for energy poverty risk, not only is there disparity between male- and female-headed households, but there exists a non-linear relationship between household size and the risk of falling into energy poverty. While smaller households may have higher per capita energy usage due to limited economies of scale, larger households with more dependents or fewer income recipients may face greater financial strain in paying energy bills.</p>
+<p>To effectively capture the affordability aspect of energy poverty in Taiwan, this study adopts an expenditure-based method using the Low-Income High Cost (LIHC) approach. This method identifies households that are low-income but face disproportionate energy burdens. Utilizing data from the 2023 Survey of Family Income and Expenditure (SFIE), which includes comprehensive information on household composition, attributes, facilities, housing conditions, income, and expenditure <span class="citation" data-cites="DGBAS2024">(DGBAS, 2024)</span>, we employ a Generalized Linear Mixed Model (GLMM) to analyze the effects of household head’s gender and family composition on the risk of falling into energy poverty.</p>
+<p>Our research contributes to the existing literature by shifting the focus from analyzing energy consumption patterns to examining the complex factors influencing energy poverty in Taiwan. By considering both household head gender and family structure, we aim to provide a more nuanced understanding of energy poverty, informing policymakers to develop targeted interventions that address the specific needs of vulnerable populations. In Taiwan, although energy prices have been kept at a low and affordable range, leading many to perceive it as an insignificant issue. However, the disparity still exist, with certain households being more vulnerable to Net-Zero transition. Common policy interventions to address climate change often involve raising energy prices to incentivize reduced electricity consumption. However, such measures can disproportionately affect these vulnerable households. Therefore, tailored approaches are necessary to ensure that climate policies are both effective and equitable.</p>
+<p>The remainder of this article will be divided into five parts. <a href="#sec:literaturereview">Section 2</a> provides a general literature review of energy poverty landscape around the world and hypotheses of this article. <a href="#sec:methodology">Section 3</a> illustrates the research method and design. <a href="#sec:results">Section 4</a> will be presenting the empirical findings. The <a href="#sec:conclusion">final section</a> discusses the contributions and implications of this study.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+<div id="ref-Akram2022CausalityBA" class="csl-entry" role="doc-biblioentry">
+Akram, V. (2022). Causality between access to electricity and education: Evidence from BRICS countries. <em>Energy RESEARCH LETTERS</em>.
+</div>
+<div id="ref-Aramillo2007ComparativeLA" class="csl-entry" role="doc-biblioentry">
+Aramillo, P. J., Ichael, W. M., Riffin, G., &amp; Atthews, H. S. C. M. (2007). Comparative life-cycle air emissions of coal, domestic natural gas, LNG, and SNG for electricity generation. <em>Environmental Science &amp; Technology</em>, <em>41</em>, 6290–6296.
+</div>
+<div id="ref-Baum2022EnergyAA" class="csl-entry" role="doc-biblioentry">
+Baum, F., McGreevy, M., MacDougall, C. M., &amp; Henley, M. (2022). Energy as a social and commercial determinant of health: A qualitative study of australian policy. <em>International Journal of Health Policy and Management</em>, <em>12</em>.
+</div>
+<div id="ref-EnergyStatisticsHandbook2023" class="csl-entry" role="doc-biblioentry">
+Bureau of Energy, M. of E. A. (2024). <em>Energy statistics handbook 2023</em>. Bureau of Energy, Ministry of Economic Affairs. <a href="https://www.moeaea.gov.tw/ECW_WEBPAGE/FlipBook/2023EnergyStaHandBook/index.html#p=189">https://www.moeaea.gov.tw/ECW_WEBPAGE/FlipBook/2023EnergyStaHandBook/index.html#p=189</a>
+</div>
+<div id="ref-Chen2023PerspectivesOT" class="csl-entry" role="doc-biblioentry">
+Chen, P.-H., Lee, C., Wu, J., &amp; Chen, W.-S. (2023). Perspectives on taiwan’s pathway to net-zero emissions. <em>Sustainability</em>.
+</div>
+<div id="ref-Chien2020PacingFR" class="csl-entry" role="doc-biblioentry">
+Chien, K. (2020). Pacing for renewable energy development: The developmental state in taiwan’s offshore wind power. <em>Annals of the American Association of Geographers</em>, <em>110</em>, 793–807.
+</div>
+<div id="ref-DGBAS2024" class="csl-entry" role="doc-biblioentry">
+DGBAS. (2024). <em>The survey of family income and expenditure, 2023 (AA170048) [data file]</em> [Data set]. <a href="https://doi.org/10.6141/TW-SRDA-AA170048-1">https://doi.org/10.6141/TW-SRDA-AA170048-1</a>
+</div>
+<div id="ref-GonzálezEguino2015EnergyPA" class="csl-entry" role="doc-biblioentry">
+González-Eguino, M. (2015). Energy poverty: An overview. <em>Renewable &amp; Sustainable Energy Reviews</em>, <em>47</em>, 377–385.
+</div>
+<div id="ref-Huang2015TheDO" class="csl-entry" role="doc-biblioentry">
+Huang, W.-H. (2015). The determinants of household electricity consumption in taiwan: Evidence from quantile regression. <em>Energy</em>, <em>87</em>, 120–133.
+</div>
+<div id="ref-Lin2020NationalET" class="csl-entry" role="doc-biblioentry">
+Lin, M., Liou, H., &amp; Chou, K.-T. (2020). National energy transition framework toward SDG7 with legal reforms and policy bundles: The case of taiwan and its comparison with japan. <em>Energies</em>.
+</div>
+<div id="ref-ndc_2024" class="csl-entry" role="doc-biblioentry">
+National Development Council. (2024). <em>Taiwan’s pathway to net-zero emissions in 2050</em>. <a href="https://www.ndc.gov.tw/en/Content_List.aspx?n=B154724D802DC488">https://www.ndc.gov.tw/en/Content_List.aspx?n=B154724D802DC488</a>
+</div>
+<div id="ref-Su2019ResidentialED" class="csl-entry" role="doc-biblioentry">
+Su, Y.-W. (2019). Residential electricity demand in taiwan: Consumption behavior and rebound effect. <em>Energy Policy</em>.
+</div>
+<div id="ref-Su2020ResidentialED" class="csl-entry" role="doc-biblioentry">
+Su, Y.-W. (2020). Residential electricity demand in taiwan: The effects of urbanization and energy poverty. <em>Journal of the Asia Pacific Economy</em>, <em>25</em>, 733–756.
+</div>
+<div id="ref-TRI2023" class="csl-entry" role="doc-biblioentry">
+Taiwan Research Institute. (2023). <em>112年下半年公用售電業電價費率檢討方案編製說明</em>. <a href="https://ele.tri.org.tw/1120919-1/1120919-1-2/mobile/index.html">https://ele.tri.org.tw/1120919-1/1120919-1-2/mobile/index.html</a>
+</div>
+<div id="ref-Tuttle2017TheEO" class="csl-entry" role="doc-biblioentry">
+Tuttle, C. J., &amp; Beatty, T. K. M. (2017). The effects of energy price shocks on household food security in low-income households. <em>Economic Research Report</em>.
+</div>
+</div>
+
+<div id="tocChap">
+    <ul class="chapter-toc">
+        <li v-for="f, i in files">
+            <a :href="f" :class="{ active: currFile == f }">
+                {{ names[i] }}
+            </a>
+        </li>
+    </ul>
+
+    <ul class="external-links">
+        <template v-if="github != null">
+            <li><a :href="github.overleaf" target="_blank">
+                <img src="https://img.yongfu.name/org/overleaf.png" style="height:.7em;"> PDF
+            </a></li>
+            <li><a :href="github.repo" target="_blank">
+                <img src="https://img.yongfu.name/org/github.png" style="height:.7em;"> Source
+            </a></li>
+        </template>
+        <template v-else>
+            <li><span class="disabled">
+                <img src="https://img.yongfu.name/org/overleaf.png" style="height:.7em;"> PDF
+            </span></li>
+            <li><span class="disabled">
+                <img src="https://img.yongfu.name/org/github.png" style="height:.7em;"> Source
+            </span></li>
+        </template>
+    </ul>
+
+
+    <div class="prev-next-nav">
+        <a v-if="prevIndex != null" :href="files[prevIndex]">
+            <button>« {{names[prevIndex]}}</button>
+        </a>
+        <button v-else disabled>« Main</button>
+        <a v-if="nextIndex != null" :href="files[nextIndex]">
+            <button>{{names[nextIndex]}} »</button>
+        </a>
+        <button v-else disabled>End »</button>
+    </div>
+
+</div>
+
+<!-- development version, includes helpful console warnings -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<script>
+    var app = new Vue({
+        el: '#tocChap',
+        data: {
+            files: [],
+            names: [],
+            files_str: "",
+        },
+        computed: {
+            currFile() {
+                let ch = window.location.href.replace(window.location.hash, "").split("/");
+                ch = ch[ch.length - 1]
+                if (ch == "") return "index.html"
+                return ch
+            },
+            currIndex() {
+                return this.files.indexOf(this.currFile)
+            },
+            prevIndex() {
+                if (this.currIndex == 0) return null
+                return (this.currIndex - 1)
+            },
+            nextIndex() {
+                if (this.currIndex == this.files.length - 1) return null
+                return (this.currIndex + 1)
+            },
+            github() {
+                if (!window.location.origin.startsWith("http")) return null
+                if (!window.location.origin.includes('github.io')) 
+                    return {"repo": "https://github.com/liao961120/thesis", "overleaf": "https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://liao961120.github.io/thesis/overleaf.zip"}
+                let user = window.location.origin.replace(".github.io", "").replace("https://", "").replace("http://", "");
+                let repo = window.location.href.replace(window.location.origin, "").split("/")[1];
+                let repo_url = `https://github.com/${user}/${repo}`;
+                let overleaf = `https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://${user}.github.io/${repo}/overleaf.zip`
+                return {"repo": repo_url, "overleaf": overleaf}
+            }
+        },
+        created: function () {
+            this.files = get_files().split("__");
+            this.files.pop();
+            this.names = this.files.map(fp => {
+                fp = fp.replace(".html", "");
+                if (fp == "index") return "Main";
+                if (fp.startsWith('appendix')) {
+                    fp = fp.split('-');
+                    let ap = (fp[1] == null) ? "" : fp[1];
+                    return `Appendix ${ap}`
+                }
+                if (fp.match(/^\d+-/)) {
+                    fp = fp.split("-");
+                    fp = parseInt(fp[0], 10);
+                    return `Chapter ${fp}`
+                }
+                return fp
+            })
+
+        }
+    })
+
+    function get_files() {
+        return 'index.html__01-Introduction.html__02-LiteratureReview.html__03-Methodology.html__04-Results.html__05-Conclusion.html__appendix-A.html__appendix-B.html__';
+    };
+</script>
+
+<style>
+    #tocChap ul {
+        list-style-type: none;
+        padding-left: 1.2em;
+    }
+    #tocChap ul li {
+        line-height: 1.5em;
+    }
+    #tocChap ul a:hover {
+        text-decoration: underline;
+    }
+    #tocChap ul a {
+        text-decoration: none;
+    }
+    #tocChap ul a.active {
+        pointer-events: none;
+        color: rgb(54, 179, 54);
+        text-decoration: none;
+    }
+    #tocChap ul.chapter-toc {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        margin: 0;
+    }
+    #tocChap ul.external-links {
+        position: fixed;
+        bottom: 15px;
+        left: 0;
+        margin: 0;
+        font-size: 0.8em;
+    }
+    #tocChap .disabled {
+        color: grey;
+        cursor: pointer;
+    }
+    #tocChap .prev-next-nav {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 2em auto 0;
+        padding: 0 auto;
+        text-align: center
+    }
+    #tocChap .prev-next-nav button {
+        height: 2.3em;
+        border: none;
+        background-color: greenyellow;
+        border-radius: 0.4em;
+    }
+    #tocChap .prev-next-nav button:hover {
+        background-color: rgb(95, 255, 47);
+        cursor: pointer;
+    }
+    #tocChap button:disabled:hover,
+    #tocChap button:disabled {
+        background-color: rgb(221, 221, 221);
+        color: rgb(139, 139, 139);
+    }
+    #tocChap button a:hover {
+        text-decoration: none;
+    }
+</style>
+<nav class="js-toc toc toc-right relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+
+<script>
+    // Insert title for references
+    let ref = document.querySelector("#refs");
+    if (ref != null) {
+        let title = document.createElement("h2");
+        title.innerText = "References";
+        title.className = "unnumbered";
+        title.id = "chapter-references";
+        ref.parentElement.insertBefore(title, ref);
+    }
+
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: 'body',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3',
+        ignoreSelector: 'h1.title',
+        collapseDepth: '6',
+        // // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+<style>
+    .js-toc {
+        font-size: 0.85em;
+        position: fixed;
+        right: 0;
+        top: 0;
+        margin-top: 50px;
+        margin-right: 0;
+        width: 20%;
+        min-width: 200px;
+    }
+    .toc-list > li {
+        padding: 0.35em 0;
+        margin: 0;
+        
+    }
+    .toc-list > li a {
+        text-decoration: none;
+    }
+    @media only screen and (max-width: 1050px) {
+        .js-toc,
+        #tocChap ul {
+            display: none !important;
+        }
+    }
+    @media print {
+        .js-toc,
+        #tocChap {
+            display: none !important;
+        }
+    }
+</style>
+
+  <script>
+    // Get chapter name
+    let ch = window.location.href.split("/");
+    ch = ch[ch.length - 1].split('-')
+    ap = "A"
+    if (ch[1] != null) ap = ch[1]
+    ap = ap.replace(/\.html$/, "")  // Note the anchor escape for Pandoc
+
+    // Initialize counter
+    var style1, style2, style3;
+    style1 = document.querySelector('h1').style;
+    if (ch[0] == "appendix")
+      style1.setProperty('--h1before', '"Appendix "' + '"' + ap + '"' + ' " "');
+    else
+      style1.setProperty('--h1before', '"Chapter " counter(chapter) " "');
+
+    document.querySelectorAll('h2').forEach(e => {
+      if (ch[0] == "appendix")
+        e.style.setProperty('--h2before', '"' + ap + '"' + '"."counter(section) " "');
+      else
+        e.style.setProperty('--h2before', 'counter(chapter)"."counter(section) " "');
+    })
+    document.querySelectorAll('h3').forEach(e => {
+      if (ch[0] == "appendix")
+        e.style.setProperty('--h3before', '"' + ap + '"' + '"."counter(section)"."counter(subsection) " "');
+      else
+        e.style.setProperty('--h3before', 'counter(chapter)"."counter(section)"."counter(subsection) " "');
+    })
+
+    // Set counter for numeric chapters
+    ch = parseInt(ch[0], 10);
+    if (!isNaN(ch)) {
+      document.querySelector("title").innerText = 'Chap.' + ch + ' ' + document.querySelector("h1").innerText;
+      document.querySelector("body").style.counterReset = "chapter " + (ch - 1);
+    } else {
+      document.querySelector("title").innerText = document.querySelector("h1").innerText;
+      document.querySelector("body").style.counterReset = "chapter";
+    }
+  </script>
+
+  <style>
+    /* Set counter */
+    body {
+      counter-reset: chapter;
+    }
+
+    h1 {
+      counter-reset: section;
+    }
+    h2:before,
+    h3::before {
+      display: inline-block;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 0.85em;
+      margin-right: 0.7em;
+      text-decoration: underline 3px;
+    }
+    h1:before {
+      display: block;
+      counter-increment: chapter;
+      content: var(--h1before);
+      font-weight: bold;
+      font-size: 0.57em;
+      margin-bottom: 0.15em;
+      font-family: Alegreya, 'Times New Roman', Times, serif;
+      font-style: italic;
+      text-align: left;
+    }
+    h2 {
+      counter-reset: subsection;
+    }
+    h2:before {
+      counter-increment: section;
+      content: var(--h2before);
+    }
+    h3:before {
+      counter-increment: subsection;
+      content: var(--h3before);
+    }
+    .unnumbered::before {
+      display: none;
+    }
+    .appendix.unnumbered::before {
+      display: block;
+    }
+
+    /* Heading styles */
+    h1, h2 {
+    font-size: 1.4em;
+    border-bottom: 1px solid;
+    }
+    h1:not(.title) {
+        /* border-top: 1px solid; */
+        border-bottom: 2px solid;
+        text-align: left;
+        padding-top: 0.15em;
+    }
+    h2::before {
+        text-decoration: none!important;
+        border-bottom: 4px solid;
+        vertical-align: bottom !important;
+    }
+    h1 {
+        font-size: 1.7em;
+        text-align: left;
+    }
+  </style>
+
+
+</body>
+
+</html>

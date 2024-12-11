@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" >
+
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="author" content="吳齊穎" />
+<meta name="dcterms.date" content="2024-12-09" />
+<meta name="keywords" content="淨零轉型, 能源貧窮, 低收入高支出, 家庭收支調查, 多層次分析" />
+<title>PlaceHolder</title>
+<style>
+html {
+  line-height: 1.5;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: #1a1a1a;
+  background-color: #fdfdfd;
+}
+body {
+  margin: 0 auto;
+  max-width: 36em;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 0.9em;
+    padding: 1em;
+  }
+}
+@media print {
+  body {
+    background-color: transparent;
+    color: black;
+    font-size: 12pt;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}
+p {
+  margin: 1em 0;
+}
+a {
+  color: #1a1a1a;
+}
+a:visited {
+  color: #1a1a1a;
+}
+img {
+  max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.4em;
+}
+h5, h6 {
+  font-size: 1em;
+  font-style: italic;
+}
+h6 {
+  font-weight: normal;
+}
+ol, ul {
+  padding-left: 1.7em;
+  margin-top: 1em;
+}
+li > ol, li > ul {
+  margin-top: 0;
+}
+blockquote {
+  margin: 1em 0 1em 1.7em;
+  padding-left: 1em;
+  border-left: 2px solid #e6e6e6;
+  color: #606060;
+}
+code {
+  font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+  font-size: 85%;
+  margin: 0;
+}
+pre {
+  margin: 1em 0;
+  overflow: auto;
+}
+pre code {
+  padding: 0;
+  overflow: visible;
+  overflow-wrap: normal;
+}
+.sourceCode {
+ background-color: transparent;
+ overflow: visible;
+}
+hr {
+  background-color: #1a1a1a;
+  border: none;
+  height: 1px;
+  margin: 1em 0;
+}
+table {
+  margin: 1em 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+  margin-bottom: 0.75em;
+}
+tbody {
+  margin-top: 0.5em;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+th {
+  border-top: 1px solid #1a1a1a;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+  padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+  margin-bottom: 4em;
+  text-align: center;
+}
+#TOC li {
+  list-style: none;
+}
+#TOC a:not(:hover) {
+  text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-size: 20px;
+    line-height: 1.38;
+    max-width: 38em;
+}
+h1.title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    font-size: 2.2rem;
+}
+p.subtitle {
+    font-size: 1.35em;
+    font-style: italic;
+    margin-top: 0em;
+}
+p.author, p.date {
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 0.2em auto;
+}
+header {
+    margin-bottom: 2.5em;
+    margin-top: 0;
+}
+h2#toc-title {
+    margin-bottom: 0.35em;
+    font-size: 1.2em;
+}
+nav#TOC ul {
+    line-height: 1.1;
+    margin-top: 0;
+}
+p:not(.title, .author, .date) {
+    text-align: justify;
+}
+.footnotes p {
+    text-align: left;
+}
+div.keywords .k-title {
+    font-weight: bold;
+    margin-right: .13rem;
+}
+div.keywords .k-words {
+    /* font-style: italic; */
+}
+blockquote p {
+    text-align: left;
+    font-style: italic;
+}
+table thead {
+    text-align: left;
+}
+table:not(.linguistic-example) {
+    display: table;
+    width: 88%;
+    min-width: 380px;
+    margin: 1em auto 1.8em auto;
+    font-size: 0.9em;
+}
+table caption {
+    width: 75%;
+    min-width: 380px;
+    text-align: center;
+    margin: 0 auto 0.2em auto;
+    font-size: 0.95em;
+}
+table.linguistic-example tbody,
+table.linguistic-example tr,
+table.linguistic-example td {
+    border: 0px solid transparent !important;
+}
+/* Code block styles */
+pre.sourceCode {
+    background: rgba(236, 236, 236, 0.808);
+    padding: 0.25em 0.55em;
+    border-radius: 0.25em;
+    line-height: 1.25em;
+    font-size: 0.95em;
+}
+div.listing > p {
+    text-align: center;
+}
+/* Fonts */
+/* Regular (宋體/明體) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local('LiSong Pro'), local('儷宋 Pro'), local('NotoSerifCJK-Regular'), local('Noto Serif CJK TC Regular'), local('Noto Serif CJK TC'), local('細明體'), local('MingLiU'), local('新細明體'), local('PMingLiU');
+}
+/* Bold (黑體粗) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local("PingFang-TC-Bold"), local("PingFang TC bold"), local('NotoSansCJK-Bold'), local('Noto Sans CJK TC Bold'), local('Taipei Sans TC Bold'), local('TaipeiSansTCBeta-Bold'), local('Microsoft JhengHei Bold'), local('Microsoft-JhengHei-Bold'), local('微軟正黑體粗體'), local('微軟正黑體'), local('Microsoft JhengHei');
+    font-weight: bold;
+}
+/* Italic (楷體) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local("TW-Kai-98_1"), local("教育部標準楷書"), local("kai-pc"), local("CMEXc1"), local("Biaukai"), local("MOEDICT-IOS-KAI"), local("DFKaiShu-SB-Estd-BF"), local("全字庫正楷體"), local("Kaiti TC"), local("楷體-繁"), local('標楷體'), local('Kaiti'), local("文鼎ＰＬ新中楷"), local("cwtext 楷書"), local("HanaMinA"), local("HanaMinB"), local("HAN NOM A"), local("HAN NOM B"), local("Han Kaiti CNS"), local('AR PL KaitiM Big5'), local("cursive");
+    font-style: italic;
+}
+/* 黑體 Regular */
+@font-face {
+    font-family: "Chinese-Custom-sans";
+    src: local("PingFang-TC-Regular"), local("PingFang TC regular"), local('蘋果儷中黑'), local('Apple LiGothic Medium'), local('NotoSansCJK-Regular'), local('Noto Sans CJK TC Regular'), local('TaipeiSansTCBeta-Regular'), local('Taipei Sans TC Regular'), local('Taipei Sans TC'), local('Microsoft JhengHei'), local('微軟正黑體');
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Alegreya', "Chinese-Custom", sans-serif;
+    font-weight: bold;
+}
+nav, #tocChap, p.date {
+    font-family: 'Alegreya', "Chinese-Custom-sans", serif;
+}
+body{
+    font-family: FreeSerif, 'Times New Roman', Libertine, 'PT Serif', "Chinese-Custom", Times, serif;
+}
+
+
+div.output {
+    /* Jupyter notebook output */
+    color: gray;
+}
+</style>
+<link rel="stylesheet" href="custom.css">
+
+
+</head>
+
+<body>
+
+<h1 id="sec:literaturereview">Literature Review</h1>
+<p>Energy poverty lacks a universal definition<span class="citation" data-cites="Kumar2019EnergyPI">(Kumar et al., 2019)</span>, whereas it may not be entirely undesirable given its deep connection to historical and geographical contexts<span class="citation" data-cites="Bouzarovski2017SpatializingEJ">(Bouzarovski &amp; Simcock, 2017)</span>. With respect to different origins, ‘fuel poverty’ and ‘energy poverty’ are often used interchangeably, where “fuel poverty” traditionally describes households in developed economies unable to afford adequate heating, and “energy poverty” broadly refers to a lack of access to energy services in less developed countries<span class="citation" data-cites="Das2022QuantifyingTP">(Das et al., 2022)</span>. The concept of fuel poverty was formally introduced by<span class="citation" data-cites="Boardman1991FuelP">Boardman (1991)</span> in her seminal work on the UK, where the focus was primarily on housing heating affordability. Over time, however, discussions surrounding fuel poverty expanded to consider broader forms of energy deprivation beyond just fuel costs.</p>
+<p>As the globalization and marketization of energy markets, along with the expansion of academic fields, the traditional dichotomy between fuel poverty and energy poverty has been challenged<span class="citation" data-cites="Bouzarovski2015AGP">(Bouzarovski &amp; Petrova, 2015)</span>. Although there are disagreement such as<span class="citation" data-cites="Li2014EnergyPO">Li et al. (2014)</span> argued that there are clear geographical and socioeconomic distinctions between fuel poverty and energy poverty, and some people may suffer from both simultaneously, but in a scientometric analysis of the evolution of energy poverty theory,<span class="citation" data-cites="Guevara2022TheEO">Guevara et al. (2022)</span> found that while the concepts of fuel poverty and energy poverty originated separately, they began to influence each other and converge in the 2010s.<span class="citation" data-cites="Bouzarovski2015AGP">Bouzarovski &amp; Petrova (2015)</span> further embraced that both fuel and energy poverty can be viewed under a conceptual umbrella, describing them as “a set of domestic energy circumstances that do not allow for participating in the lifestyles, customs, and activities that define membership of society”. Hence in this article, we adopt the term “energy poverty” herein not only to align with mainstream usage in Taiwan, but also, to account for the multi-dimensional nature of energy deprivation.</p>
+<h2 id="energy-poverty-landscape">Energy Poverty landscape</h2>
+<h3 id="global-north">Global North</h3>
+<p>In the Global North, energy poverty is primarily framed around issues of affordability <span class="citation" data-cites="Chan2023EnergyPA">(Chan &amp; Delina, 2023)</span>, as colder climate significantly contribute to high energy consumption for heating, making the cost of energy a critical factor. Affordability in this context refers to the relatively high financial burden imposed by energy costs, which often leads households to self-provision, choose between heating and other essentials, or endure inadequate thermal comfort. While income plays a crucial role, energy poverty is distinguished from income poverty <span class="citation" data-cites="Phimister2015TheDO">(Phimister et al., 2015)</span> because it involves a complicated interplay between income, energy efficiency, and housing characteristics.</p>
+<p>The form of energy poverty that households in the Global North are experiencing is characterized by high energy costs relative to household income, poor energy efficiency in housing, and socioeconomic vulnerabilities of affected populations. Energy prices in the Global North are relatively high, especially during winter months when fuel demand peaks or in the context of unstable geopolitical situations <span class="citation" data-cites="Guan2023BurdenOT">(Guan et al., 2023)</span>. The cost of heating fuels significantly impacts household budgets, causing households to spend a disproportionate amount of their income on basic needs, particularly low-income households <span class="citation" data-cites="Zapata-Webborn2024WinterDF Liu2023SpilloverEA">(Liu et al., 2023; Zapata-Webborn et al., 2024)</span>. A substantial portion of housing stock is aged and inadequately insulated, leading to increased energy demand for heating <span class="citation" data-cites="Sánchez-Guevara2019AssessingPV">(Sánchez-Guevara et al., 2019)</span>. The lack of sufficient insulation, outdated heating systems, and low-energy-efficient appliances contribute to considerable heat loss, making it increasingly challenging to maintain a comfortable indoor environment <span class="citation" data-cites="Middlemiss2022WhoIV">(Middlemiss, 2022)</span>. Socio-economically disadvantaged groups, such as low-income households and elderly people, often struggle to balance spending on energy with other necessities, resulting in inadequate thermal comfort and poor quality of life, thereby exacerbating their marginalized status and increasing their susceptibility to disease and social exclusion<span class="citation" data-cites="Brandon2024ASR">(Brandon &amp; Bagnall, 2024)</span>. The neoliberalization of energy and housing markets, along with deepening relative inequality, has significantly contributed to the emergence of new challenges related to energy poverty <span class="citation" data-cites="Robinson2019EnergyPA">(Robinson, 2019)</span>. Such inequalities create a vicious cycle where historical inequities, market forces, and social and political exclusion reinforce spatial inequalities, leading to disproportionately high energy burdens for marginalized communities <span class="citation" data-cites="Bouzarovski2017SpatializingEJ">(Bouzarovski &amp; Simcock, 2017)</span>.</p>
+<p>To address the issue of energy poverty, various policies have been implemented in the Global North. The Hungarian government adopted policies to regulate energy prices to mitigate the impact of price fluctuations on vulnerable households, including introducing price support schemes in the mid-2000s that subsidized domestic natural gas consumers, effectively reducing energy expenditures for up to 80% of households at its peak in 2006 <span class="citation" data-cites="Bouzarovski2016UnpackingTS">(Bouzarovski et al., 2016)</span>. Social tariffs and fuel allowances can provide direct financial relief and offset the cost of energy for eligible households <span class="citation" data-cites="Herrejón2023LivingWE">(Herrejón et al., 2023)</span>. Given the significant contribution of energy-inefficient housing to energy poverty and climate change, policies that promote energy efficiency retrofits, encompassing measures like insulation upgrades, installation of energy-efficient windows, and replacement of outdated heating systems, have gained increasing attention <span class="citation" data-cites="Middlemiss2022WhoIV">(Middlemiss, 2022)</span>. Financial support schemes like green loans can incentivize homeowners, particularly those in poorly insulated houses, to undertake these improvements <span class="citation" data-cites="Herrejón2023LivingWE">(Herrejón et al., 2023)</span>. The underlying socio-economic factors significantly contribute to energy poverty; therefore, policies regulating the housing market, especially the rental market, have been deployed to ensure access to affordable and energy-efficient housing <span class="citation" data-cites="Middlemiss2022WhoIV">(Middlemiss, 2022)</span>. These policies involve setting minimum energy efficiency standards for rental properties, providing financial assistance for energy-efficient upgrades to rental units, and implementing rent control measures to prevent excessive housing costs, especially in areas with high energy costs.</p>
+<p>Recent research on energy poverty in the Global North has expanded to include a deeper understanding of vulnerability, intersectionality, and the lived experiences of those affected <span class="citation" data-cites="Middlemiss2022WhoIV">(Middlemiss, 2022)</span>. Overlapping social categories such as age, gender, race, and socioeconomic status intersect to influence an individual’s experience of energy poverty <span class="citation" data-cites="Bouzarovski2018UnderstandingEP">(Bouzarovski &amp; Bouzarovski, 2018)</span>. Qualitative methods are gaining more attention to understand the day-to-day struggles and coping strategies of energy-poor households <span class="citation" data-cites="Herrejón2023LivingWE">(Herrejón et al., 2023)</span>. However, much of the existing literature is dominated by UK and European studies, partly because the term “fuel poverty” originated there, limiting the understanding of how energy poverty manifests in different regions and local contexts across the Global North; such a focus may neglect the need for cooling in hotter climates, which is increasingly important due to rising global temperatures, and more frequent heatwaves <span class="citation" data-cites="Bouzarovski2018UnderstandingEP">(Bouzarovski &amp; Bouzarovski, 2018)</span>. Regions in southern Europe, parts of the United States, and Australia face significant challenges related to extreme heat, which can have severe health impacts during heatwaves.</p>
+<p>The evolving understanding of energy poverty in the Global North highlights the importance of recognizing the intersectionality of vulnerability factors such as age, gender, race, and socioeconomic status. While qualitative methods are increasingly utilized to capture the lived experiences of energy-poor households, the predominance of UK and European studies limits our comprehension of energy poverty across diverse regions. As climate change exacerbates the energy need, it is crucial to expand research efforts to include areas facing extreme heat, such as southern Europe, parts of the United States, and Australia. Addressing these gaps in knowledge will enable policymakers to develop targeted strategies that consider the unique challenges faced by different communities, ultimately leading to more effective interventions to alleviate energy poverty and improve the quality of life for affected individuals.</p>
+<h3 id="global-south">Global South</h3>
+<p>In the Global South, energy poverty is primarily framed around issues of accessibility <span class="citation" data-cites="Herrejón2023LivingWE">(Herrejón et al., 2023)</span>. The relatively underdeveloped energy infrastructure significantly contributes to the challenge of accessing reliable and clean energy sources for essential needs like lighting, cooking, and cooling. Accessibility in this context refers to the difficulty in securing these energy sources, often leading households to rely on traditional biomass, experience inadequate cooling, or face intermittent electricity supply.</p>
+<p>The form of energy poverty experienced by households in the Global South is characterized by underdeveloped energy infrastructure, dependence on traditional biomass fuel, and socioeconomic disparities, including urban-rural divides <span class="citation" data-cites="Chan2023EnergyPA">(Chan &amp; Delina, 2023)</span>. Many regions in the Global South suffer from inadequate energy infrastructure, resulting in unreliable electricity supply and frequent outages <span class="citation" data-cites="Hafner2020TheGO">(Hafner &amp; Tagliapietra, 2020)</span>. Access to electricity or modern fuel is inconsistent, with rural and remote areas being particularly on the periphery due to the lack of grid connection <span class="citation" data-cites="Hostettler2015EnergyCI">(Hostettler, 2015)</span>. Consequently, households heavily rely on traditional biomass fuel like wood, coal, and even dung for cooking and heating, which are relatively inefficient and contribute to increased CO emissions and indoor air pollution <span class="citation" data-cites="Kumar2019EnergyPI">(Kumar et al., 2019)</span>. The use of such fuels has significant health threats, especially for women and children who are responsible for cooking <span class="citation" data-cites="Jessel2019EnergyPA">(Jessel et al., 2019)</span>. Reliance on traditional biomass fuels leads to severe respiratory issues and other health problems due to exposure to smoke and pollutants. Moreover, the lack of reliable energy access jeopardize the provision of essential services, such as healthcare and education, both of which require stable electricity to function effectively. The labor-intensive nature of collecting traditional fuels also deprives children, particularly girls, of the opportunity to receive a proper education, as they often assist in gathering fuel <span class="citation" data-cites="Longe2021AnAO">(Longe, 2021)</span>. Such conditions create a vicious cycle where inadequate infrastructure, economic disparities, and social exclusion reinforce each other, leading to persistent energy poverty. This cycle perpetuates inequalities, limiting opportunities for economic and social development and trapping marginalized communities in a state of deprivation.</p>
+<p>To address energy poverty in the Global South, interventions aimed at improving energy accessibility are being implemented <span class="citation" data-cites="Chan2023EnergyPA Bouzarovski2015AGP">(Bouzarovski &amp; Petrova, 2015; Chan &amp; Delina, 2023)</span>. These include, but are not limited to, infrastructure development and modernization, rural electrification programs such as the transition to renewable energy, and economic policies like subsidies and microfinance. India’s “Power for All by 2012” initiative was an ambitious program aimed at ensuring a reliable and quality power supply to all citizens by the year 2012. Although the program did not fully meet its target within the stipulated time, it laid significant groundwork for subsequent rural electrification efforts and overall improvements in the power sector <span class="citation" data-cites="Niez2010ComparativeSO">(Niez, 2010)</span>. In countries like Kenya, rural electrification efforts have been significantly boosted through comprehensive strategies involving grid extension and subsidies. These efforts have not only increased electrification rates but have also profoundly impacted the socio-economic development of rural areas <span class="citation" data-cites="Njiru2018EnergyPA">(Njiru &amp; Letema, 2018)</span>. Subsidies, such as the Free Basic Electricity (FBE) program by the South African government, provide 50 kWh of free electricity monthly to indigent households connected to the grid <span class="citation" data-cites="Monyei2018ExaminingES">(Monyei et al., 2018)</span>. This program can alleviate energy poverty by ensuring that vulnerable citizens have access to essential electricity for their basic needs. However, the government also acknowledges that the program does not reach all indigent households, especially the most vulnerable, as they are not connected to the grid <span class="citation" data-cites="Longe2021AnAO">(Longe, 2021)</span>.</p>
+<p>Recent discourse around energy poverty in the Global South heavily emphasizes the importance of “energy justice,” which involves the fair distribution of energy benefits and burdens, recognizes the needs of all stakeholders, and establishes a fair decision-making process <span class="citation" data-cites="Samarakoon2019AJA">(Samarakoon, 2019)</span>. The emerging focus on energy justice challenges the prevailing narrative centered on accessibility issues, shifting attention to the sufficiency of energy supply and the quality of energy services required for improved well-being <span class="citation" data-cites="Monyei2018ExaminingES">(Monyei et al., 2018)</span>. As the understanding of energy poverty deepens and becomes more holistic, there is a growing emphasis on centering the lived experiences of energy-poor communities and acknowledging that people’s energy needs are diverse and context-specific <span class="citation" data-cites="Mastrucci2019ImprovingTS">(Mastrucci et al., 2019)</span>. Further enriching this landscape is the increasing recognition of the gender dimension, as women and girls are more likely to be affected and marginalized by energy poverty <span class="citation" data-cites="Kumar2019EnergyPI Longe2021AnAO">(Kumar et al., 2019; Longe, 2021)</span>. Recognizing these gendered impacts is crucial for developing effective and equitable interventions to address energy poverty.</p>
+<p>In conclusion, addressing energy poverty in the Global South requires diverse approaches that acknowledge the complexities of accessibility, infrastructure, and socio-economic disparities. The reliance on traditional biomass fuels and the challenges posed by underdeveloped energy infrastructure not only limited the access to reliable energy sources but also have significant health and social implications for affected communities. As interventions such as infrastructure development, rural electrification, and economic policies are implemented, it is essential to prioritize energy justice, ensuring that the distribution of energy benefits and burdens is equitable and inclusive. Furthermore, centering the lived experiences of energy-poor communities and recognizing the specific needs of women and girls will enhance the effectiveness of these interventions.</p>
+<h2 id="measuring-energy-poverty">Measuring Energy Poverty</h2>
+<p>To properly address the issue of energy poverty, measuring is vital yet difficult to do because of the multifaceted nature<span class="citation" data-cites="Thomson2017RethinkingTM">(Thomson et al., 2017)</span>, it is not merely a lack of access to energy but is deeply intertwined with broader socio-economic conditions such as household income, education levels, and demographic characteristics. Several energy poverty indicators are developed to capture the multifaceted nature, yet, they have their own strengths and limitations. Tailored to Taiwan’s energy poverty, only expenditure-based methods are reviewed in this article.</p>
+<p>Expenditure-based approaches are the most widely used method for quantifying energy poverty, which assess the ratio of a household’s income to its energy expenditure to determine whether the household falls into energy poverty. We hereby examine five main indicators of energy poverty: Ten Percent Rule (TPR), Low-income High Cost (LIHC), Minimum Income Standard (MIS), Double Median (2M), and Half Median (M/2).</p>
+<!-- tbl:ep-calculation -->
+<table>
+    <thead>
+        <tr>
+            <th>Indicator</th>
+            <th>Calculation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ten Percent Rule (TPR)</td>
+            <td>(energy expenditure / disposable income) &gt; 10%</td>
+        </tr>
+        <tr>
+            <td>Double Median (2M)</td>
+            <td>energy expenditure ≥ (2 * median energy expenditure)</td>
+        </tr>
+        <tr>
+            <td>Half Median (M/2)</td>
+            <td>energy expenditure ≤ (median energy expenditure / 2)</td>
+        </tr>
+        <tr>
+            <td>Low-Income High Cost (LIHC)</td>
+            <td>disposable income ≤ (median disposable income * 0.6) &amp; energy expenditure ≥ median energy expenditure</td>
+        </tr>
+        <tr>
+            <td>Minimum Income Standard (MIS)</td>
+            <td>energy expenditure ≥ (disposable income - housing cost - minimum living costs)</td>
+        </tr>
+    </tbody>
+<caption id="tbl:ep-calculation">表 1：energy poverty calculation</caption></table>
+<!-- END -->
+<p>The <a href="#tbl:ep-calculation">table</a>,</p>
+<p>The TPR was proposed by Boardman in 1991 on fuel poverty in the UK, defining it as “the inability to afford warmth”. To determine the “affordable” energy cost, Boardman proposed the ten percent threshold, suggesting that households spending more than this proportion are experiencing “undue financial hardship”, hence requiring assistance.<span class="citation" data-cites="Boardman1991FuelP">Boardman (1991)</span> explored the multifaceted issue through several aspects, identifying that inadequate housing condition, low incomes, and high energy cost are the primary drivers. Attaining adequate warmth is contingent upon the energy efficiency of the home and heating system, not just income levels, meaning even households with income above the poverty line could experience fuel poverty if living in energy-inefficient housing with high heating cost. Solely focusing on income-based solutions may appear beneficial in the short term, but it would be costly and insufficient to address the underlying problem of energy-inefficient housing in the long run.</p>
+<p>On the surface, the TPR appears to be an absolute metric and maybe somewhat arbitrary; however, it is actually partly based on the relative concept of twice the median<span class="citation" data-cites="Boardman2012FuelPS">(Boardman, 2012)</span>, which was introduced by<span class="citation" data-cites="Isherwood1979">Isherwood &amp; Hancock (1979)</span> in response to the rapid increase in household energy bills due to the energy crisis in the 1970s. According to<span class="citation" data-cites="Boardman1991FuelP">Boardman (1991)</span>, the TPR reflects the actual average share of energy spending among the 30 percent poorest households in Great Britain, which is around twice the median share of energy spending for all households at that time. While the usage of double the median as an indicator can trace back all the way to<span class="citation" data-cites="Isherwood1979">Isherwood &amp; Hancock (1979)</span>, but it is difficult to come by the actual content to analyze why this is a good threshold.<span class="citation" data-cites="Heindl2013MeasuringFP">Heindl (2013)</span> examined the definition of fuel poverty lines and measurement techniques, including options such as double the median and mean household expenditure on energy, as well as double the median and mean share of household expenditure on energy, highlighting that different lines significantly affect the identification of fuel-poor households. Upon discussing energy poverty threshold, median indicators precede mean indicators as the energy expenditure are usually right-skewed, the median would be less less affected by extreme values and outliers, providing a more accurate reflection of typical household expenditures, thus ensuring that the measurement better captures the financial burden faced by lower-income households.</p>
+<p>Whilst most British researchers generally accepted double the median share of energy expenditure as a guiding consideration,<span class="citation" data-cites="Schuessler2014EnergyPI">Schuessler (2014)</span> argues that the orthodox understanding of the TPR would be problematic as the twice the median indicator has serious methodological problems; hence, the interpretation and justification should be based on energy expenditure at the lowest income strata as this energy poverty threshold helps identify households in need. Although the double the median share indicator is superior than the double the mean share indicator, the double the median indicator inherently have some awkward properties that makes it unsuitable to measure energy poverty. Because the nature of median is based on the order of the data, instead of the actual numbers, therefore, adding a constant to an otherwise unchanged distribution will decrease the number of households exceeding the double median in right-skewed distributions. In other words, ceteris paribus, adding a fixed energy cost to all households could reduce the total amount energy-poor households. The counterintuitive phenomenon not only showcase the fundamental flaws of the 2M indicator, it also violates<span class="citation" data-cites="Sen1976PovertyAO">Sen (1976)</span>’s monotonicity requirement for poverty measures, which states that that poverty should increase when the well-being of an already poor household deteriorates. This violation of the monotonicity requirement highlights the inadequacy of the 2M indicator for accurately measuring energy poverty, as it does not respond proportionally to worsening conditions among the poorest households.</p>
+<p>There are several limitations when directly applying the TPR threshold to other countries, because the indicator was UK-specific as it was derived from UK 1988 data<span class="citation" data-cites="Herrero2017EnergyPI">(Herrero, 2017)</span>. Without thoroughly considering local context––such as climate conditions, housing, and cultural norms––the metric may not be able to reflect the vulnerable group. Besides the varying geographical context, the potential problem is the differences between required energy cost and actual energy expenditure. The TPR was originally developed based on actual spending on fuel; however, utilizing actual energy expenditure may underestimate the prevalence of energy poverty as households struggling to afford adequate warmth may ration their energy usage, therefore, unable to be detected by the TPR<span class="citation" data-cites="Boardman2012FuelPS Herrero2017EnergyPI Riva2023EnergyPA">(Boardman, 2012; Herrero, 2017; Riva et al., 2023)</span>. To address this issue, the focus has transitioned towards using required energy cost, which aims to estimate the cost of energy services a household needs to achieve a defined standard of warmth. However, the required energy cost, or modeled energy bill, heavily relies on UK’s detailed housing survey, which may not be viable for other nations. Therefore, the M/2 indicator was developed to capture the hidden energy poverty situation, where the self rationing behavior exists. The M/2 indicator identifies households with equal or less then half of the median energy expenditure of all households as hidden energy-poor households.</p>
+<p>The Low-Income High Cost (LIHC) indicator was developed by<span class="citation" data-cites="Hills2012GettingTM">Hills (2012)</span>, classifies a household as energy poor if they have required fuel costs that are above the contemporary median level for all households; and were they to spend that amount on fuel, they would be left with a residual income below the official poverty line. The official poverty line is calculated as 60% of median income after housing costs. As the size of households matter to the energy usage, the methodology allows for differences in household size and composition using a set of equivalization factors. The invention of the LIHC indicator was to remedy the flaws stemming from the adoption of a fixed threshold, making it susceptible to various inaccuracies and misrepresentations of the fuel poverty landscape. According to<span class="citation" data-cites="Hills2012GettingTM">Hills (2012)</span>, the traditional TPR are flawed due to the arbitrary nature, hypersensitivity to price fluctuations, and the inclusion of non-poor households. The initial justification for setting the threshold at 10%, which was twice the median household fuel expenditure, lacks a robust rationale. The TPR being a fixed threshold makes it highly susceptible to changes in energy price, creating a misleading picture of energy poverty landscape. And since the TPR solely focuses on the proportion of income spent on energy, it can misclassify households with moderate or high incomes as fuel poor, distorting the actual scale of energy poverty and can hence misdirect policy interventions.</p>
+<p>Unlike the TPR only focus on income and energy expenditure, the LIHC is calculated after deducting the housing cost, which may be more accurate for several reasons. As households cannot allocate income designated for housing cost towards energy bills, deducting housing cost represents a more accurate picture of the disposable income available for energy expenses. Another advantage of calculating energy poverty after the deduction of housing cost is the ability to eliminate geographic variability in housing cost. Even if the housing condition remains constant, the price can vary considerably based on location. Without deducting housing costs, households may appear to be lifted out of energy poverty simply because of the increasing rent. Overall, deducting housing costs in the LIHC calculation is crucial for providing a more accurate and realistic assessment of household disposable income. Even though LIHC as an indicator has many advantages when capturing the energy-poor households, it is not free of criticisms. Due to the doubly relative nature of LIHC, the indicator will remain relatively stable even when energy price fluctuated. Even if the energy price rise significantly, the median energy cost might not change drastically, especially if the energy consumption patterns across income level remain relatively stable. The insensitivity can mask the impact of rising energy prices on low-income households and may lead to underestimate of the true extent of energy poverty.</p>
+<p><span class="citation" data-cites="Moore2012DefinitionsOF">Moore (2012)</span>’s Minimum Income Standard (MIS) approach considers a household to be energy poor if, after meeting its energy costs, it does not have enough income left to meet the minimum income standard for an acceptable standard of living. The MIS is calculated by establishing a basket of goods that a household need for an acceptable standard of living. Unlike relative measurement like LIHC, which rely on median-based threshold, MIS is more need-based oriented, ensuring the indicator captures households whose remaining income is inadequate for a decent quality of life. MIS reflects the actual costs faced by households, including rising energy prices, housing conditions, and changes in essential goods. This ensures that the measure is more responsive to real-world conditions, such as inflation or fluctuations in energy prices, compared to purely relative indicator. However, the MIS is data-intensive and gathering and maintaining the data can be more costly. Compare to measures like LIHC, the MIS requires detailed information about household spending needs, energy consumption patterns, and regional cost-of-living variations. This limitation makes it harder to implement at scale, especially in contexts where such detailed data may not be readily available.</p>
+<p>Expenditure-based methods provide a direct assessment of the financial burden of energy costs on households and the data required, such as household income and energy expenditure, are relatively straightforward to collect through surveys, which several governments have been executing for years. However, the limitations are also prominent as they may not be able to capture all dimension of energy poverty, such as the adequacy of energy services or the energy efficiency of homes. Most of the countries, except for UK, use actual energy expenditure instead of required spending, which is problematic since it fails to capture the self-restricting behavior, overlooking the most vulnerable group<span class="citation" data-cites="Moore2012DefinitionsOF">(Moore, 2012)</span>. On the other hand, theoretical cost can be more accurate but requires detailed data on housing energy efficiency, like UK’s housing condition surveys, which is not available for most countries.</p>
+<h2 id="energy-poverty-in-taiwan">Energy Poverty in Taiwan</h2>
+<p>Considered a developed economy, Taiwan shows distinctive energy transition path compare to other free market economies<span class="citation" data-cites="Chan2023EnergyPA">(Chan &amp; Delina, 2023)</span> due to the developmental state legacy<span class="citation" data-cites="Pien2023TheDS">(Pien et al., 2023)</span>. Path dependent on brown economy regime, Taiwan’s economy is characterized by high carbon emissions, cheap energy prices, and the dominance of energy-intensive industries, which makes it challenging to transition towards a more sustainable, low-carbon energy system<span class="citation" data-cites="Chou2023CarbonTI Kemp-Benedict2014ShiftingTA">(Chou &amp; Liou, 2023; Kemp-Benedict, 2014)</span>. Taiwan has undergone rapid industrialization and urbanization in recent decades, leading to a significant increase in energy demand<span class="citation" data-cites="Su2019ResidentialED Su2020ResidentialED">(Su, 2019, 2020)</span>.</p>
+<p>Building upon the developmental state heritage, Taiwan’s power supply is dominated by the state-owned Taiwan Power Company (Taipower), which has a monopoly on electricity generation, transmission, and distribution. Taiwan has achieved a very high rate of electricity access, however, it does not necessarily mean there are no issues with energy affordability and deprivation, especially for economically disadvantaged households. The energy billing system adopts progressive charging pricing method, charging higher rates per unit of energy as consumption increases, further exacerbating the difficulties experienced by disadvantaged groups. Lacking of access to energy efficient appliances, low-income households typically spend a higher proportion of their income on energy and have less flexibility to adjust their consumption patterns due to progressive charging rate.</p>
+<p>Taiwan is undergoing a significant energy transition, moving away from nuclear power towards greater reliance on natural gas and renewable energy sources. The Taiwan government has released the ambitious Net-Zero transition agenda by 2050, as nuclear power is phased out, LNG imports have increased<span class="citation" data-cites="ndc_2024">(National Development Council, 2024)</span>. While natural gas is cleaner than coal, it is more expensive and sensitive to price fluctuation, which can impact household energy costs even with Taipower trying to mitigate the price. The energy transition can intensity energy poverty by increasing costs and reducing supply reliability. To reflect the price increase due to unstable geopolitical situation, residential energy price has gone up. Households already struggling with energy costs may find it even harder to afford their needs during energy transition.</p>
+<p>The energy transition in Taiwan is likely to have significant socioeconomic implications, including potential job losses in traditional energy sectors and the need for retraining and support for affected workers and communities<span class="citation" data-cites="Chien2022AnIF">(Chien, 2022)</span>. Understanding the distributional impacts of these changes on vulnerable populations is crucial for designing inclusive energy policies. Taiwan is experiencing a rapidly aging population and changing household dynamics, with more single-person and elderly households<span class="citation" data-cites="Cheng2023TheCF">(Cheng, 2023)</span>. This demographic trend emphasize the relevance of further investigate the household vulnerability aspect. Previous research have discussed the crucial role of energy poverty in deciding household energy demand<span class="citation" data-cites="Su2020ResidentialED">(Su, 2020)</span>,</p>
+<p>Taiwan’s unique combination of historical, political, and socio-economic factors provides a rich context for examining the complexities of energy poverty. The interplay between the developmental state legacy, the ongoing energy transition, and specific household characteristics offers valuable insights for both policymakers and researchers. By exploring these aspects in detail, this research aims to contribute to a more comprehensive understanding of energy poverty and inform the development of more effective and equitable energy policies in Taiwan and beyond.</p>
+<p>Energy poverty in Taiwan is gaining increasing attention in academic field, however, the government has not formally recognize energy poverty as a problem distinct from general poverty. The current structure of the electricity market and socio-economic factors create unique vulnerabilities that need to be thoroughly understood to develop effective and equitable policies. To evaluate the vulnerability characteristics of energy poverty, we proposed hypotheses focusing on Taiwan’s household head’s characteristics and household structure.</p>
+<h3 id="household-heads-characteristics">Household Head’s Characteristics</h3>
+<p>Building on previous research on the relationship between household head’s and the risk of energy poverty, gender plays an important role in affecting the vulnerability. Energy poverty is a structural problem, when it comes to affordability issue, it is inevitable to face the gendered income inequalities. Female-headed households have poverty rate s almost twice as high as single/male-headed household in the US<span class="citation" data-cites="Sharma2023PovertyAG">(Sharma, 2023)</span>; this is largely due to the persistent gender wage gap. In societies with higher gender equality, the gender of the household head may be less indicative of energy poverty risk. However, in a more unequal settings, it can serve as a significant indicator of household dynamics and resource allocation, influencing vulnerability to energy poverty. Therefore, understanding the role of household head characteristics, particularly gender, is crucial in assessing and addressing energy poverty. In Taiwan, income disparities between male-headed and female-headed households remain significant. According to the 2021 Report on Family Income and Expenditure, male-headed households have a higher average disposable income (1,185,000 NTD) compared to female-headed households (880,000 NTD) <span class="citation" data-cites="DGBAS2022">(DGBAS, 2022)</span>. While per capita disposable income shows no significant difference when adjusting for household size, energy poverty calculations are traditionally based on a per-household basis. This suggests that female-headed households may be more vulnerable to energy poverty.</p>
+<blockquote>
+<p>Hypothesis 1: Female-headed households in Taiwan are more likely to experience energy poverty compared to male-headed households.</p>
+</blockquote>
+<h3 id="family-structure">Family Structure</h3>
+<p>Taiwan is facing an aging population and declining birth rate, leading to a decreasing size of households, from 3.4 in 2001 to 2.6 in 2021. Households of varying sizes may have different patterns of electricity usage and energy consumption, as the economies of scale play a crucial role in determining households’ energy consumption, larger households tend to be more energy-efficient per person due to the fixed-cost of energy services being distributed among to more individuals. This phenomenon is well-documented in the literature, and aligned with the findings in Taiwan<span class="citation" data-cites="Huang2015TheDO Su2020ResidentialED">(Huang, 2015; Su, 2020)</span>. Policy recommendations hence are more incline to target at smaller households as they consume more electricity per person in comparison to other family composition type for electricity conservation. While economies of scale significantly impact household energy consumption patterns, it is crucial to distinguish between energy consumption and energy poverty in Taiwan. Policy recommendations targeted at smaller households for electricity conservation may not adequately address the issue of energy poverty, which is closely related to affordability issue. From family structure perspective, energy poverty is not solely determined by household size but it is also influenced by the composition. Single individuals or larger households may face greater risk of energy poverty, even with economies of scale to offset some portion of energy use.</p>
+<blockquote>
+<p>Hypothesis 2.1: The risk of a household falling into energy poverty in Taiwan shows a non-linear relationship with household size, where the risk decreases as household size increases up to a certain point, after which the risk begins to rise again. </p>
+</blockquote>
+<blockquote>
+<p>Hypothesis 2.2: Certain household compositions are associated with a higher risk of energy poverty in Taiwan. Specifically, single-person households and skip-generation households (grandparents with grandchildren) are more likely to experience energy poverty compared to nuclear and extended families, due to factors like lower total income and less benefit from economies of scale.</p>
+</blockquote>
+<blockquote>
+<p>Hypothesis 2.3: Household composition moderates the non-linear relationship between household size and energy poverty risk. The decrease in energy poverty risk with increasing household size varies by composition, being more significant in nuclear families than in single-parent or skip-generation households.</p>
+</blockquote>
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+<div id="ref-Boardman1991FuelP" class="csl-entry" role="doc-biblioentry">
+Boardman, B. (1991). <em>Fuel poverty : From cold homes to affordable warmth</em>. <a href="https://api.semanticscholar.org/CorpusID:142746739">https://api.semanticscholar.org/CorpusID:142746739</a>
+</div>
+<div id="ref-Boardman2012FuelPS" class="csl-entry" role="doc-biblioentry">
+Boardman, B. (2012). Fuel poverty synthesis: Lessons learnt, actions needed. <em>Energy Policy</em>, <em>49</em>, 143–148. <a href="https://doi.org/10.1016/j.enpol.2012.02.035">https://doi.org/10.1016/j.enpol.2012.02.035</a>
+</div>
+<div id="ref-Bouzarovski2018UnderstandingEP" class="csl-entry" role="doc-biblioentry">
+Bouzarovski, S., &amp; Bouzarovski, S. (2018). Understanding energy poverty, vulnerability and justice. <em>Energy Poverty: (Dis) Assembling Europe’s Infrastructural Divide</em>, 9–39.
+</div>
+<div id="ref-Bouzarovski2016UnpackingTS" class="csl-entry" role="doc-biblioentry">
+Bouzarovski, S., Herrero, S. T., Petrova, S., &amp; Ürge-Vorsatz, D. (2016). Unpacking the spaces and politics of energy poverty: Path-dependencies, deprivation and fuel switching in post-communist hungary. <em>Local Environment</em>, <em>21</em>, 1151–1170. <a href="https://api.semanticscholar.org/CorpusID:154156944">https://api.semanticscholar.org/CorpusID:154156944</a>
+</div>
+<div id="ref-Bouzarovski2015AGP" class="csl-entry" role="doc-biblioentry">
+Bouzarovski, S., &amp; Petrova, S. (2015). A global perspective on domestic energy deprivation: Overcoming the energy poverty-fuel poverty binary. <em>Energy Research and Social Science</em>, <em>10</em>, 31–40.
+</div>
+<div id="ref-Bouzarovski2017SpatializingEJ" class="csl-entry" role="doc-biblioentry">
+Bouzarovski, S., &amp; Simcock, N. (2017). Spatializing energy justice. <em>Energy Policy</em>, <em>107</em>, 640–648.
+</div>
+<div id="ref-Brandon2024ASR" class="csl-entry" role="doc-biblioentry">
+Brandon, J. L., &amp; Bagnall, A. M. (2024). A systematic review to explore factors affecting participation in health research trials amongst underrepresented socio-economically disadvantaged populations in the UK and ireland. <em>medRxiv</em>. <a href="https://api.semanticscholar.org/CorpusID:273178429">https://api.semanticscholar.org/CorpusID:273178429</a>
+</div>
+<div id="ref-Chan2023EnergyPA" class="csl-entry" role="doc-biblioentry">
+Chan, C., &amp; Delina, L. L. (2023). Energy poverty and beyond: The state, contexts, and trajectories of energy poverty studies in asia. <em>Energy Research &amp;Amp; Social Science</em>.
+</div>
+<div id="ref-Cheng2023TheCF" class="csl-entry" role="doc-biblioentry">
+Cheng, Y. (2023). The changing face of intimate premarital relationships in taiwan. <em>Journal of Marriage and Family</em>.
+</div>
+<div id="ref-Chien2022AnIF" class="csl-entry" role="doc-biblioentry">
+Chien, K. (2022). An indigestible feast? A multi-scalar approach to the energy transition in taiwan. <em>Energy Research &amp; Social Science</em>.
+</div>
+<div id="ref-Chou2023CarbonTI" class="csl-entry" role="doc-biblioentry">
+Chou, K.-T., &amp; Liou, H. (2023). Carbon tax in taiwan: Path dependence and the high-carbon regime. <em>Energies</em>.
+</div>
+<div id="ref-Das2022QuantifyingTP" class="csl-entry" role="doc-biblioentry">
+Das, R. R., Martiskainen, M., &amp; Li, G. (2022). Quantifying the prevalence of energy poverty across canada: Estimating domestic energy burden using an expenditures approach. <em>The Canadian Geographer / Le Géographe Canadien</em>.
+</div>
+<div id="ref-DGBAS2022" class="csl-entry" role="doc-biblioentry">
+DGBAS. (2022). <em>The survey of family income and expenditure, 2021 (AA170046) [data file]</em> [Data set]. <a href="https://doi.org/10.6141/TW-SRDA-AA170046-1">https://doi.org/10.6141/TW-SRDA-AA170046-1</a>
+</div>
+<div id="ref-Guan2023BurdenOT" class="csl-entry" role="doc-biblioentry">
+Guan, Y., Yan, J., Shan, Y., Zhou, Y., Hang, Y., Li, R., Liu, Y., Liu, B., Nie, Q., Bruckner, B., Feng, K., &amp; Hubacek, K. (2023). Burden of the global energy price crisis on households. <em>Nature Energy</em>, <em>8</em>, 304–316.
+</div>
+<div id="ref-Guevara2022TheEO" class="csl-entry" role="doc-biblioentry">
+Guevara, Z., Espinosa, M., &amp; López-Corona, O. (2022). <em>The evolution of energy poverty theory: A scientometrics approach</em>.
+</div>
+<div id="ref-Hafner2020TheGO" class="csl-entry" role="doc-biblioentry">
+Hafner, M., &amp; Tagliapietra, S. (2020). <em>The geopolitics of the global energy transition</em>.
+</div>
+<div id="ref-Heindl2013MeasuringFP" class="csl-entry" role="doc-biblioentry">
+Heindl, P. (2013). <em>Measuring fuel poverty: General considerations and application to german household data</em>.
+</div>
+<div id="ref-Herrejón2023LivingWE" class="csl-entry" role="doc-biblioentry">
+Herrejón, P. V., Lennon, B., &amp; Dunphy, N. (2023). <em>Living with energy poverty</em>.
+</div>
+<div id="ref-Herrero2017EnergyPI" class="csl-entry" role="doc-biblioentry">
+Herrero, S. (2017). Energy poverty indicators: A critical review of methods. <em>Indoor and Built Environment</em>, <em>26</em>, 1018–1031.
+</div>
+<div id="ref-Hills2012GettingTM" class="csl-entry" role="doc-biblioentry">
+Hills, J. (2012). <em>Getting the measure of fuel poverty: Final report of the fuel poverty review</em>.
+</div>
+<div id="ref-Hostettler2015EnergyCI" class="csl-entry" role="doc-biblioentry">
+Hostettler, S. (2015). <em>Energy challenges in the global south</em>. 3–9.
+</div>
+<div id="ref-Huang2015TheDO" class="csl-entry" role="doc-biblioentry">
+Huang, W.-H. (2015). The determinants of household electricity consumption in taiwan: Evidence from quantile regression. <em>Energy</em>, <em>87</em>, 120–133.
+</div>
+<div id="ref-Isherwood1979" class="csl-entry" role="doc-biblioentry">
+Isherwood, R. M., &amp; Hancock, B. C. (1979). <em>Household expenditure on fuel: Distributional aspects</em>. Economic Adviser’s Office, DHSS.
+</div>
+<div id="ref-Jessel2019EnergyPA" class="csl-entry" role="doc-biblioentry">
+Jessel, S., Sawyer, S., &amp; Hernández, D. (2019). Energy, poverty, and health in climate change: A comprehensive review of an emerging literature. <em>Frontiers in Public Health</em>, <em>7</em>.
+</div>
+<div id="ref-Kemp-Benedict2014ShiftingTA" class="csl-entry" role="doc-biblioentry">
+Kemp-Benedict, E. (2014). <em>Shifting to a green economy: Lock-in, path dependence, and policy options</em>.
+</div>
+<div id="ref-Kumar2019EnergyPI" class="csl-entry" role="doc-biblioentry">
+Kumar, P., Rao, S., &amp; Yadama, G. (2019). Energy poverty in india. <em>Encyclopedia of Social Work</em>.
+</div>
+<div id="ref-Li2014EnergyPO" class="csl-entry" role="doc-biblioentry">
+Li, K., Lloyd, B., Liang, X.-J., &amp; Wei, Y.-M. (2014). Energy poor or fuel poor: What are the differences? <em>Energy Policy</em>, <em>68</em>, 476–481.
+</div>
+<div id="ref-Liu2023SpilloverEA" class="csl-entry" role="doc-biblioentry">
+Liu, D., Liu, X., Guo, K., Ji, Q., &amp; Chang, Y. (2023). Spillover effects among electricity prices, traditional energy prices and carbon market under climate risk. <em>International Journal of Environmental Research and Public Health</em>, <em>20</em>.
+</div>
+<div id="ref-Longe2021AnAO" class="csl-entry" role="doc-biblioentry">
+Longe, O. M. (2021). An assessment of the energy poverty and gender nexus towards clean energy adoption in rural south africa. <em>Energies</em>.
+</div>
+<div id="ref-Mastrucci2019ImprovingTS" class="csl-entry" role="doc-biblioentry">
+Mastrucci, A., Byers, E., Pachauri, S., &amp; Rao, N. D. (2019). Improving the SDG energy poverty targets: Residential cooling needs in the global south. <em>Energy and Buildings</em>.
+</div>
+<div id="ref-Middlemiss2022WhoIV" class="csl-entry" role="doc-biblioentry">
+Middlemiss, L. (2022). Who is vulnerable to energy poverty in the global north, and what is their experience? <em>Wiley Interdisciplinary Reviews: Energy and Environment</em>, <em>11</em>.
+</div>
+<div id="ref-Monyei2018ExaminingES" class="csl-entry" role="doc-biblioentry">
+Monyei, C., Jenkins, K. E. H., Serestina, V., &amp; Adewumi, A. (2018). Examining energy sufficiency and energy mobility in the global south through the energy justice framework. <em>Energy Policy</em>, <em>119</em>, 68–76.
+</div>
+<div id="ref-Moore2012DefinitionsOF" class="csl-entry" role="doc-biblioentry">
+Moore, R. (2012). Definitions of fuel poverty: Implications for policy. <em>Energy Policy</em>, <em>49</em>, 19–26.
+</div>
+<div id="ref-ndc_2024" class="csl-entry" role="doc-biblioentry">
+National Development Council. (2024). <em>Taiwan’s pathway to net-zero emissions in 2050</em>. <a href="https://www.ndc.gov.tw/en/Content_List.aspx?n=B154724D802DC488">https://www.ndc.gov.tw/en/Content_List.aspx?n=B154724D802DC488</a>
+</div>
+<div id="ref-Niez2010ComparativeSO" class="csl-entry" role="doc-biblioentry">
+Niez, A. (2010). <em>Comparative study on rural electrification policies in emerging economies: Keys to successful policies</em>.
+</div>
+<div id="ref-Njiru2018EnergyPA" class="csl-entry" role="doc-biblioentry">
+Njiru, C., &amp; Letema, S. (2018). Energy poverty and its implication on standard of living in kirinyaga, kenya. <em>Journal of Energy</em>.
+</div>
+<div id="ref-Phimister2015TheDO" class="csl-entry" role="doc-biblioentry">
+Phimister, E., Vera-Toscano, E., &amp; Roberts, D. (2015). The dynamics of energy poverty: Evidence from spain. <em>Economics of Energy and Environmental Policy</em>, <em>4</em>, 153–166.
+</div>
+<div id="ref-Pien2023TheDS" class="csl-entry" role="doc-biblioentry">
+Pien, C., Chao, C., &amp; Chou, K. (2023). The developmental state’s legacy and corporate carbon emission performance: Evidence from taiwanese firms between 2014 and 2018. <em>Climate and Development</em>. <a href="https://api.semanticscholar.org/CorpusID:265598091">https://api.semanticscholar.org/CorpusID:265598091</a>
+</div>
+<div id="ref-Riva2023EnergyPA" class="csl-entry" role="doc-biblioentry">
+Riva, M., Makasi, S. K., O’Sullivan, K., Das, R. R., Dufresne, P., Kaiser, D., &amp; Breau, S. (2023). Energy poverty: An overlooked determinant of health and climate resilience in canada. <em>Canadian Journal of Public Health = Revue Canadienne de Santé Publique</em>, <em>114</em>, 422–431.
+</div>
+<div id="ref-Robinson2019EnergyPA" class="csl-entry" role="doc-biblioentry">
+Robinson, C. (2019). Energy poverty and gender in england: A spatial perspective. <em>Geoforum</em>.
+</div>
+<div id="ref-Samarakoon2019AJA" class="csl-entry" role="doc-biblioentry">
+Samarakoon, S. (2019). A justice and wellbeing centered framework for analysing energy poverty in the global south. <em>Ecological Economics</em>.
+</div>
+<div id="ref-Sánchez-Guevara2019AssessingPV" class="csl-entry" role="doc-biblioentry">
+Sánchez-Guevara, C., Peiró, M. N., Taylor, J., Mavrogianni, A., &amp; González, J. N. (2019). Assessing population vulnerability towards summer energy poverty: Case studies of madrid and london. <em>Energy and Buildings</em>.
+</div>
+<div id="ref-Schuessler2014EnergyPI" class="csl-entry" role="doc-biblioentry">
+Schuessler, R. (2014). Energy poverty indicators: Conceptual issues - part i: The ten-percent-rule and double median/mean indicators. <em>ERN: Environmental Studies (Topic)</em>.
+</div>
+<div id="ref-Sen1976PovertyAO" class="csl-entry" role="doc-biblioentry">
+Sen, A. (1976). Poverty: An ordinal approach to measurement. <em>Econometrica</em>, <em>44</em>, 219–231.
+</div>
+<div id="ref-Sharma2023PovertyAG" class="csl-entry" role="doc-biblioentry">
+Sharma, M. (2023). Poverty and gender: Determinants of female- and male-headed households with children in poverty in the USA, 2019. <em>Sustainability</em>.
+</div>
+<div id="ref-Su2019ResidentialED" class="csl-entry" role="doc-biblioentry">
+Su, Y.-W. (2019). Residential electricity demand in taiwan: Consumption behavior and rebound effect. <em>Energy Policy</em>.
+</div>
+<div id="ref-Su2020ResidentialED" class="csl-entry" role="doc-biblioentry">
+Su, Y.-W. (2020). Residential electricity demand in taiwan: The effects of urbanization and energy poverty. <em>Journal of the Asia Pacific Economy</em>, <em>25</em>, 733–756.
+</div>
+<div id="ref-Thomson2017RethinkingTM" class="csl-entry" role="doc-biblioentry">
+Thomson, H., Bouzarovski, S., &amp; Snell, C. (2017). Rethinking the measurement of energy poverty in europe: A critical analysis of indicators and data. <em>Indoor + Built Environment</em>, <em>26</em>, 879–901.
+</div>
+<div id="ref-Zapata-Webborn2024WinterDF" class="csl-entry" role="doc-biblioentry">
+Zapata-Webborn, E., Hanmer, C., Oreszczyn, T., Huebner, G., McKenna, E., Few, J., Elam, S., Pullinger, M., Cheshire, C., Friel, D., Masters, H., &amp; Whittaker, A. (2024). Winter demand falls as fuel bills rise: Understanding the energy impacts of the cost-of-living crisis on british households. <em>Energy and Buildings</em>.
+</div>
+</div>
+
+<div id="tocChap">
+    <ul class="chapter-toc">
+        <li v-for="f, i in files">
+            <a :href="f" :class="{ active: currFile == f }">
+                {{ names[i] }}
+            </a>
+        </li>
+    </ul>
+
+    <ul class="external-links">
+        <template v-if="github != null">
+            <li><a :href="github.overleaf" target="_blank">
+                <img src="https://img.yongfu.name/org/overleaf.png" style="height:.7em;"> PDF
+            </a></li>
+            <li><a :href="github.repo" target="_blank">
+                <img src="https://img.yongfu.name/org/github.png" style="height:.7em;"> Source
+            </a></li>
+        </template>
+        <template v-else>
+            <li><span class="disabled">
+                <img src="https://img.yongfu.name/org/overleaf.png" style="height:.7em;"> PDF
+            </span></li>
+            <li><span class="disabled">
+                <img src="https://img.yongfu.name/org/github.png" style="height:.7em;"> Source
+            </span></li>
+        </template>
+    </ul>
+
+
+    <div class="prev-next-nav">
+        <a v-if="prevIndex != null" :href="files[prevIndex]">
+            <button>« {{names[prevIndex]}}</button>
+        </a>
+        <button v-else disabled>« Main</button>
+        <a v-if="nextIndex != null" :href="files[nextIndex]">
+            <button>{{names[nextIndex]}} »</button>
+        </a>
+        <button v-else disabled>End »</button>
+    </div>
+
+</div>
+
+<!-- development version, includes helpful console warnings -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<script>
+    var app = new Vue({
+        el: '#tocChap',
+        data: {
+            files: [],
+            names: [],
+            files_str: "",
+        },
+        computed: {
+            currFile() {
+                let ch = window.location.href.replace(window.location.hash, "").split("/");
+                ch = ch[ch.length - 1]
+                if (ch == "") return "index.html"
+                return ch
+            },
+            currIndex() {
+                return this.files.indexOf(this.currFile)
+            },
+            prevIndex() {
+                if (this.currIndex == 0) return null
+                return (this.currIndex - 1)
+            },
+            nextIndex() {
+                if (this.currIndex == this.files.length - 1) return null
+                return (this.currIndex + 1)
+            },
+            github() {
+                if (!window.location.origin.startsWith("http")) return null
+                if (!window.location.origin.includes('github.io')) 
+                    return {"repo": "https://github.com/liao961120/thesis", "overleaf": "https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://liao961120.github.io/thesis/overleaf.zip"}
+                let user = window.location.origin.replace(".github.io", "").replace("https://", "").replace("http://", "");
+                let repo = window.location.href.replace(window.location.origin, "").split("/")[1];
+                let repo_url = `https://github.com/${user}/${repo}`;
+                let overleaf = `https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://${user}.github.io/${repo}/overleaf.zip`
+                return {"repo": repo_url, "overleaf": overleaf}
+            }
+        },
+        created: function () {
+            this.files = get_files().split("__");
+            this.files.pop();
+            this.names = this.files.map(fp => {
+                fp = fp.replace(".html", "");
+                if (fp == "index") return "Main";
+                if (fp.startsWith('appendix')) {
+                    fp = fp.split('-');
+                    let ap = (fp[1] == null) ? "" : fp[1];
+                    return `Appendix ${ap}`
+                }
+                if (fp.match(/^\d+-/)) {
+                    fp = fp.split("-");
+                    fp = parseInt(fp[0], 10);
+                    return `Chapter ${fp}`
+                }
+                return fp
+            })
+
+        }
+    })
+
+    function get_files() {
+        return 'index.html__01-Introduction.html__02-LiteratureReview.html__03-Methodology.html__04-Results.html__05-Conclusion.html__appendix-A.html__appendix-B.html__';
+    };
+</script>
+
+<style>
+    #tocChap ul {
+        list-style-type: none;
+        padding-left: 1.2em;
+    }
+    #tocChap ul li {
+        line-height: 1.5em;
+    }
+    #tocChap ul a:hover {
+        text-decoration: underline;
+    }
+    #tocChap ul a {
+        text-decoration: none;
+    }
+    #tocChap ul a.active {
+        pointer-events: none;
+        color: rgb(54, 179, 54);
+        text-decoration: none;
+    }
+    #tocChap ul.chapter-toc {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        margin: 0;
+    }
+    #tocChap ul.external-links {
+        position: fixed;
+        bottom: 15px;
+        left: 0;
+        margin: 0;
+        font-size: 0.8em;
+    }
+    #tocChap .disabled {
+        color: grey;
+        cursor: pointer;
+    }
+    #tocChap .prev-next-nav {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 2em auto 0;
+        padding: 0 auto;
+        text-align: center
+    }
+    #tocChap .prev-next-nav button {
+        height: 2.3em;
+        border: none;
+        background-color: greenyellow;
+        border-radius: 0.4em;
+    }
+    #tocChap .prev-next-nav button:hover {
+        background-color: rgb(95, 255, 47);
+        cursor: pointer;
+    }
+    #tocChap button:disabled:hover,
+    #tocChap button:disabled {
+        background-color: rgb(221, 221, 221);
+        color: rgb(139, 139, 139);
+    }
+    #tocChap button a:hover {
+        text-decoration: none;
+    }
+</style>
+<nav class="js-toc toc toc-right relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+
+<script>
+    // Insert title for references
+    let ref = document.querySelector("#refs");
+    if (ref != null) {
+        let title = document.createElement("h2");
+        title.innerText = "References";
+        title.className = "unnumbered";
+        title.id = "chapter-references";
+        ref.parentElement.insertBefore(title, ref);
+    }
+
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: 'body',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3',
+        ignoreSelector: 'h1.title',
+        collapseDepth: '6',
+        // // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+<style>
+    .js-toc {
+        font-size: 0.85em;
+        position: fixed;
+        right: 0;
+        top: 0;
+        margin-top: 50px;
+        margin-right: 0;
+        width: 20%;
+        min-width: 200px;
+    }
+    .toc-list > li {
+        padding: 0.35em 0;
+        margin: 0;
+        
+    }
+    .toc-list > li a {
+        text-decoration: none;
+    }
+    @media only screen and (max-width: 1050px) {
+        .js-toc,
+        #tocChap ul {
+            display: none !important;
+        }
+    }
+    @media print {
+        .js-toc,
+        #tocChap {
+            display: none !important;
+        }
+    }
+</style>
+
+  <script>
+    // Get chapter name
+    let ch = window.location.href.split("/");
+    ch = ch[ch.length - 1].split('-')
+    ap = "A"
+    if (ch[1] != null) ap = ch[1]
+    ap = ap.replace(/\.html$/, "")  // Note the anchor escape for Pandoc
+
+    // Initialize counter
+    var style1, style2, style3;
+    style1 = document.querySelector('h1').style;
+    if (ch[0] == "appendix")
+      style1.setProperty('--h1before', '"Appendix "' + '"' + ap + '"' + ' " "');
+    else
+      style1.setProperty('--h1before', '"Chapter " counter(chapter) " "');
+
+    document.querySelectorAll('h2').forEach(e => {
+      if (ch[0] == "appendix")
+        e.style.setProperty('--h2before', '"' + ap + '"' + '"."counter(section) " "');
+      else
+        e.style.setProperty('--h2before', 'counter(chapter)"."counter(section) " "');
+    })
+    document.querySelectorAll('h3').forEach(e => {
+      if (ch[0] == "appendix")
+        e.style.setProperty('--h3before', '"' + ap + '"' + '"."counter(section)"."counter(subsection) " "');
+      else
+        e.style.setProperty('--h3before', 'counter(chapter)"."counter(section)"."counter(subsection) " "');
+    })
+
+    // Set counter for numeric chapters
+    ch = parseInt(ch[0], 10);
+    if (!isNaN(ch)) {
+      document.querySelector("title").innerText = 'Chap.' + ch + ' ' + document.querySelector("h1").innerText;
+      document.querySelector("body").style.counterReset = "chapter " + (ch - 1);
+    } else {
+      document.querySelector("title").innerText = document.querySelector("h1").innerText;
+      document.querySelector("body").style.counterReset = "chapter";
+    }
+  </script>
+
+  <style>
+    /* Set counter */
+    body {
+      counter-reset: chapter;
+    }
+
+    h1 {
+      counter-reset: section;
+    }
+    h2:before,
+    h3::before {
+      display: inline-block;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 0.85em;
+      margin-right: 0.7em;
+      text-decoration: underline 3px;
+    }
+    h1:before {
+      display: block;
+      counter-increment: chapter;
+      content: var(--h1before);
+      font-weight: bold;
+      font-size: 0.57em;
+      margin-bottom: 0.15em;
+      font-family: Alegreya, 'Times New Roman', Times, serif;
+      font-style: italic;
+      text-align: left;
+    }
+    h2 {
+      counter-reset: subsection;
+    }
+    h2:before {
+      counter-increment: section;
+      content: var(--h2before);
+    }
+    h3:before {
+      counter-increment: subsection;
+      content: var(--h3before);
+    }
+    .unnumbered::before {
+      display: none;
+    }
+    .appendix.unnumbered::before {
+      display: block;
+    }
+
+    /* Heading styles */
+    h1, h2 {
+    font-size: 1.4em;
+    border-bottom: 1px solid;
+    }
+    h1:not(.title) {
+        /* border-top: 1px solid; */
+        border-bottom: 2px solid;
+        text-align: left;
+        padding-top: 0.15em;
+    }
+    h2::before {
+        text-decoration: none!important;
+        border-bottom: 4px solid;
+        vertical-align: bottom !important;
+    }
+    h1 {
+        font-size: 1.7em;
+        text-align: left;
+    }
+  </style>
+
+
+</body>
+
+</html>
