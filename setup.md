@@ -4,7 +4,7 @@ degree       : "master"   # master | doctor
 language     : "english"  # chinese | english
 # variables
 university-en: "National Taiwan University"
-university   : "國立臺灣大學"
+university   : "國立臺灣大學test"
 college      : "社會科學院"
 college-en   : "College of Social Science"
 institute    : "國家發展研究所"
