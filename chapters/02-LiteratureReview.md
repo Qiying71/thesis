@@ -33,7 +33,12 @@ Expenditure-based approaches are the most widely used method for quantifying ene
 
 % tbl:ep-calculation
 
-The table @tbl:ep-calculation,  
+Table: Caption for the placeholder table. {#tbl:ep-calculation}
+| Header 1 | Header 2 |
+|----------|----------|
+| Cell 1   | Cell 2   |
+
+The [table](#tbl:ep-calculation),  
 
 The TPR was proposed by Boardman in 1991 on fuel poverty in the UK, defining it as "the inability to afford warmth". To determine the "affordable" energy cost, Boardman proposed the ten percent threshold, suggesting that households spending more than this proportion are experiencing "undue financial hardship", hence requiring assistance. @Boardman1991FuelP explored the multifaceted issue through several aspects, identifying that inadequate housing condition, low incomes, and high energy cost are the primary drivers. Attaining adequate warmth is contingent upon the energy efficiency of the home and heating system, not just income levels, meaning even households with income above the poverty line could experience fuel poverty if living in energy-inefficient housing with high heating cost. Solely focusing on income-based solutions may appear beneficial in the short term, but it would be costly and insufficient to address the underlying problem of energy-inefficient housing in the long run.
 
