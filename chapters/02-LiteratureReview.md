@@ -31,15 +31,14 @@ To properly address the issue of energy poverty, measuring is vital yet difficul
 
 Expenditure-based approaches are the most widely used method for quantifying energy poverty, which assess the ratio of a household’s income to its energy expenditure to determine whether the household falls into energy poverty. We hereby examine five main indicators of energy poverty: Ten Percent Rule (TPR), Low-income High Cost (LIHC), Minimum Income Standard (MIS), Double Median (2M), and Half Median (M/2).
 
-% tbl:ep-calculation
 
-Table: Caption for the placeholder table {#tbl:ep-calculation}
 
 
 | Header 1 | Header 2 |
 |----------|----------|
 | Cell 1   | Cell 2   |
 
+Table: energy poverty calculation {#tbl:ep-calculation}
 
 
 The [table](#tbl:ep-calculation),  
