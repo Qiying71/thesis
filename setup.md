@@ -21,7 +21,7 @@ oral-date    : "2025-01-07"
 html-date    : "Dec. 09, 2024"
 DOI          : "10.5566/NTU2024XXXXX"
 keywords     : "淨零轉型, 能源貧窮, 低收入高支出, 家庭收支調查, 多層次分析"
-keywords-en  : "energy transition, energy poverty, LIHC, SFIE, GLMM"
+keywords-en  : "net-zero transition, energy poverty, LIHC, SFIE, GLMM"
 # Acknowledgement
 acknowledgement-in-en: true  # true for english
 acknowledgement: | 
