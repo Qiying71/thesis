@@ -1,0 +1,174 @@
+<div id="tocChap">
+    <ul class="chapter-toc">
+        <li v-for="f, i in files">
+            <a :href="f" :class="{ active: currFile == f }">
+                {{ names[i] }}
+            </a>
+        </li>
+    </ul>
+
+    <ul class="external-links">
+        <template v-if="github != null">
+            <li><a :href="github.overleaf" target="_blank">
+                <img src="https://img.yongfu.name/org/overleaf.png" style="height:.7em;"> PDF
+            </a></li>
+            <li><a :href="github.repo" target="_blank">
+                <img src="https://img.yongfu.name/org/github.png" style="height:.7em;"> Source
+            </a></li>
+        </template>
+        <template v-else>
+            <li><span class="disabled">
+                <img src="https://img.yongfu.name/org/overleaf.png" style="height:.7em;"> PDF
+            </span></li>
+            <li><span class="disabled">
+                <img src="https://img.yongfu.name/org/github.png" style="height:.7em;"> Source
+            </span></li>
+        </template>
+    </ul>
+
+
+    <div class="prev-next-nav">
+        <a v-if="prevIndex != null" :href="files[prevIndex]">
+            <button>« {{names[prevIndex]}}</button>
+        </a>
+        <button v-else disabled>« Main</button>
+        <a v-if="nextIndex != null" :href="files[nextIndex]">
+            <button>{{names[nextIndex]}} »</button>
+        </a>
+        <button v-else disabled>End »</button>
+    </div>
+
+</div>
+
+<!-- development version, includes helpful console warnings -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<script>
+    var app = new Vue({
+        el: '#tocChap',
+        data: {
+            files: [],
+            names: [],
+            files_str: "",
+        },
+        computed: {
+            currFile() {
+                let ch = window.location.href.replace(window.location.hash, "").split("/");
+                ch = ch[ch.length - 1]
+                if (ch == "") return "index.html"
+                return ch
+            },
+            currIndex() {
+                return this.files.indexOf(this.currFile)
+            },
+            prevIndex() {
+                if (this.currIndex == 0) return null
+                return (this.currIndex - 1)
+            },
+            nextIndex() {
+                if (this.currIndex == this.files.length - 1) return null
+                return (this.currIndex + 1)
+            },
+            github() {
+                if (!window.location.origin.startsWith("http")) return null
+                if (!window.location.origin.includes('github.io')) 
+                    return {"repo": "https://github.com/liao961120/thesis", "overleaf": "https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://liao961120.github.io/thesis/overleaf.zip"}
+                let user = window.location.origin.replace(".github.io", "").replace("https://", "").replace("http://", "");
+                let repo = window.location.href.replace(window.location.origin, "").split("/")[1];
+                let repo_url = `https://github.com/${user}/${repo}`;
+                let overleaf = `https://www.overleaf.com/docs?engine=xelatex&main_document=main.tex&snip_uri=https://${user}.github.io/${repo}/overleaf.zip`
+                return {"repo": repo_url, "overleaf": overleaf}
+            }
+        },
+        created: function () {
+            this.files = get_files().split("__");
+            this.files.pop();
+            this.names = this.files.map(fp => {
+                fp = fp.replace(".html", "");
+                if (fp == "index") return "Main";
+                if (fp.startsWith('appendix')) {
+                    fp = fp.split('-');
+                    let ap = (fp[1] == null) ? "" : fp[1];
+                    return `Appendix ${ap}`
+                }
+                if (fp.match(/^\d+-/)) {
+                    fp = fp.split("-");
+                    fp = parseInt(fp[0], 10);
+                    return `Chapter ${fp}`
+                }
+                return fp
+            })
+
+        }
+    })
+
+    function get_files() {
+        return 'ANCHOR.TOCCHAP';
+    };
+</script>
+
+<style>
+    #tocChap ul {
+        list-style-type: none;
+        padding-left: 1.2em;
+    }
+    #tocChap ul li {
+        line-height: 1.5em;
+    }
+    #tocChap ul a:hover {
+        text-decoration: underline;
+    }
+    #tocChap ul a {
+        text-decoration: none;
+    }
+    #tocChap ul a.active {
+        pointer-events: none;
+        color: rgb(54, 179, 54);
+        text-decoration: none;
+    }
+    #tocChap ul.chapter-toc {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        margin: 0;
+    }
+    #tocChap ul.external-links {
+        position: fixed;
+        bottom: 15px;
+        left: 0;
+        margin: 0;
+        font-size: 0.8em;
+    }
+    #tocChap .disabled {
+        color: grey;
+        cursor: pointer;
+    }
+    #tocChap .prev-next-nav {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 2em auto 0;
+        padding: 0 auto;
+        text-align: center
+    }
+    #tocChap .prev-next-nav button {
+        height: 2.3em;
+        border: none;
+        background-color: greenyellow;
+        border-radius: 0.4em;
+    }
+    #tocChap .prev-next-nav button:hover {
+        background-color: rgb(95, 255, 47);
+        cursor: pointer;
+    }
+    #tocChap button:disabled:hover,
+    #tocChap button:disabled {
+        background-color: rgb(221, 221, 221);
+        color: rgb(139, 139, 139);
+    }
+    #tocChap button a:hover {
+        text-decoration: none;
+    }
+</style>

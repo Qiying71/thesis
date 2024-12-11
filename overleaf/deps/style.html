@@ -1,0 +1,128 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-size: 20px;
+    line-height: 1.38;
+    max-width: 38em;
+}
+h1.title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    font-size: 2.2rem;
+}
+p.subtitle {
+    font-size: 1.35em;
+    font-style: italic;
+    margin-top: 0em;
+}
+p.author, p.date {
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 0.2em auto;
+}
+header {
+    margin-bottom: 2.5em;
+    margin-top: 0;
+}
+h2#toc-title {
+    margin-bottom: 0.35em;
+    font-size: 1.2em;
+}
+nav#TOC ul {
+    line-height: 1.1;
+    margin-top: 0;
+}
+p:not(.title, .author, .date) {
+    text-align: justify;
+}
+.footnotes p {
+    text-align: left;
+}
+div.keywords .k-title {
+    font-weight: bold;
+    margin-right: .13rem;
+}
+div.keywords .k-words {
+    /* font-style: italic; */
+}
+blockquote p {
+    text-align: left;
+    font-style: italic;
+}
+table thead {
+    text-align: left;
+}
+table:not(.linguistic-example) {
+    display: table;
+    width: 88%;
+    min-width: 380px;
+    margin: 1em auto 1.8em auto;
+    font-size: 0.9em;
+}
+table caption {
+    width: 75%;
+    min-width: 380px;
+    text-align: center;
+    margin: 0 auto 0.2em auto;
+    font-size: 0.95em;
+}
+table.linguistic-example tbody,
+table.linguistic-example tr,
+table.linguistic-example td {
+    border: 0px solid transparent !important;
+}
+/* Code block styles */
+pre.sourceCode {
+    background: rgba(236, 236, 236, 0.808);
+    padding: 0.25em 0.55em;
+    border-radius: 0.25em;
+    line-height: 1.25em;
+    font-size: 0.95em;
+}
+div.listing > p {
+    text-align: center;
+}
+/* Fonts */
+/* Regular (宋體/明體) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local('LiSong Pro'), local('儷宋 Pro'), local('NotoSerifCJK-Regular'), local('Noto Serif CJK TC Regular'), local('Noto Serif CJK TC'), local('細明體'), local('MingLiU'), local('新細明體'), local('PMingLiU');
+}
+/* Bold (黑體粗) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local("PingFang-TC-Bold"), local("PingFang TC bold"), local('NotoSansCJK-Bold'), local('Noto Sans CJK TC Bold'), local('Taipei Sans TC Bold'), local('TaipeiSansTCBeta-Bold'), local('Microsoft JhengHei Bold'), local('Microsoft-JhengHei-Bold'), local('微軟正黑體粗體'), local('微軟正黑體'), local('Microsoft JhengHei');
+    font-weight: bold;
+}
+/* Italic (楷體) */
+@font-face {
+    font-family: "Chinese-Custom";
+    src: local("TW-Kai-98_1"), local("教育部標準楷書"), local("kai-pc"), local("CMEXc1"), local("Biaukai"), local("MOEDICT-IOS-KAI"), local("DFKaiShu-SB-Estd-BF"), local("全字庫正楷體"), local("Kaiti TC"), local("楷體-繁"), local('標楷體'), local('Kaiti'), local("文鼎ＰＬ新中楷"), local("cwtext 楷書"), local("HanaMinA"), local("HanaMinB"), local("HAN NOM A"), local("HAN NOM B"), local("Han Kaiti CNS"), local('AR PL KaitiM Big5'), local("cursive");
+    font-style: italic;
+}
+/* 黑體 Regular */
+@font-face {
+    font-family: "Chinese-Custom-sans";
+    src: local("PingFang-TC-Regular"), local("PingFang TC regular"), local('蘋果儷中黑'), local('Apple LiGothic Medium'), local('NotoSansCJK-Regular'), local('Noto Sans CJK TC Regular'), local('TaipeiSansTCBeta-Regular'), local('Taipei Sans TC Regular'), local('Taipei Sans TC'), local('Microsoft JhengHei'), local('微軟正黑體');
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Alegreya', "Chinese-Custom", sans-serif;
+    font-weight: bold;
+}
+nav, #tocChap, p.date {
+    font-family: 'Alegreya', "Chinese-Custom-sans", serif;
+}
+body{
+    font-family: FreeSerif, 'Times New Roman', Libertine, 'PT Serif', "Chinese-Custom", Times, serif;
+}
+
+
+div.output {
+    /* Jupyter notebook output */
+    color: gray;
+}
+</style>
+<link rel="stylesheet" href="custom.css">
+
