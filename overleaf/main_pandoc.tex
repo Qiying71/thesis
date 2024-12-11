@@ -1,0 +1,1595 @@
+% !TEX TS-program = xelatex
+% !BIB program = bibtex
+% !TEX encoding = UTF-8 Unicode
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+
+\documentclass[
+  twoside,
+  openright,
+  degree    = master,               % degree = master | doctor
+  language  = english,              % language = chinese | english
+  fontset   = overleaf,             % fontset = default | template | system | overleaf
+  watermark = true,                 % watermark = true | false
+  doi       = true,                 % doi = true | false
+]{ntuthesis}
+
+% !TeX root = ./main.tex
+
+% --------------------------------------------------
+% 資訊設定（Information Configs）
+% --------------------------------------------------
+
+\ntusetup{
+  university*   = {National Taiwan University},
+  university    = {國立臺灣大學},
+  college       = {社會科學院},
+  college*      = {College of Social Science},
+  institute     = {國家發展研究所},
+  institute*    = {Graduate Institute of National Development},
+  title         = {淨零轉型下臺灣能源貧窮家戶特徵分析},
+  title*        = {Toward Net-Zero: Examining Household Characteristics
+and the Risk of Energy Poverty under Taiwan's Energy Transition},
+  author        = {吳齊穎},
+  author*       = {Chiying Wu},
+  ID            = {R10341027},
+  advisor       = {林竣達},
+  advisor*      = {Jiunda Lin},
+  date          = {2024-12-09},
+  oral-date     = {2025-01-07},
+  DOI           = {10.5566/NTU2024XXXXX},
+  keywords      = {淨零轉型, 能源貧窮, 低收入高支出, 家庭收支調查,
+多層次分析},
+  keywords*     = {net-zero transition, energy poverty, LIHC, SFIE,
+GLMM}
+}
+
+% \usepackage[sort&compress]{natbib}      % 參考文獻
+\usepackage{amsmath, amsthm, amssymb}   % 數學環境
+% \usepackage{ulem, CJKulem}              % 下劃線、雙下劃線與波浪紋效果
+\usepackage{booktabs}                   % 改善表格設置
+\usepackage{multirow}                   % 合併儲存格
+\usepackage{diagbox}                    % 插入表格反斜線
+\usepackage{array}                      % 調整表格高度
+\usepackage{longtable}                  % 支援跨頁長表格
+\usepackage{paralist}                   % 列表環境
+
+%%%%%%%%%%%% Pandoc Preamble %%%%%%%%%%%%%%
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+% \makeatletter
+% \@ifundefined{KOMAClassName}{% if non-KOMA class
+%   \IfFileExists{parskip.sty}{%
+%     \usepackage{parskip}
+%   }{% else
+%     \setlength{\parindent}{0pt}
+%     \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+% }{% if KOMA class
+%   \KOMAoptions{parskip=half}}
+% \makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+% \newenvironment{Shaded}{}{}
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{multirow}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\makeatletter
+% \@ifpackageloaded{subfig}{}{\usepackage{subfig}}
+% \@ifpackageloaded{caption}{}{\usepackage{caption}}
+\captionsetup[subfloat]{margin=0.5em}
+\newcounter{pandoccrossref@subfigures@footnote@counter}
+\newenvironment{pandoccrossrefsubfigures}{%
+\setcounter{pandoccrossref@subfigures@footnote@counter}{0}
+\begin{figure}\centering%
+\gdef\global@pandoccrossref@subfigures@footnotes{}%
+\DeclareRobustCommand{\footnote}[1]{\footnotemark%
+\stepcounter{pandoccrossref@subfigures@footnote@counter}%
+\ifx\global@pandoccrossref@subfigures@footnotes\empty%
+\gdef\global@pandoccrossref@subfigures@footnotes{{##1}}%
+\else%
+\g@addto@macro\global@pandoccrossref@subfigures@footnotes{, {##1}}%
+\fi}}%
+{\end{figure}%
+\addtocounter{footnote}{-\value{pandoccrossref@subfigures@footnote@counter}}
+\@for\f:=\global@pandoccrossref@subfigures@footnotes\do{\stepcounter{footnote}\footnotetext{\f}}%
+\gdef\global@pandoccrossref@subfigures@footnotes{}}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{程式碼}
+\newcommand*\listoflistings{\listof{codelisting}{程式碼目錄}}
+\makeatother
+
+% Linguistic alignment
+\usepackage{linguex}
+\renewcommand{\theExLBr}{}
+\renewcommand{\theExRBr}{}
+\newcommand{\jdg}[1]{\makebox[0.4em][r]{\normalfont#1\ignorespaces}}
+\usepackage{chngcntr}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+% Set independent linestretch for code chunks
+\let\oldShaded=\Shaded
+\let\endoldShaded=\endShaded
+\renewenvironment{Shaded}{
+    \begin{spacing}{1}\begin{oldShaded}
+  }
+  {
+  \end{oldShaded}
+  \end{spacing}
+  \vspace{0.1cm}
+  }
+\let\oldLongTable=\longtable
+  \let\endoldLongTable=\endlongtable
+  \renewenvironment{longtable}{
+      \begin{small}\begin{spacing}{1.1}\begin{oldLongTable}
+    }
+    {
+    \end{oldLongTable}\end{spacing}\end{small}
+    }
+\let\oldTable=\table
+  \let\endoldTable=\endtable
+  \renewenvironment{table}{
+    \begin{small}\begin{spacing}{1.1}\begin{oldTable}
+    }
+    {
+    \end{oldTable}\end{spacing}\end{small}
+    }
+
+%%%%%% Pandoc's graphicx config %%%%%%%
+% For strikeout in LaTex
+\usepackage[normalem]{ulem}
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+\usepackage{paralist}  % Compact list
+%%%%%%%%%%%%%%%%%%%%%%%%%% END Pandoc Preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Change verbatim env: linestrech, before/after vspace, text color
+\makeatletter
+  \preto{\@verbatim}{\topsep=0pt \partopsep=5pt }
+  \renewcommand\verbatim@font{\normalfont\ttfamily\color{gray}}
+\makeatother
+\BeforeBeginEnvironment{verbatim}{
+% \noindent
+% \texttt{\textbf{Output}}
+\def\baselinestretch{1}
+}
+
+\begin{document}
+
+% Compact list
+\renewenvironment{itemize}[1]{
+\vspace{0.2cm} \begin{compactitem}#1}
+{\end{compactitem} \vspace{0.5cm}}
+\renewenvironment{enumerate}[1]{
+\vspace{0.2cm}\begin{compactenum}#1}
+{\end{compactenum} \vspace{0.5cm}}
+
+
+
+
+% 封面與口試審定
+% Cover and Verification Letter
+\makecover                          % 論文封面（Cover）
+% 口試委員審定書（Verification Letter）
+\IfFileExists{./口試委員審定書.pdf}{
+    \includepdf[angle=0]{./口試委員審定書.pdf}
+    }{\makeverification}
+
+%%%%%%%%%%%%%%%%% Acknowledgement %%%%%%%%%%%%%%%%% 
+\begin{acknowledgement}{\enstretch
+謝天，謝地。
+\par}\end{acknowledgement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%% Abstract %%%%%%%%%%%%%%%%%%%%
+\begin{abstract}{\zhstretch
+能源貧窮指涉無法近用現代能源或是不足以負擔其成本。在台灣，此一議題在積極推動能源轉型的背景下受到了廣泛關注。台灣淨零轉型的路徑高度依賴天然氣的使用，
+\par}\end{abstract}
+
+\begin{abstract*}{\enstretch
+Energy poverty, characterized by a lack of access to modern energy
+services or the inability to afford adequate energy consumption,
+presents a pressing challenge that influences personal well-being and
+societal development. In Taiwan, this issue has gained significant
+attention amidst an ambitious energy transition strategy aimed at
+reducing coal consumption, phasing out nuclear power, and increasing
+reliance on renewable energy and natural gas. However, Taiwan's heavy
+dependence on imported energy resources, particularly natural gas,
+coupled with limited stockpiling capacity, exposes the country to supply
+disruptions and price fluctuations, exacerbating existing energy
+inequalities. Low-income and small-sized households in Taiwan often face
+higher per capita energy consumption due to inefficient appliances,
+which intensifies their energy burden under the progressive tariff
+system. Gender disparities further contribute to energy poverty, with
+female-headed households being particularly vulnerable. This research
+investigates the non-linear relationship between household size and
+energy poverty risk, employing an expenditure-based Low-Income High Cost
+(LIHC) approach. Using data from Taiwan's 2021 Survey of Family Income
+and Expenditure (SFIE), the study utilizes a Generalized Linear Mixed
+Model (GLMM) to explore the impact of household head's gender and family
+composition on energy poverty. The findings aim to provide nuanced
+insights into the complexities of energy poverty in Taiwan, informing
+targeted interventions for vulnerable populations.
+\par}\end{abstract*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% 生成目錄與符號列表
+% Contents of Tables and Denotation
+\maketableofcontents                % 目錄（Table of Contents）
+\makelistoffigures                  % 圖目錄（List of Figures）
+\makelistoftables                   % 表目錄（List of Tables）
+
+\mainmatter
+
+\hypertarget{sec:introduction}{%
+\chapter{Introduction}\label{sec:introduction}}
+
+Energy poverty, described as the lack of access to modern energy
+services or the inability to afford adequate levels of energy
+consumption, is a critical issue affecting both personal development and
+societal well-being (González-Eguino, 2015). Addressing energy poverty
+aligns with the United Nations' Sustainable Development Goal 7, which
+aims to ensure access to affordable, reliable, sustainable, and modern
+energy for all by 2030 (Lin et al., 2020). Affordable and accessible
+energy services have significant implications across various sectors,
+including health, education, and economic development (Akram, 2022; Baum
+et al., 2022).
+
+In Taiwan, energy poverty has garnered increasing attention, calling for
+tailored approaches to tackle this multifaceted issue. The Taiwanese
+government is implementing an ambitious energy transition plan to
+mitigate the effects of climate change. This plan focuses on expanding
+renewable energy sources, increasing natural gas as a transitional fuel,
+reducing coal consumption, and phasing out nuclear power (P.-H. Chen et
+al., 2023; National Development Council, 2024). While natural gas offers
+several environmental advantages over coal---such as lower greenhouse
+gas emissions and fewer air pollutants (Aramillo et al.,
+2007)---Taiwan's increasing reliance on natural gas introduces new
+challenges.
+
+Taiwan imports nearly all its energy resources, with 99\% of natural gas
+being imported(Bureau of Energy, 2024). This heavy dependence, coupled
+with limited stockpiling capacity of only 7 to 11 days, creates
+significant vulnerabilities(Chien, 2020). Geopolitical tensions,
+particularly the Ukraine-Russia conflict, have contributed to rising
+energy prices in the residential sector (Taiwan Research Institute,
+2023). As Taipower has been selling electricity at a loss, there is a
+growing need for energy price adjustments to ensure the sustainability
+of the supply system. This dependence makes Taiwan more susceptible to
+supply disruptions and price fluctuations, potentially exacerbating
+existing energy inequality issues.
+
+From an energy consumption perspective, low-income and small-sized
+households in Taiwan may have higher per capita energy consumption
+(Huang, 2015). The progressive electricity tariff system adopted by
+Taipower can further amplify this burden, as low-income households often
+lack the financial means to replace energy-inefficient appliances,
+leading to higher expenditures for the same level of energy services
+(Su, 2020). Energy price shocks disproportionately affect households at
+different income levels, with low-income households being more
+vulnerable (Tuttle \& Beatty, 2017).
+
+Income disparities between male-headed and female-headed households
+remain significant in Taiwan. According to the 2023 Report on Family
+Income and Expenditure(DGBAS, 2024), male-headed households have a
+higher average disposable income (1,235,000 NTD) compared to
+female-headed households (937,000 NTD). While per capita disposable
+income shows no significant difference when adjusting for household
+size, energy poverty is experienced based on a per-household basis. This
+suggests that female-headed households may be more vulnerable to energy
+poverty.
+
+Previous studies in Taiwan have examined residential electricity
+consumption patterns and their determinants (Huang, 2015; Su, 2019,
+2020). For instance, Huang (2015) employed quantile regression to
+analyze how household characteristics affect energy usage, finding that
+household size influences electricity consumption across all quantiles.
+Su et al.~(2020) extended this focus by incorporating urbanization and
+energy poverty into residential electricity demand estimations,
+suggesting that smaller-sized households should take more responsibility
+in energy conservation efforts.
+
+However, these studies predominantly concentrated on energy consumption,
+they often overlooked the broader social justice dimensions encompassed
+by energy poverty. This research seeks to highlight the complexity of
+energy poverty issues in Taiwan and their multifaceted implications.
+Specifically, we propose that for energy poverty risk, not only is there
+disparity between male- and female-headed households, but there exists a
+non-linear relationship between household size and the risk of falling
+into energy poverty. While smaller households may have higher per capita
+energy usage due to limited economies of scale, larger households with
+more dependents or fewer income recipients may face greater financial
+strain in paying energy bills.
+
+To effectively capture the affordability aspect of energy poverty in
+Taiwan, this study adopts an expenditure-based method using the
+Low-Income High Cost (LIHC) approach. This method identifies households
+that are low-income but face disproportionate energy burdens. Utilizing
+data from the 2023 Survey of Family Income and Expenditure (SFIE), which
+includes comprehensive information on household composition, attributes,
+facilities, housing conditions, income, and expenditure (DGBAS, 2024),
+we employ a Generalized Linear Mixed Model (GLMM) to analyze the effects
+of household head's gender and family composition on the risk of falling
+into energy poverty.
+
+Our research contributes to the existing literature by shifting the
+focus from analyzing energy consumption patterns to examining the
+complex factors influencing energy poverty in Taiwan. By considering
+both household head gender and family structure, we aim to provide a
+more nuanced understanding of energy poverty, informing policymakers to
+develop targeted interventions that address the specific needs of
+vulnerable populations. In Taiwan, although energy prices have been kept
+at a low and affordable range, leading many to perceive it as an
+insignificant issue. However, the disparity still exist, with certain
+households being more vulnerable to Net-Zero transition. Common policy
+interventions to address climate change often involve raising energy
+prices to incentivize reduced electricity consumption. However, such
+measures can disproportionately affect these vulnerable households.
+Therefore, tailored approaches are necessary to ensure that climate
+policies are both effective and equitable.
+
+The remainder of this article will be divided into five parts.
+\protect\hyperlink{sec:literaturereview}{Section 2} provides a general
+literature review of energy poverty landscape around the world and
+hypotheses of this article. \protect\hyperlink{sec:methodology}{Section
+3} illustrates the research method and design.
+\protect\hyperlink{sec:results}{Section 4} will be presenting the
+empirical findings. The \protect\hyperlink{sec:conclusion}{final
+section} discusses the contributions and implications of this study.
+
+\hypertarget{sec:literaturereview}{%
+\chapter{Literature Review}\label{sec:literaturereview}}
+
+Energy poverty lacks a universal definition(Kumar et al., 2019), whereas
+it may not be entirely undesirable given its deep connection to
+historical and geographical contexts(Bouzarovski \& Simcock, 2017). With
+respect to different origins, `fuel poverty' and `energy poverty' are
+often used interchangeably, where ``fuel poverty'' traditionally
+describes households in developed economies unable to afford adequate
+heating, and ``energy poverty'' broadly refers to a lack of access to
+energy services in less developed countries(Das et al., 2022). The
+concept of fuel poverty was formally introduced byBoardman (1991) in her
+seminal work on the UK, where the focus was primarily on housing heating
+affordability. Over time, however, discussions surrounding fuel poverty
+expanded to consider broader forms of energy deprivation beyond just
+fuel costs.
+
+As the globalization and marketization of energy markets, along with the
+expansion of academic fields, the traditional dichotomy between fuel
+poverty and energy poverty has been challenged(Bouzarovski \& Petrova,
+2015). Although there are disagreement such asLi et al. (2014) argued
+that there are clear geographical and socioeconomic distinctions between
+fuel poverty and energy poverty, and some people may suffer from both
+simultaneously, but in a scientometric analysis of the evolution of
+energy poverty theory,Guevara et al. (2022) found that while the
+concepts of fuel poverty and energy poverty originated separately, they
+began to influence each other and converge in the 2010s.Bouzarovski \&
+Petrova (2015) further embraced that both fuel and energy poverty can be
+viewed under a conceptual umbrella, describing them as ``a set of
+domestic energy circumstances that do not allow for participating in the
+lifestyles, customs, and activities that define membership of society''.
+Hence in this article, we adopt the term ``energy poverty'' herein not
+only to align with mainstream usage in Taiwan, but also, to account for
+the multi-dimensional nature of energy deprivation.
+
+\hypertarget{energy-poverty-landscape}{%
+\section{Energy Poverty landscape}\label{energy-poverty-landscape}}
+
+\hypertarget{global-north}{%
+\subsection{Global North}\label{global-north}}
+
+In the Global North, energy poverty is primarily framed around issues of
+affordability (Chan \& Delina, 2023), as colder climate significantly
+contribute to high energy consumption for heating, making the cost of
+energy a critical factor. Affordability in this context refers to the
+relatively high financial burden imposed by energy costs, which often
+leads households to self-provision, choose between heating and other
+essentials, or endure inadequate thermal comfort. While income plays a
+crucial role, energy poverty is distinguished from income poverty
+(Phimister et al., 2015) because it involves a complicated interplay
+between income, energy efficiency, and housing characteristics.
+
+The form of energy poverty that households in the Global North are
+experiencing is characterized by high energy costs relative to household
+income, poor energy efficiency in housing, and socioeconomic
+vulnerabilities of affected populations. Energy prices in the Global
+North are relatively high, especially during winter months when fuel
+demand peaks or in the context of unstable geopolitical situations (Guan
+et al., 2023). The cost of heating fuels significantly impacts household
+budgets, causing households to spend a disproportionate amount of their
+income on basic needs, particularly low-income households (Liu et al.,
+2023; Zapata-Webborn et al., 2024). A substantial portion of housing
+stock is aged and inadequately insulated, leading to increased energy
+demand for heating (Sánchez-Guevara et al., 2019). The lack of
+sufficient insulation, outdated heating systems, and
+low-energy-efficient appliances contribute to considerable heat loss,
+making it increasingly challenging to maintain a comfortable indoor
+environment (Middlemiss, 2022). Socio-economically disadvantaged groups,
+such as low-income households and elderly people, often struggle to
+balance spending on energy with other necessities, resulting in
+inadequate thermal comfort and poor quality of life, thereby
+exacerbating their marginalized status and increasing their
+susceptibility to disease and social exclusion(Brandon \& Bagnall,
+2024). The neoliberalization of energy and housing markets, along with
+deepening relative inequality, has significantly contributed to the
+emergence of new challenges related to energy poverty (Robinson, 2019).
+Such inequalities create a vicious cycle where historical inequities,
+market forces, and social and political exclusion reinforce spatial
+inequalities, leading to disproportionately high energy burdens for
+marginalized communities (Bouzarovski \& Simcock, 2017).
+
+To address the issue of energy poverty, various policies have been
+implemented in the Global North. The Hungarian government adopted
+policies to regulate energy prices to mitigate the impact of price
+fluctuations on vulnerable households, including introducing price
+support schemes in the mid-2000s that subsidized domestic natural gas
+consumers, effectively reducing energy expenditures for up to 80\% of
+households at its peak in 2006 (Bouzarovski et al., 2016). Social
+tariffs and fuel allowances can provide direct financial relief and
+offset the cost of energy for eligible households (Herrejón et al.,
+2023). Given the significant contribution of energy-inefficient housing
+to energy poverty and climate change, policies that promote energy
+efficiency retrofits, encompassing measures like insulation upgrades,
+installation of energy-efficient windows, and replacement of outdated
+heating systems, have gained increasing attention (Middlemiss, 2022).
+Financial support schemes like green loans can incentivize homeowners,
+particularly those in poorly insulated houses, to undertake these
+improvements (Herrejón et al., 2023). The underlying socio-economic
+factors significantly contribute to energy poverty; therefore, policies
+regulating the housing market, especially the rental market, have been
+deployed to ensure access to affordable and energy-efficient housing
+(Middlemiss, 2022). These policies involve setting minimum energy
+efficiency standards for rental properties, providing financial
+assistance for energy-efficient upgrades to rental units, and
+implementing rent control measures to prevent excessive housing costs,
+especially in areas with high energy costs.
+
+Recent research on energy poverty in the Global North has expanded to
+include a deeper understanding of vulnerability, intersectionality, and
+the lived experiences of those affected (Middlemiss, 2022). Overlapping
+social categories such as age, gender, race, and socioeconomic status
+intersect to influence an individual's experience of energy poverty
+(Bouzarovski \& Bouzarovski, 2018). Qualitative methods are gaining more
+attention to understand the day-to-day struggles and coping strategies
+of energy-poor households (Herrejón et al., 2023). However, much of the
+existing literature is dominated by UK and European studies, partly
+because the term ``fuel poverty'' originated there, limiting the
+understanding of how energy poverty manifests in different regions and
+local contexts across the Global North; such a focus may neglect the
+need for cooling in hotter climates, which is increasingly important due
+to rising global temperatures, and more frequent heatwaves (Bouzarovski
+\& Bouzarovski, 2018). Regions in southern Europe, parts of the United
+States, and Australia face significant challenges related to extreme
+heat, which can have severe health impacts during heatwaves.
+
+The evolving understanding of energy poverty in the Global North
+highlights the importance of recognizing the intersectionality of
+vulnerability factors such as age, gender, race, and socioeconomic
+status. While qualitative methods are increasingly utilized to capture
+the lived experiences of energy-poor households, the predominance of UK
+and European studies limits our comprehension of energy poverty across
+diverse regions. As climate change exacerbates the energy need, it is
+crucial to expand research efforts to include areas facing extreme heat,
+such as southern Europe, parts of the United States, and Australia.
+Addressing these gaps in knowledge will enable policymakers to develop
+targeted strategies that consider the unique challenges faced by
+different communities, ultimately leading to more effective
+interventions to alleviate energy poverty and improve the quality of
+life for affected individuals.
+
+\hypertarget{global-south}{%
+\subsection{Global South}\label{global-south}}
+
+In the Global South, energy poverty is primarily framed around issues of
+accessibility (Herrejón et al., 2023). The relatively underdeveloped
+energy infrastructure significantly contributes to the challenge of
+accessing reliable and clean energy sources for essential needs like
+lighting, cooking, and cooling. Accessibility in this context refers to
+the difficulty in securing these energy sources, often leading
+households to rely on traditional biomass, experience inadequate
+cooling, or face intermittent electricity supply.
+
+The form of energy poverty experienced by households in the Global South
+is characterized by underdeveloped energy infrastructure, dependence on
+traditional biomass fuel, and socioeconomic disparities, including
+urban-rural divides (Chan \& Delina, 2023). Many regions in the Global
+South suffer from inadequate energy infrastructure, resulting in
+unreliable electricity supply and frequent outages (Hafner \&
+Tagliapietra, 2020). Access to electricity or modern fuel is
+inconsistent, with rural and remote areas being particularly on the
+periphery due to the lack of grid connection (Hostettler, 2015).
+Consequently, households heavily rely on traditional biomass fuel like
+wood, coal, and even dung for cooking and heating, which are relatively
+inefficient and contribute to increased CO emissions and indoor air
+pollution (Kumar et al., 2019). The use of such fuels has significant
+health threats, especially for women and children who are responsible
+for cooking (Jessel et al., 2019). Reliance on traditional biomass fuels
+leads to severe respiratory issues and other health problems due to
+exposure to smoke and pollutants. Moreover, the lack of reliable energy
+access jeopardize the provision of essential services, such as
+healthcare and education, both of which require stable electricity to
+function effectively. The labor-intensive nature of collecting
+traditional fuels also deprives children, particularly girls, of the
+opportunity to receive a proper education, as they often assist in
+gathering fuel (Longe, 2021). Such conditions create a vicious cycle
+where inadequate infrastructure, economic disparities, and social
+exclusion reinforce each other, leading to persistent energy poverty.
+This cycle perpetuates inequalities, limiting opportunities for economic
+and social development and trapping marginalized communities in a state
+of deprivation.
+
+To address energy poverty in the Global South, interventions aimed at
+improving energy accessibility are being implemented (Bouzarovski \&
+Petrova, 2015; Chan \& Delina, 2023). These include, but are not limited
+to, infrastructure development and modernization, rural electrification
+programs such as the transition to renewable energy, and economic
+policies like subsidies and microfinance. India's ``Power for All by
+2012'' initiative was an ambitious program aimed at ensuring a reliable
+and quality power supply to all citizens by the year 2012. Although the
+program did not fully meet its target within the stipulated time, it
+laid significant groundwork for subsequent rural electrification efforts
+and overall improvements in the power sector (Niez, 2010). In countries
+like Kenya, rural electrification efforts have been significantly
+boosted through comprehensive strategies involving grid extension and
+subsidies. These efforts have not only increased electrification rates
+but have also profoundly impacted the socio-economic development of
+rural areas (Njiru \& Letema, 2018). Subsidies, such as the Free Basic
+Electricity (FBE) program by the South African government, provide 50
+kWh of free electricity monthly to indigent households connected to the
+grid (Monyei et al., 2018). This program can alleviate energy poverty by
+ensuring that vulnerable citizens have access to essential electricity
+for their basic needs. However, the government also acknowledges that
+the program does not reach all indigent households, especially the most
+vulnerable, as they are not connected to the grid (Longe, 2021).
+
+Recent discourse around energy poverty in the Global South heavily
+emphasizes the importance of ``energy justice,'' which involves the fair
+distribution of energy benefits and burdens, recognizes the needs of all
+stakeholders, and establishes a fair decision-making process
+(Samarakoon, 2019). The emerging focus on energy justice challenges the
+prevailing narrative centered on accessibility issues, shifting
+attention to the sufficiency of energy supply and the quality of energy
+services required for improved well-being (Monyei et al., 2018). As the
+understanding of energy poverty deepens and becomes more holistic, there
+is a growing emphasis on centering the lived experiences of energy-poor
+communities and acknowledging that people's energy needs are diverse and
+context-specific (Mastrucci et al., 2019). Further enriching this
+landscape is the increasing recognition of the gender dimension, as
+women and girls are more likely to be affected and marginalized by
+energy poverty (Kumar et al., 2019; Longe, 2021). Recognizing these
+gendered impacts is crucial for developing effective and equitable
+interventions to address energy poverty.
+
+In conclusion, addressing energy poverty in the Global South requires
+diverse approaches that acknowledge the complexities of accessibility,
+infrastructure, and socio-economic disparities. The reliance on
+traditional biomass fuels and the challenges posed by underdeveloped
+energy infrastructure not only limited the access to reliable energy
+sources but also have significant health and social implications for
+affected communities. As interventions such as infrastructure
+development, rural electrification, and economic policies are
+implemented, it is essential to prioritize energy justice, ensuring that
+the distribution of energy benefits and burdens is equitable and
+inclusive. Furthermore, centering the lived experiences of energy-poor
+communities and recognizing the specific needs of women and girls will
+enhance the effectiveness of these interventions.
+
+\hypertarget{measuring-energy-poverty}{%
+\section{Measuring Energy Poverty}\label{measuring-energy-poverty}}
+
+To properly address the issue of energy poverty, measuring is vital yet
+difficult to do because of the multifaceted nature(Thomson et al.,
+2017), it is not merely a lack of access to energy but is deeply
+intertwined with broader socio-economic conditions such as household
+income, education levels, and demographic characteristics. Several
+energy poverty indicators are developed to capture the multifaceted
+nature, yet, they have their own strengths and limitations. Tailored to
+Taiwan's energy poverty, only expenditure-based methods are reviewed in
+this article.
+
+Expenditure-based approaches are the most widely used method for
+quantifying energy poverty, which assess the ratio of a household's
+income to its energy expenditure to determine whether the household
+falls into energy poverty. We hereby examine five main indicators of
+energy poverty: Ten Percent Rule (TPR), Low-income High Cost (LIHC),
+Minimum Income Standard (MIS), Double Median (2M), and Half Median
+(M/2).
+
+%%%%%%% tbl:ep-calculation %%%%%%%%
+\begin{table}[!htb]
+    \centering
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{@{}ll@{}}
+    \toprule
+    Indicator              & Calculation                                                \\ \midrule
+    Ten Percent Rule (TPR) & (energy expenditure / disposable income) \textgreater 10\% \\
+    Double Median (2M)     & energy expenditure ≥  (2 * median energy expenditure)      \\
+    Half Median (M/2)      & energy expenditure ≤ (median energy expenditure / 2)       \\
+    Low-Income High Cost (LIHC)   & disposable income ≤ (median disposable income * 0.6) \& energy expenditure ≥ median energy expenditure \\
+    Minimum Income Standard (MIS) & energy expenditure ≥ (disposable income - housing cost - minimum living costs)                         \\ \bottomrule
+    \end{tabular}%
+    }
+    \end{table}
+%%%%%%% END %%%%%%%%
+
+\begin{landscape}
+    \begin{table}[]
+    \centering
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{@{}ll@{}}
+    \toprule
+    Indicator              & Calculation                                           \\ \midrule
+    Ten Percent Rule (TPR) & (energy expenditure / disposable income) > 10\%        \\
+    Double Median (2M)     & energy expenditure ≥  (2 * median energy expenditure) \\
+    Half Median (M/2)      & energy expenditure ≤ (median energy expenditure / 2)  \\
+    Low-Income High Cost (LIHC)   & disposable income ≤ (median disposable income * 0.6) \& energy expenditure ≥ median energy expenditure \\
+    Minimum Income Standard (MIS) & energy expenditure ≥ (disposable income - housing cost - minimum living costs)                        \\ \bottomrule
+    \end{tabular}%
+    }
+    \end{table}
+    \end{landscape}
+
+The \protect\hyperlink{tbl:ep-calculation}{table},
+
+The TPR was proposed by Boardman in 1991 on fuel poverty in the UK,
+defining it as ``the inability to afford warmth''. To determine the
+``affordable'' energy cost, Boardman proposed the ten percent threshold,
+suggesting that households spending more than this proportion are
+experiencing ``undue financial hardship'', hence requiring
+assistance.Boardman (1991) explored the multifaceted issue through
+several aspects, identifying that inadequate housing condition, low
+incomes, and high energy cost are the primary drivers. Attaining
+adequate warmth is contingent upon the energy efficiency of the home and
+heating system, not just income levels, meaning even households with
+income above the poverty line could experience fuel poverty if living in
+energy-inefficient housing with high heating cost. Solely focusing on
+income-based solutions may appear beneficial in the short term, but it
+would be costly and insufficient to address the underlying problem of
+energy-inefficient housing in the long run.
+
+On the surface, the TPR appears to be an absolute metric and maybe
+somewhat arbitrary; however, it is actually partly based on the relative
+concept of twice the median(Boardman, 2012), which was introduced
+byIsherwood \& Hancock (1979) in response to the rapid increase in
+household energy bills due to the energy crisis in the 1970s. According
+toBoardman (1991), the TPR reflects the actual average share of energy
+spending among the 30 percent poorest households in Great Britain, which
+is around twice the median share of energy spending for all households
+at that time. While the usage of double the median as an indicator can
+trace back all the way toIsherwood \& Hancock (1979), but it is
+difficult to come by the actual content to analyze why this is a good
+threshold.Heindl (2013) examined~the definition of fuel poverty lines
+and measurement techniques, including options such as double the median
+and mean household expenditure on energy, as well as double the median
+and mean share of household expenditure on energy, highlighting that
+different lines significantly affect the identification of fuel-poor
+households. Upon discussing energy poverty threshold, median indicators
+precede mean indicators as the energy expenditure are usually
+right-skewed, the median would be less less affected by extreme values
+and outliers, providing a more accurate reflection of typical household
+expenditures, thus ensuring that the measurement better captures the
+financial burden faced by lower-income households.
+
+Whilst most British researchers generally accepted double the median
+share of energy expenditure as a guiding consideration,Schuessler (2014)
+argues that the orthodox understanding of the TPR would be problematic
+as the twice the median indicator has serious methodological problems;
+hence, the interpretation and justification should be based on energy
+expenditure at the lowest income strata as this energy poverty threshold
+helps identify households in need. Although the double the median share
+indicator is superior than the double the mean share indicator, the
+double the median indicator inherently have some awkward properties that
+makes it unsuitable to measure energy poverty. Because the nature of
+median is based on the order of the data, instead of the actual numbers,
+therefore, adding a constant to an otherwise unchanged distribution will
+decrease the number of households exceeding the double median in
+right-skewed distributions. In other words, ceteris paribus, adding a
+fixed energy cost to all households could reduce the total amount
+energy-poor households. The counterintuitive phenomenon not only
+showcase the fundamental flaws of the 2M indicator, it also violatesSen
+(1976)'s monotonicity requirement for poverty measures, which states
+that that poverty should increase when the well-being of an already poor
+household deteriorates. This violation of the monotonicity requirement
+highlights the inadequacy of the 2M indicator for accurately measuring
+energy poverty, as it does not respond proportionally to worsening
+conditions among the poorest households.
+
+There are several limitations when directly applying the TPR threshold
+to other countries, because the indicator was UK-specific as it was
+derived from UK 1988 data(Herrero, 2017). Without thoroughly considering
+local context----such as climate conditions, housing, and cultural
+norms----the metric may not be able to reflect the vulnerable group.
+Besides the varying geographical context, the potential problem is the
+differences between required energy cost and actual energy expenditure.
+The TPR was originally developed based on actual spending on fuel;
+however, utilizing actual energy expenditure may underestimate the
+prevalence of energy poverty as households struggling to afford adequate
+warmth may ration their energy usage, therefore, unable to be detected
+by the TPR(Boardman, 2012; Herrero, 2017; Riva et al., 2023). To address
+this issue, the focus has transitioned towards using required energy
+cost, which aims to estimate the cost of energy services a household
+needs to achieve a defined standard of warmth. However, the required
+energy cost, or modeled energy bill, heavily relies on UK's detailed
+housing survey, which may not be viable for other nations. Therefore,
+the M/2 indicator was developed to capture the hidden energy poverty
+situation, where the self rationing behavior exists. The M/2 indicator
+identifies households with equal or less then half of the median energy
+expenditure of all households as hidden energy-poor households.
+
+The Low-Income High Cost (LIHC) indicator was developed byHills (2012),
+classifies a household as energy poor if they have required fuel costs
+that are above the contemporary median level for all households; and
+were they to spend that amount on fuel, they would be left with a
+residual income below the official poverty line. The official poverty
+line is calculated as 60\% of median income after housing costs. As the
+size of households matter to the energy usage, the methodology allows
+for differences in household size and composition using a set of
+equivalization factors. The invention of the LIHC indicator was to
+remedy the flaws stemming from the adoption of a fixed threshold, making
+it susceptible to various inaccuracies and misrepresentations of the
+fuel poverty landscape. According toHills (2012), the traditional TPR
+are flawed due to the arbitrary nature, hypersensitivity to price
+fluctuations, and the inclusion of non-poor households. The initial
+justification for setting the threshold at 10\%, which was twice the
+median household fuel expenditure, lacks a robust rationale. The TPR
+being a fixed threshold makes it highly susceptible to changes in energy
+price, creating a misleading picture of energy poverty landscape. And
+since the TPR solely focuses on the proportion of income spent on
+energy, it can misclassify households with moderate or high incomes as
+fuel poor, distorting the actual scale of energy poverty and can hence
+misdirect policy interventions.
+
+Unlike the TPR only focus on income and energy expenditure, the LIHC is
+calculated after deducting the housing cost, which may be more accurate
+for several reasons. As households cannot allocate income designated for
+housing cost towards energy bills, deducting housing cost represents a
+more accurate picture of the disposable income available for energy
+expenses. Another advantage of calculating energy poverty after the
+deduction of housing cost is the ability to eliminate geographic
+variability in housing cost. Even if the housing condition remains
+constant, the price can vary considerably based on location. Without
+deducting housing costs, households may appear to be lifted out of
+energy poverty simply because of the increasing rent. Overall, deducting
+housing costs in the LIHC calculation is crucial for providing a more
+accurate and realistic assessment of household disposable income. Even
+though LIHC as an indicator has many advantages when capturing the
+energy-poor households, it is not free of criticisms. Due to the doubly
+relative nature of LIHC, the indicator will remain relatively stable
+even when energy price fluctuated. Even if the energy price rise
+significantly, the median energy cost might not change drastically,
+especially if the energy consumption patterns across income level remain
+relatively stable. The insensitivity can mask the impact of rising
+energy prices on low-income households and may lead to underestimate of
+the true extent of energy poverty.
+
+Moore (2012)'s Minimum Income Standard (MIS) approach considers~a
+household to be energy poor~if, after meeting its energy costs, it does
+not have enough income left to meet the~minimum income standard~for an
+acceptable standard of living. The MIS is calculated by establishing a
+basket of goods that a household need for an acceptable standard of
+living. Unlike relative measurement like LIHC, which rely on
+median-based threshold, MIS is more need-based oriented, ensuring the
+indicator captures households whose remaining income is inadequate for a
+decent quality of life. MIS reflects the actual costs faced by
+households, including rising energy prices, housing conditions, and
+changes in essential goods. This ensures that the measure is more
+responsive to real-world conditions, such as inflation or fluctuations
+in energy prices, compared to purely relative indicator. However, the
+MIS is data-intensive and gathering and maintaining the data can be more
+costly. Compare to measures like LIHC, the MIS requires detailed
+information about household spending needs, energy consumption patterns,
+and regional cost-of-living variations. This limitation makes it harder
+to implement at scale, especially in contexts where such detailed data
+may not be readily available.
+
+Expenditure-based methods provide a direct assessment of the financial
+burden of energy costs on households and the data required, such as
+household income and energy expenditure, are relatively straightforward
+to collect through surveys, which several governments have been
+executing for years. However, the limitations are also prominent as they
+may not be able to capture all dimension of energy poverty, such as the
+adequacy of energy services or the energy efficiency of homes. Most of
+the countries, except for UK, use actual energy expenditure instead of
+required spending, which is problematic since it fails to capture the
+self-restricting behavior, overlooking the most vulnerable group(Moore,
+2012). On the other hand, theoretical cost can be more accurate but
+requires detailed data on housing energy efficiency, like UK's housing
+condition surveys, which is not available for most countries.
+
+\hypertarget{energy-poverty-in-taiwan}{%
+\section{Energy Poverty in Taiwan}\label{energy-poverty-in-taiwan}}
+
+Considered a developed economy, Taiwan shows distinctive energy
+transition path compare to other free market economies(Chan \& Delina,
+2023) due to the developmental state legacy(Pien et al., 2023). Path
+dependent on brown economy regime, Taiwan's economy is~characterized by
+high carbon emissions, cheap energy prices, and the dominance of
+energy-intensive industries, which makes it challenging to transition
+towards a more sustainable, low-carbon energy system(Chou \& Liou, 2023;
+Kemp-Benedict, 2014). Taiwan has undergone rapid industrialization and
+urbanization in recent decades, leading to a significant increase in
+energy demand(Su, 2019, 2020).
+
+Building upon the developmental state heritage, Taiwan's power supply is
+dominated by the state-owned Taiwan Power Company (Taipower), which has
+a monopoly on electricity generation, transmission, and distribution.
+Taiwan has achieved a very high rate of electricity access, however, it
+does not necessarily mean there are no issues with energy affordability
+and deprivation, especially for economically disadvantaged households.
+The energy billing system adopts progressive charging pricing method,
+charging higher rates per unit of energy as consumption increases,
+further exacerbating the difficulties experienced by disadvantaged
+groups. Lacking of access to energy efficient appliances, low-income
+households typically spend a higher proportion of their income on energy
+and have less flexibility to adjust their consumption patterns due to
+progressive charging rate.
+
+Taiwan is undergoing a significant energy transition, moving away from
+nuclear power towards greater reliance on natural gas and renewable
+energy sources. The Taiwan government has released the ambitious
+Net-Zero transition agenda by 2050, as nuclear power is phased out, LNG
+imports have increased(National Development Council, 2024). While
+natural gas is cleaner than coal, it is more expensive and sensitive to
+price fluctuation, which can impact household energy costs even with
+Taipower trying to mitigate the price. The energy transition can
+intensity energy poverty by increasing costs and reducing supply
+reliability. To reflect the price increase due to unstable geopolitical
+situation, residential energy price has gone up. Households already
+struggling with energy costs may find it even harder to afford their
+needs during energy transition.
+
+The energy transition in Taiwan is likely to have significant
+socioeconomic implications, including potential job losses in
+traditional energy sectors and the need for retraining and support for
+affected workers and communities(Chien, 2022). Understanding the
+distributional impacts of these changes on vulnerable populations is
+crucial for designing inclusive energy policies. Taiwan is experiencing
+a rapidly aging population and changing household dynamics, with more
+single-person and elderly households(Cheng, 2023). This demographic
+trend emphasize the relevance of further investigate the household
+vulnerability aspect. Previous research have discussed the crucial role
+of energy poverty in deciding household energy demand(Su, 2020),
+
+Taiwan's unique combination of historical, political, and socio-economic
+factors provides a rich context for examining the complexities of energy
+poverty. The interplay between the developmental state legacy, the
+ongoing energy transition, and specific household characteristics offers
+valuable insights for both policymakers and researchers. By exploring
+these aspects in detail, this research aims to contribute to a more
+comprehensive understanding of energy poverty and inform the development
+of more effective and equitable energy policies in Taiwan and beyond.
+
+Energy poverty in Taiwan is gaining increasing attention in academic
+field, however, the government has not formally recognize energy poverty
+as a problem distinct from general poverty. The current structure of the
+electricity market and socio-economic factors create unique
+vulnerabilities that need to be thoroughly understood to develop
+effective and equitable policies. To evaluate the vulnerability
+characteristics of energy poverty, we proposed hypotheses focusing on
+Taiwan's household head's characteristics and household structure.
+
+\hypertarget{household-heads-characteristics}{%
+\subsection{Household Head's
+Characteristics}\label{household-heads-characteristics}}
+
+Building on previous research on the relationship between household
+head's and the risk of energy poverty, gender plays an important role in
+affecting the vulnerability. Energy poverty is a structural problem,
+when it comes to affordability issue, it is inevitable to face the
+gendered income inequalities. Female-headed households have poverty rate
+s almost twice as high as single/male-headed household in the US(Sharma,
+2023); this is largely due to the persistent gender wage gap. In
+societies with higher gender equality, the gender of the household head
+may be less indicative of energy poverty risk. However, in a more
+unequal settings, it can serve as a significant indicator of household
+dynamics and resource allocation, influencing vulnerability to energy
+poverty. Therefore, understanding the role of household head
+characteristics, particularly gender, is crucial in assessing and
+addressing energy poverty. In Taiwan, income disparities between
+male-headed and female-headed households remain significant. According
+to the 2021 Report on Family Income and Expenditure, male-headed
+households have a higher average disposable income (1,185,000 NTD)
+compared to female-headed households (880,000 NTD) (DGBAS, 2022). While
+per capita disposable income shows no significant difference when
+adjusting for household size, energy poverty calculations are
+traditionally based on a per-household basis. This suggests that
+female-headed households may be more vulnerable to energy poverty.
+
+\begin{quote}
+Hypothesis 1: Female-headed households in Taiwan are more likely to
+experience energy poverty compared to male-headed households.
+\end{quote}
+
+\hypertarget{family-structure}{%
+\subsection{Family Structure}\label{family-structure}}
+
+Taiwan is facing an aging population and declining birth rate, leading
+to a decreasing size of households, from 3.4 in 2001 to 2.6 in 2021.
+Households of varying sizes may have different patterns of electricity
+usage and energy consumption, as the economies of scale play a crucial
+role in determining households' energy consumption, larger households
+tend to be more energy-efficient per person due to the fixed-cost of
+energy services being distributed among to more individuals. This
+phenomenon is well-documented in the literature, and aligned with the
+findings in Taiwan(Huang, 2015; Su, 2020). Policy recommendations hence
+are more incline to target at smaller households as they consume more
+electricity per person in comparison to other family composition type
+for electricity conservation. While economies of scale significantly
+impact household energy consumption patterns, it is crucial to
+distinguish between energy consumption and energy poverty in Taiwan.
+Policy recommendations targeted at smaller households for electricity
+conservation may not adequately address the issue of energy poverty,
+which is closely related to affordability issue. From family structure
+perspective, energy poverty is not solely determined by household size
+but it is also influenced by the composition. Single individuals or
+larger households may face greater risk of energy poverty, even with
+economies of scale to offset some portion of energy use.
+
+\begin{quote}
+Hypothesis 2.1: The risk of a household falling into energy poverty in
+Taiwan shows a non-linear relationship with household size, where the
+risk decreases as household size increases up to a certain point, after
+which the risk begins to rise again.~
+\end{quote}
+
+\begin{quote}
+Hypothesis 2.2: Certain household compositions are associated with a
+higher risk of energy poverty in Taiwan. Specifically, single-person
+households and skip-generation households (grandparents with
+grandchildren) are more likely to experience energy poverty compared to
+nuclear and extended families, due to factors like lower total income
+and less benefit from economies of scale.
+\end{quote}
+
+\begin{quote}
+Hypothesis 2.3: Household composition moderates the non-linear
+relationship between household size and energy poverty risk. The
+decrease in energy poverty risk with increasing household size varies by
+composition, being more significant in nuclear families than in
+single-parent or skip-generation households.
+\end{quote}
+
+\hypertarget{sec:methodology}{%
+\chapter{Methodology}\label{sec:methodology}}
+
+\hypertarget{data}{%
+\section{Data}\label{data}}
+
+The data source used in this research is the 2021 Survey of Family
+Income and Expenditure (SFIE) collected by the Directorate General of
+Budget, Accounting, and Statistics(DGBAS, 2022). The COVID-19 outbreak
+in 2021 significantly affected Taiwan's economy and households. The
+pandemic may have exacerbated energy poverty due to factors like
+increased unemployment, reduced incomes, or more time spent at home
+leading to higher energy consumption. Studying this year can provide
+insights into how such external shocks influence energy poverty and have
+better understanding of the vulnerable groups.
+
+The 2021 survey includes 16,528 households with 46,894 members from 20
+administrative regions in Taiwan. The cross section covered six urban
+regions (New Taipei City, Taipei City, Taoyuan City, Taichung City,
+Tainan City, and Kaohsiung City) and other fourteen regions in Taiwan
+(Yilan County, Hsinchu County, Miaoli County, Changhua County, Nantou
+County, Yunlin County, Chiayi County, Pingtung County, Taitung County,
+Hualien County, Penghu County, Keelung City, Hsinchu City, Chiayi City,
+and Kinmen County). The sample size within these regions range from 200
+in Penghu County to 2,500 in Taipei City. The survey employed a
+stratified two-stage sampling method with counties and cities as
+subpopulations, where regional sample counts varied by population size
+to ensure proportional representation. The Ts'un and Li, which are basic
+administrative units, serve as the primary sampling units, and
+households within these units are the secondary sampling units. The
+intra-cluster correlation caused dependence issue, which violate
+single-leveled models' independence assumption. If the dependence
+structured is ignored, it will result in the underestimation of standard
+errors, inflated Type I error rates, and misleading inferences. The
+standard errors will be underestimated because the similarity among
+observations within clusters is ignored. In reality, households within
+the same region may share unobserved characteristics, such as energy
+infrastructure and region specific social welfare project, leading to
+correlated errors. Because standard errors are underestimated, the
+likelihood of incorrectly rejecting the null hypothesis increases. This
+leads to false positives, where the model indicates that an effect
+exists when it actually does not; The overall inferences drawn from the
+model can be misleading(Hox et al., 2017).
+
+The SFIE dataset exhibits a two-level hierarchical and aggregated
+structure, with households nested within broader regional categories
+such as counties and cities. This hierarchical organization allows for
+the analysis of both within-region and between-region variations,
+facilitating a comprehensive understanding of the factors influencing
+energy poverty. Before 2007, the survey contains the administrative area
+code and stage information. Given privacy concerns, the precise
+locations of households are not disclosed since. To address this, we
+examined workplace data (variables from b15\_1 to b15\_20) included in
+the survey and cross-referencing it with governmental reports. The
+method may appear somewhat basic, yet it has proven to be effective and
+reliable for our purposes, as evidenced by similar approaches used in
+previous studies, such asK.-M. Chen \& Wang (2015) . Since the
+government report list out sample counts for each region, we can further
+confirm the region data based on the aggregated structure. This approach
+ensured respondent anonymity while enabling the incorporation of
+regional variables into our analysis.
+
+At the household level, the SFIE dataset includes a comprehensive array
+of variables capturing detailed information on socio-economic status,
+demographic characteristics, and expenditure patterns. Key income
+variables include total household income from all sources and per capita
+income, providing measures of economic status. Expenditure variables
+capture total household spending across categories such as food,
+housing, utilities, education, and healthcare, with detailed energy
+expenditure statistics, which is critical for studying energy poverty.
+Demographic variables such as household size, age, and composition, shed
+lights on the dynamic between energy poverty and family structure.
+
+\hypertarget{dependent-variable}{%
+\section{Dependent Variable}\label{dependent-variable}}
+
+Traditionally, the manifestation of energy poverty in the Global North
+and Global South is divided by the affordability-accessibility
+dichotomy, focusing on the lack of adequate heating versus the lack of
+access to clean energy. As the field developed, the term energy poverty
+has emerged as an concept umbrella encompassing multiple interconnected
+issues: access to energy sources, infrastructure development,
+affordability of energy services, energy efficiency, equity in
+distribution, as well as the impacts on human well-being and the
+environment(Herrejón et al., 2023). This article acknowledges the
+critics about the potential threats of oversimplifying energy poverty as
+affordability or accessibility issue and the trend towards using
+consensus approach to define energy(Guevara et al., 2022), however, as
+the purpose of this article is to examine the risk of vulnerable group
+and their affordability under Taiwan's ambitious 2050 Net-Zero
+transition agenda, using uni-dimensional indicator is still valid.
+
+In this article, the dependent variable is the energy poverty status of
+households, measured thorugh the Low-Income High Cost (LIHC) indicator
+as proposed byHills (2012) . The LIHC approach is particularly suitable
+for capturing the affordability aspect of energy poverty in Taiwan, as
+it identifies households that have both low income and high energy costs
+relative to the median. The total household income is represented by the
+variable itm400, which includes all forms of receipts. To determine the
+residual income available for energy and other living expenses,
+non-consumption expenditures (itm600) are deducted from the total
+receipts. Following the LIHC methodology, housing costs are deducted
+from the disposable income to evaluate the actual residual income
+households can allocate for other living expenses. The housing costs are
+computed by summing the actual rentals for housing (itm1041), imputed
+rentals of owner-occupiers (itm1042), and imputed rentals of issued and
+leased (itm1043). Households with residual incomes below poverty
+threshold, 60\% of the median residual income after housing costs, are
+classified as low-income households. Next, the study identifies
+households with high energy costs by calculating the median energy
+expenditure across all households. Energy expenditures are derived from
+the SFIE data, which includes detailed information on household spending
+on utilities such as electricity (itm1047), gas (itm1048), and liquid
+and solid fuels (itm1049). Households energy expenditures exceed the
+median energy cost are considered to have high energy costs. A household
+therefore be classified as energy-poor if the residual income is below
+the poverty line, and the energy expenditure is above the median energy
+cost. If a household does not meet both conditions, it is classified as
+not energy poor.
+
+To control for the effects of household size and composition on energy
+spending, the study employs a modified OECD equivalence scale to adjust
+income and energy expenditure thresholds. This equivalence scale
+accounts for economies of scale in household consumption, allowing for a
+more accurate comparison between households of different sizes and
+compositions. The scale assigns a weight of 1.0 to the first adult
+(household head), 0.5 to each additional adult member aged 15 years or
+older, and 0.3 to each child under the age of 15 years (Hagenaars et
+al., 1994). The total equivalence scale for a household is calculated
+using the following formula:
+
+\hypertarget{independent-variables}{%
+\section{Independent Variables}\label{independent-variables}}
+
+This article examines the risk of households falling into energy poverty
+from two aspects: household head's characteristics and family structure.
+As noted in the discussion of Taiwan, household heads' gender may have
+significant implication of certain vulnerability. The attribute of the
+gender data is stored in column a6, with the value 1 refers to male and
+female as value 2, allowing for categorical analysis in the model.
+
+Household size data is stored in a7 as a continuous variable, ranging
+from 1 to 11. To capture the non-linear relationship, this article
+created a squared term of household size to capture both the initial
+decrease in risk as household size increase and the subsequent increase
+in risk beyond a certain population. Family structure and composition
+data is stored in column a18, which includes detailed coding of the
+gender and generation of the household head. To analyze the effect of
+family composition on the energy poverty, this study recodes the
+variable into a simplified set of composition categories: one person,
+married couple, single parent, nuclear family, ancestors and
+descendants, extended family, and others.
+
+\hypertarget{control-variables}{%
+\section{Control Variables}\label{control-variables}}
+
+In addition to household head's gender, household size, and family
+composition, this study controls several variables from household head
+characteristics and household structure factors that may potentially
+influence the risk of energy poverty. The primary factor that have been
+proven to affect households' electricity consumption is education
+attainment. Higher level of education often correlate with better job
+opportunities and higher income. Household heads with higher education
+may have more knowledge about energy-efficient technologies and
+practices, which significantly influence the energy usage.
+
+\hypertarget{model}{%
+\section{Model}\label{model}}
+
+The dependent variable in this study is the LIHC indicator, a binary
+measure indicating whether a household is in energy poverty (1) or not
+(0). The LIHC status is determined based on a household's energy
+expenditure relative to its income. Given the hierarchical nature of the
+data, where households are nested within counties, a Generalized Linear
+Mixed Model (GLMM) is adopted. This model allows for the inclusion of
+both fixed effects, household-level and county-level predictors, and
+random effects, to which account for the variability across counties,
+making it suitable for handling the dependencies introduced by the
+two-stage stratified sampling method. The model is described as follow:
+
+\hypertarget{robustness-checks}{%
+\section{Robustness Checks}\label{robustness-checks}}
+
+To ensure the validity and reliability of our findings derived from the
+model, we will conduct several robustness checks from both model
+assumption examination and variables calculation aspects. In regard of
+the data sampling method of SFIE dataset, the multilevel structure is
+inherent, therefore, treating countyname as fixed effects instead of
+random effects will not be performed. Fitting a single level model with
+countyname as fixed effect requires separate parameter estimates for
+each of the 20 counties, although it may help with understanding each
+county's energy poverty distribution individually, it would not capture
+the inherent hierarchical nature of the data and would lack
+generalizability. Since the focus of this analysis is on broader trends
+in energy poverty, focusing on household's condition, rather than on
+county-specific insights, a random effects structure is more
+appropriate. Instead, we will compare the generalized linear mixed model
+and hierarchical generalized linear model approaches to determine the
+best fit for our data. One of the key different assumption is the
+normality of random effects. GLMM assumes that the random effects are
+normally distributed, on the other hand, HGLM allows for more
+flexibility with distributional assumptions in the random effects, which
+could better capture county-level variations if the normality assumption
+proves inadequate.
+
+To check the robustness of the result, we will also try square root
+scale equivalized method for determining energy poverty. In this study,
+OECD modified equivalence scale is adopted due to its wide acceptance in
+the field. Square root scale, unlike OECD modified scale assigns
+different weights to adults and children, treats all household members
+equally in its adjustment factor. Both the OECD-M and square root scales
+reflect the concept of economies of scale, where larger households are
+more efficient in their energy use per capita due to shared facilities
+and energy consumption patterns. However, the square root scale
+simplifies this by treating all household members equally, which may
+suit analyses that emphasize size over composition. Comparing the
+different scale not only will help ensuing the validity of the model
+results, but also provide insights into whether composition or size
+matters more when it comes to energy poverty, which can be further
+considered during policy intervention.
+
+\hypertarget{sec:results}{%
+\chapter{Results}\label{sec:results}}
+
+\hypertarget{sec:conclusion}{%
+\chapter{Conclusion}\label{sec:conclusion}}
+
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Akram2022CausalityBA}{}}%
+Akram, V. (2022). Causality between access to electricity and education:
+Evidence from BRICS countries. \emph{Energy RESEARCH LETTERS}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Aramillo2007ComparativeLA}{}}%
+Aramillo, P. J., Ichael, W. M., Riffin, G., \& Atthews, H. S. C. M.
+(2007). Comparative life-cycle air emissions of coal, domestic natural
+gas, LNG, and SNG for electricity generation. \emph{Environmental
+Science \& Technology}, \emph{41}, 6290--6296.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Baum2022EnergyAA}{}}%
+Baum, F., McGreevy, M., MacDougall, C. M., \& Henley, M. (2022). Energy
+as a social and commercial determinant of health: A qualitative study of
+australian policy. \emph{International Journal of Health Policy and
+Management}, \emph{12}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Boardman1991FuelP}{}}%
+Boardman, B. (1991). \emph{Fuel poverty : From cold homes to affordable
+warmth}. \url{https://api.semanticscholar.org/CorpusID:142746739}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Boardman2012FuelPS}{}}%
+Boardman, B. (2012). Fuel poverty synthesis: Lessons learnt, actions
+needed. \emph{Energy Policy}, \emph{49}, 143--148.
+\url{https://doi.org/10.1016/j.enpol.2012.02.035}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Bouzarovski2018UnderstandingEP}{}}%
+Bouzarovski, S., \& Bouzarovski, S. (2018). Understanding energy
+poverty, vulnerability and justice. \emph{Energy Poverty: (Dis)
+Assembling Europe's Infrastructural Divide}, 9--39.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Bouzarovski2016UnpackingTS}{}}%
+Bouzarovski, S., Herrero, S. T., Petrova, S., \& Ürge-Vorsatz, D.
+(2016). Unpacking the spaces and politics of energy poverty:
+Path-dependencies, deprivation and fuel switching in post-communist
+hungary. \emph{Local Environment}, \emph{21}, 1151--1170.
+\url{https://api.semanticscholar.org/CorpusID:154156944}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Bouzarovski2015AGP}{}}%
+Bouzarovski, S., \& Petrova, S. (2015). A global perspective on domestic
+energy deprivation: Overcoming the energy poverty-fuel poverty binary.
+\emph{Energy Research and Social Science}, \emph{10}, 31--40.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Bouzarovski2017SpatializingEJ}{}}%
+Bouzarovski, S., \& Simcock, N. (2017). Spatializing energy justice.
+\emph{Energy Policy}, \emph{107}, 640--648.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Brandon2024ASR}{}}%
+Brandon, J. L., \& Bagnall, A. M. (2024). A systematic review to explore
+factors affecting participation in health research trials amongst
+underrepresented socio-economically disadvantaged populations in the UK
+and ireland. \emph{medRxiv}.
+\url{https://api.semanticscholar.org/CorpusID:273178429}
+
+\leavevmode\vadjust pre{\hypertarget{ref-EnergyStatisticsHandbook2023}{}}%
+Bureau of Energy, M. of E. A. (2024). \emph{Energy statistics handbook
+2023}. Bureau of Energy, Ministry of Economic Affairs.
+\url{https://www.moeaea.gov.tw/ECW_WEBPAGE/FlipBook/2023EnergyStaHandBook/index.html\#p=189}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chan2023EnergyPA}{}}%
+Chan, C., \& Delina, L. L. (2023). Energy poverty and beyond: The state,
+contexts, and trajectories of energy poverty studies in asia.
+\emph{Energy Research \&Amp; Social Science}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chen2015DeterminantsOP}{}}%
+Chen, K.-M., \& Wang, T. (2015). Determinants of poverty status in
+taiwan: A multilevel approach. \emph{Social Indicators Research},
+\emph{123}, 371--389.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chen2023PerspectivesOT}{}}%
+Chen, P.-H., Lee, C., Wu, J., \& Chen, W.-S. (2023). Perspectives on
+taiwan's pathway to net-zero emissions. \emph{Sustainability}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Cheng2023TheCF}{}}%
+Cheng, Y. (2023). The changing face of intimate premarital relationships
+in taiwan. \emph{Journal of Marriage and Family}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chien2020PacingFR}{}}%
+Chien, K. (2020). Pacing for renewable energy development: The
+developmental state in taiwan's offshore wind power. \emph{Annals of the
+American Association of Geographers}, \emph{110}, 793--807.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chien2022AnIF}{}}%
+Chien, K. (2022). An indigestible feast? A multi-scalar approach to the
+energy transition in taiwan. \emph{Energy Research \& Social Science}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Chou2023CarbonTI}{}}%
+Chou, K.-T., \& Liou, H. (2023). Carbon tax in taiwan: Path dependence
+and the high-carbon regime. \emph{Energies}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Das2022QuantifyingTP}{}}%
+Das, R. R., Martiskainen, M., \& Li, G. (2022). Quantifying the
+prevalence of energy poverty across canada: Estimating domestic energy
+burden using an expenditures approach. \emph{The Canadian Geographer /
+Le Géographe Canadien}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-DGBAS2022}{}}%
+DGBAS. (2022). \emph{The survey of family income and expenditure, 2021
+(AA170046) {[}data file{]}} {[}Data set{]}.
+\url{https://doi.org/10.6141/TW-SRDA-AA170046-1}
+
+\leavevmode\vadjust pre{\hypertarget{ref-DGBAS2024}{}}%
+DGBAS. (2024). \emph{The survey of family income and expenditure, 2023
+(AA170048) {[}data file{]}} {[}Data set{]}.
+\url{https://doi.org/10.6141/TW-SRDA-AA170048-1}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Gonzuxe1lezEguino2015EnergyPA}{}}%
+González-Eguino, M. (2015). Energy poverty: An overview. \emph{Renewable
+\& Sustainable Energy Reviews}, \emph{47}, 377--385.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Guan2023BurdenOT}{}}%
+Guan, Y., Yan, J., Shan, Y., Zhou, Y., Hang, Y., Li, R., Liu, Y., Liu,
+B., Nie, Q., Bruckner, B., Feng, K., \& Hubacek, K. (2023). Burden of
+the global energy price crisis on households. \emph{Nature Energy},
+\emph{8}, 304--316.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Guevara2022TheEO}{}}%
+Guevara, Z., Espinosa, M., \& López-Corona, O. (2022). \emph{The
+evolution of energy poverty theory: A scientometrics approach}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Hafner2020TheGO}{}}%
+Hafner, M., \& Tagliapietra, S. (2020). \emph{The geopolitics of the
+global energy transition}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Hagenaars1994PovertySI}{}}%
+Hagenaars, A. J. M., Vos, K., \& Zaidi, M. (1994). \emph{Poverty
+statistics in the late 1980s: Research based on micro-data}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Heindl2013MeasuringFP}{}}%
+Heindl, P. (2013). \emph{Measuring fuel poverty: General considerations
+and application to german household data}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Herrejuxf3n2023LivingWE}{}}%
+Herrejón, P. V., Lennon, B., \& Dunphy, N. (2023). \emph{Living with
+energy poverty}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Herrero2017EnergyPI}{}}%
+Herrero, S. (2017). Energy poverty indicators: A critical review of
+methods. \emph{Indoor and Built Environment}, \emph{26}, 1018--1031.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Hills2012GettingTM}{}}%
+Hills, J. (2012). \emph{Getting the measure of fuel poverty: Final
+report of the fuel poverty review}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Hostettler2015EnergyCI}{}}%
+Hostettler, S. (2015). \emph{Energy challenges in the global south}.
+3--9.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Hox2017MultilevelA}{}}%
+Hox, J., Moerbeek, M., \& Schoot, R. (2017). \emph{Multilevel analysis :
+Techniques and applications, third edition}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Huang2015TheDO}{}}%
+Huang, W.-H. (2015). The determinants of household electricity
+consumption in taiwan: Evidence from quantile regression. \emph{Energy},
+\emph{87}, 120--133.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Isherwood1979}{}}%
+Isherwood, R. M., \& Hancock, B. C. (1979). \emph{Household expenditure
+on fuel: Distributional aspects}. Economic Adviser's Office, DHSS.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Jessel2019EnergyPA}{}}%
+Jessel, S., Sawyer, S., \& Hernández, D. (2019). Energy, poverty, and
+health in climate change: A comprehensive review of an emerging
+literature. \emph{Frontiers in Public Health}, \emph{7}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Kemp-Benedict2014ShiftingTA}{}}%
+Kemp-Benedict, E. (2014). \emph{Shifting to a green economy: Lock-in,
+path dependence, and policy options}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Kumar2019EnergyPI}{}}%
+Kumar, P., Rao, S., \& Yadama, G. (2019). Energy poverty in india.
+\emph{Encyclopedia of Social Work}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Li2014EnergyPO}{}}%
+Li, K., Lloyd, B., Liang, X.-J., \& Wei, Y.-M. (2014). Energy poor or
+fuel poor: What are the differences? \emph{Energy Policy}, \emph{68},
+476--481.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Lin2020NationalET}{}}%
+Lin, M., Liou, H., \& Chou, K.-T. (2020). National energy transition
+framework toward SDG7 with legal reforms and policy bundles: The case of
+taiwan and its comparison with japan. \emph{Energies}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Liu2023SpilloverEA}{}}%
+Liu, D., Liu, X., Guo, K., Ji, Q., \& Chang, Y. (2023). Spillover
+effects among electricity prices, traditional energy prices and carbon
+market under climate risk. \emph{International Journal of Environmental
+Research and Public Health}, \emph{20}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Longe2021AnAO}{}}%
+Longe, O. M. (2021). An assessment of the energy poverty and gender
+nexus towards clean energy adoption in rural south africa.
+\emph{Energies}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Mastrucci2019ImprovingTS}{}}%
+Mastrucci, A., Byers, E., Pachauri, S., \& Rao, N. D. (2019). Improving
+the SDG energy poverty targets: Residential cooling needs in the global
+south. \emph{Energy and Buildings}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Middlemiss2022WhoIV}{}}%
+Middlemiss, L. (2022). Who is vulnerable to energy poverty in the global
+north, and what is their experience? \emph{Wiley Interdisciplinary
+Reviews: Energy and Environment}, \emph{11}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Monyei2018ExaminingES}{}}%
+Monyei, C., Jenkins, K. E. H., Serestina, V., \& Adewumi, A. (2018).
+Examining energy sufficiency and energy mobility in the global south
+through the energy justice framework. \emph{Energy Policy}, \emph{119},
+68--76.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Moore2012DefinitionsOF}{}}%
+Moore, R. (2012). Definitions of fuel poverty: Implications for policy.
+\emph{Energy Policy}, \emph{49}, 19--26.
+
+\leavevmode\vadjust pre{\hypertarget{ref-ndc_2024}{}}%
+National Development Council. (2024). \emph{Taiwan's pathway to net-zero
+emissions in 2050}.
+\url{https://www.ndc.gov.tw/en/Content_List.aspx?n=B154724D802DC488}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Niez2010ComparativeSO}{}}%
+Niez, A. (2010). \emph{Comparative study on rural electrification
+policies in emerging economies: Keys to successful policies}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Njiru2018EnergyPA}{}}%
+Njiru, C., \& Letema, S. (2018). Energy poverty and its implication on
+standard of living in kirinyaga, kenya. \emph{Journal of Energy}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Phimister2015TheDO}{}}%
+Phimister, E., Vera-Toscano, E., \& Roberts, D. (2015). The dynamics of
+energy poverty: Evidence from spain. \emph{Economics of Energy and
+Environmental Policy}, \emph{4}, 153--166.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Pien2023TheDS}{}}%
+Pien, C., Chao, C., \& Chou, K. (2023). The developmental state's legacy
+and corporate carbon emission performance: Evidence from taiwanese firms
+between 2014 and 2018. \emph{Climate and Development}.
+\url{https://api.semanticscholar.org/CorpusID:265598091}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Riva2023EnergyPA}{}}%
+Riva, M., Makasi, S. K., O'Sullivan, K., Das, R. R., Dufresne, P.,
+Kaiser, D., \& Breau, S. (2023). Energy poverty: An overlooked
+determinant of health and climate resilience in canada. \emph{Canadian
+Journal of Public Health = Revue Canadienne de Santé Publique},
+\emph{114}, 422--431.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Robinson2019EnergyPA}{}}%
+Robinson, C. (2019). Energy poverty and gender in england: A spatial
+perspective. \emph{Geoforum}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Samarakoon2019AJA}{}}%
+Samarakoon, S. (2019). A justice and wellbeing centered framework for
+analysing energy poverty in the global south. \emph{Ecological
+Economics}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Suxe1nchez-Guevara2019AssessingPV}{}}%
+Sánchez-Guevara, C., Peiró, M. N., Taylor, J., Mavrogianni, A., \&
+González, J. N. (2019). Assessing population vulnerability towards
+summer energy poverty: Case studies of madrid and london. \emph{Energy
+and Buildings}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Schuessler2014EnergyPI}{}}%
+Schuessler, R. (2014). Energy poverty indicators: Conceptual issues -
+part i: The ten-percent-rule and double median/mean indicators.
+\emph{ERN: Environmental Studies (Topic)}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Sen1976PovertyAO}{}}%
+Sen, A. (1976). Poverty: An ordinal approach to measurement.
+\emph{Econometrica}, \emph{44}, 219--231.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Sharma2023PovertyAG}{}}%
+Sharma, M. (2023). Poverty and gender: Determinants of female- and
+male-headed households with children in poverty in the USA, 2019.
+\emph{Sustainability}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Su2019ResidentialED}{}}%
+Su, Y.-W. (2019). Residential electricity demand in taiwan: Consumption
+behavior and rebound effect. \emph{Energy Policy}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Su2020ResidentialED}{}}%
+Su, Y.-W. (2020). Residential electricity demand in taiwan: The effects
+of urbanization and energy poverty. \emph{Journal of the Asia Pacific
+Economy}, \emph{25}, 733--756.
+
+\leavevmode\vadjust pre{\hypertarget{ref-TRI2023}{}}%
+Taiwan Research Institute. (2023).
+\emph{112年下半年公用售電業電價費率檢討方案編製說明}.
+\url{https://ele.tri.org.tw/1120919-1/1120919-1-2/mobile/index.html}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Thomson2017RethinkingTM}{}}%
+Thomson, H., Bouzarovski, S., \& Snell, C. (2017). Rethinking the
+measurement of energy poverty in europe: A critical analysis of
+indicators and data. \emph{Indoor + Built Environment}, \emph{26},
+879--901.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Tuttle2017TheEO}{}}%
+Tuttle, C. J., \& Beatty, T. K. M. (2017). The effects of energy price
+shocks on household food security in low-income households.
+\emph{Economic Research Report}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Zapata-Webborn2024WinterDF}{}}%
+Zapata-Webborn, E., Hanmer, C., Oreszczyn, T., Huebner, G., McKenna, E.,
+Few, J., Elam, S., Pullinger, M., Cheshire, C., Friel, D., Masters, H.,
+\& Whittaker, A. (2024). Winter demand falls as fuel bills rise:
+Understanding the energy impacts of the cost-of-living crisis on british
+households. \emph{Energy and Buildings}.
+
+\end{CSLReferences}
+
+\appendix{A}{R code}
+
+\appendix{B}{Data Visualization}
+
+\end{document}
