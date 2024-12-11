@@ -1,5 +1,7 @@
 # Introduction {#sec:introduction}
 
+testing Dec 11 2024 20:47
+
 Energy poverty, described as the lack of access to modern energy services or the inability to afford adequate levels of energy consumption, is a critical issue affecting both personal development and societal well-being [@GonzálezEguino2015EnergyPA]. Addressing energy poverty aligns with the United Nations' Sustainable Development Goal 7, which aims to ensure access to affordable, reliable, sustainable, and modern energy for all by 2030 [@Lin2020NationalET]. Affordable and accessible energy services have significant implications across various sectors, including health, education, and economic development [@Baum2022EnergyAA; @Akram2022CausalityBA].
 
 In Taiwan, energy poverty has garnered increasing attention, calling for tailored approaches to tackle this multifaceted issue. The Taiwanese government is implementing an ambitious energy transition plan to mitigate the effects of climate change. This plan focuses on expanding renewable energy sources, increasing natural gas as a transitional fuel, reducing coal consumption, and phasing out nuclear power [@Chen2023PerspectivesOT; @ndc_2024]. While natural gas offers several environmental advantages over coal—such as lower greenhouse gas emissions and fewer air pollutants [@Aramillo2007ComparativeLA]—Taiwan's increasing reliance on natural gas introduces new challenges.
